@@ -1,0 +1,70 @@
+# nogvia Website Design System
+
+Design reference for the nogvia marketing website. All customer-facing copy is **English**. Code, comments, and file names stay **English**.
+
+**Version:** 1.0  
+**Last updated:** 2026-08-06  
+**Products:** Guest Guide Builder · nogvia Finance · nogvia Host Kit (bundle)
+
+---
+
+## 1. Brand essence
+
+| Item | Value |
+|------|--------|
+| **Brand name** | nogvia (lowercase in logo and UI) |
+| **Tagline (primary)** | Offline host tools for vacation rentals |
+| **Tagline (alternate)** | Run your rental offline — one kit, zero subscriptions |
+| **Audience** | Airbnb, Vrbo, and short-term rental hosts |
+| **Tone** | Professional, calm, confident — not hype, not corporate jargon |
+| **Promise** | Real desktop software, offline-first, no monthly SaaS lock-in |
+
+---
+
+## 2. Logo
+
+| Rule | Detail |
+|------|--------|
+| **Wordmark** | `nogvia` — lowercase |
+| **Logo file** | Use existing nogvia logo asset from Hub / Etsy shop |
+| **Clear space** | Minimum height of the “n” on all sides |
+| **On dark backgrounds** | Full-color or white wordmark |
+| **On light backgrounds** | Navy `#0f2744` or full-color |
+| **Do not** | Stretch, rotate, add effects, change letter case to NOGVIA |
+
+---
+
+## 3. Color palette
+
+### 3.1 Primary (dark UI — default site theme)
+
+Matches nogvia Hub. Use dark theme for homepage, product pages, and hero sections.
+
+| Token | Hex | Usage |
+|-------|-----|--------|
+| `--bg` | `#060910` | Page background |
+| `--surface` | `#0b111c` | Cards, sections |
+| `--surface-2` | `#101827` | Elevated panels, nav |
+| `--border` | `rgba(148, 163, 184, 0.12)` | Dividers, card borders |
+| `--text` | `#f3f6fb` | Primary body text |
+| `--text-muted` | `#8b9bb4` | Secondary text, captions |
+| `--accent` | `#f97316` | Primary CTA, links, brand orange |
+| `--accent-hover` | `#fb923c` | Button hover |
+| `--accent-soft` | `rgba(249, 115, 22, 0.14)` | CTA backgrounds, badges |
+
+### 3.2 Product accents
+
+| Product | Color | Hex | Soft background |
+|---------|--------|-----|-----------------|
+| **Guest Guide** | Sky blue | `#38bdf8` | `rgba(56, 189, 248, 0.16)` |
+| **Finance** | Emerald | `#34d399` | `rgba(52, 211, 153, 0.16)` |
+| **Host Kit / Hub** | Orange | `#f97316` | `rgba(249, 115, 22, 0.14)` |
+
+### 3.3 Light sections (optional)
+
+For long-form content: docs, FAQ, legal pages.
+
+| Token | Hex | Usage |
+|-------|-----|--------|
+| `--navy` | `#0f2744` | Headings |
+| `--orange-doc` | `#e85d04` | Kicker

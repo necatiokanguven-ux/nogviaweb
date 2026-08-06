@@ -1,0 +1,6 @@
+{
+  "name": "nogvia - Offline Host Kit",
+  "description": "Offline host tools for vacation rentals - Guest Guide Builder & Finance Tracker with zero monthly fees.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
