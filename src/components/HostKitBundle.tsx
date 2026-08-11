@@ -1,5 +1,5 @@
 import React from 'react';
-import { ETSY_BUY_URL, BRAND_INFO } from '../constants/data';
+import { PRODUCTS, PURCHASE_LINK_PROPS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
 import {
@@ -85,7 +85,7 @@ export const HostKitBundle: React.FC = () => {
           {/* Right Column: Pricing Badge Card */}
           <div className="lg:col-span-5 bg-[#0A0A0B] border border-white/10 rounded-sm p-8 text-center relative overflow-hidden shadow-2xl glow-gold">
             <img
-              src={MEDIA.hostKitHero}
+              src={MEDIA.productHostKit}
               alt="nogvia Host Kit bundle"
               className="w-full rounded-sm border border-white/10 mb-6 object-cover"
             />
@@ -96,10 +96,10 @@ export const HostKitBundle: React.FC = () => {
             </div>
 
             <div className="text-5xl sm:text-6xl font-serif-luxury font-light text-white tracking-tight">
-              {BRAND_INFO.price}
+              {PRODUCTS.hostKit.price}
             </div>
             <div className="text-sm text-white/40 mt-1 line-through font-semibold">
-              Regular Price {t.brand.originalPrice}
+              Regular Price {PRODUCTS.hostKit.compareAt}
             </div>
             <p className="text-xs text-[#D4AF37] font-bold mt-2 uppercase tracking-wider">
               {t.brand.discountText}
@@ -116,9 +116,8 @@ export const HostKitBundle: React.FC = () => {
             </div>
 
             <a
-              href={ETSY_BUY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={PRODUCTS.hostKit.checkoutUrl}
+              {...PURCHASE_LINK_PROPS}
               className="mt-8 w-full flex items-center justify-center gap-2 py-4 px-6 font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-xl transition-all"
             >
               <ShoppingBag className="w-5 h-5" />

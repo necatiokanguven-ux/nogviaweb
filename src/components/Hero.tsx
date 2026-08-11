@@ -1,14 +1,14 @@
 import React from 'react';
-import { ETSY_BUY_URL } from '../constants/data';
+import { PRODUCTS, PURCHASE_LINK_PROPS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
 import {
-  ShoppingBag,
   Sparkles,
   HardDrive,
   Zap,
   ArrowRight,
   ShieldAlert,
+  ShoppingBag,
 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
@@ -20,7 +20,6 @@ export const Hero: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          {/* Left Column: Hero Copy */}
           <div className="text-left">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs uppercase tracking-[0.2em] font-semibold mb-6">
               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
@@ -40,9 +39,8 @@ export const Hero: React.FC = () => {
 
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <a
-                href={ETSY_BUY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={PRODUCTS.hostKit.checkoutUrl}
+                {...PURCHASE_LINK_PROPS}
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-2xl transition-all transform hover:-translate-y-1 active:translate-y-0 shadow-[#D4AF37]/20 focus:outline-none"
               >
                 <ShoppingBag className="w-4 h-4" />
@@ -50,7 +48,7 @@ export const Hero: React.FC = () => {
               </a>
 
               <a
-                href="#guest-guide"
+                href="#pricing"
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-semibold uppercase tracking-widest text-white/80 bg-[#0F0F10] hover:bg-white/10 border border-white/10 rounded-sm transition-colors"
               >
                 <span>{t.hero.ctaSecondary}</span>
@@ -74,10 +72,9 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Hero Image */}
           <div className="flex justify-center lg:justify-end">
             <img
-              src={MEDIA.hostKitHero}
+              src={MEDIA.heroHostKit}
               alt="nogvia Host Kit"
               className="w-full max-w-xl rounded-sm border border-white/10 shadow-2xl glow-gold object-cover"
             />

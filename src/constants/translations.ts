@@ -2,8 +2,6 @@ import { ComparisonRow, FaqItem, RevenueChannel } from '../types';
 
 export type Language = 'tr' | 'en';
 
-export const ETSY_BUY_URL = 'https://www.etsy.com/listing/4550175542/offline-host-kit-guest-guide-finance?ref=listings_manager_grid';
-
 export interface Translations {
   brand: {
     name: string;
@@ -22,6 +20,26 @@ export interface Translations {
     contact: string;
     payOnceBadge: string;
     buyKit: string;
+    pricing: string;
+  };
+  pricing: {
+    kicker: string;
+    title: string;
+    titleAccent: string;
+    subtitle: string;
+    oneTime: string;
+    bestValue: string;
+    buyButton: string;
+    guarantee: string;
+    guestGuideTitle: string;
+    guestGuideSub: string;
+    guestGuideFeatures: string[];
+    financeTitle: string;
+    financeSub: string;
+    financeFeatures: string[];
+    hostKitTitle: string;
+    hostKitSub: string;
+    hostKitFeatures: string[];
   };
   contact: {
     kicker: string;
@@ -254,8 +272,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       name: 'nogvia',
       tagline: 'Kiralık evler için çevrimdışı ev sahibi araçları',
       alternateTagline: 'Kiralık mülkünüzü çevrimdışı yönetin — tek kit, sıfır abonelik',
-      price: '$15.99',
-      originalPrice: '$79',
+      price: '$49',
+      originalPrice: '$58',
       discountText: '%80 İndirim — Tek Sefer Öde, Ömür Boyu Sahip Ol',
     },
     nav: {
@@ -265,8 +283,43 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       comparison: 'Karşılaştırma',
       faq: 'SSS',
       contact: 'İletişim',
-      payOnceBadge: 'Tek Ödeme $15.99',
+      payOnceBadge: 'Tek Ödeme $49',
       buyKit: 'Kiti Satın Al',
+      pricing: 'Fiyatlar',
+    },
+    pricing: {
+      kicker: 'Tek Sefer Öde • Abonelik Yok',
+      title: 'İhtiyacınıza Uygun',
+      titleAccent: 'Yazılımı Seçin',
+      subtitle: 'Misafir rehberi, finans takibi veya ikisini birden içeren Host Kit — hepsi tek seferlik ödeme, ömür boyu kullanım.',
+      oneTime: 'Tek seferlik',
+      bestValue: 'En İyi Değer',
+      buyButton: 'Satın Al',
+      guarantee: 'Anında dijital indirme • Güvenli ödeme',
+      guestGuideTitle: 'Guest Guide Builder',
+      guestGuideSub: 'Markalı dijital misafir rehberleri oluşturun. QR ile telefondan düzenleyin.',
+      guestGuideFeatures: [
+        'Markalı dijital misafir rehberi',
+        'QR kod ile telefondan düzenleme',
+        'Misafirler için dışa aktarma',
+        'Mac ve Windows uyumlu',
+      ],
+      financeTitle: 'nogvia Finance',
+      financeSub: 'Gelir, gider ve doluluk takibi. Excel uyumlu raporlar.',
+      financeFeatures: [
+        'Gelir ve gider takibi',
+        'Excel (.xlsx) dışa aktarma',
+        'Çoklu mülk desteği',
+        '%100 çevrimdışı ve gizli',
+      ],
+      hostKitTitle: 'nogvia Host Kit',
+      hostKitSub: 'Guest Guide + Finance + Hub launcher — tam paket.',
+      hostKitFeatures: [
+        'Guest Guide Builder (tam sürüm)',
+        'nogvia Finance (tam sürüm)',
+        'nogvia Hub çalışma alanı',
+        'Ayrı ayrı almaya göre tasarruf',
+      ],
     },
     contact: {
       kicker: 'İletişim',
@@ -301,8 +354,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       title: 'Kiralık Mülkünüzü',
       titleAccent: 'Çevrimdışı Yönetin.',
       subtitle: 'Airbnb ve Vrbo ev sahipleri için eksiksiz masaüstü çalışma alanı. Canva şablonlarına veya buluta bağımlı kalmadan markalı dijital QR misafir rehberleri oluşturun ve finanslarınızı doğrudan bilgisayarınızda takip edin.',
-      ctaPrimary: 'Etsy\'den Kiti Al — $15.99',
-      ctaSecondary: 'Araçları İncele',
+      ctaPrimary: 'Host Kit\'i Satın Al — $49',
+      ctaSecondary: 'Fiyatları Gör',
       badge1: 'Tek Tıkla Yerel Kurulum',
       badge2: '%100 Çevrimdışı ve Gizli',
       badge3: 'Canva Şablonu Değil',
@@ -323,7 +376,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       cards: [
         {
           title: 'Aylık SaaS Ücreti Yok',
-          desc: 'Abonelikli araçlar yılda $240 - $600 maliyet çıkarır. nogvia Host Kit ile Etsy\'den yalnızca bir kez $15.99 öder ve yazılıma bilgisayarınızda ömür boyu sahip olursunuz.',
+          desc: 'Abonelikli araçlar yılda $240 - $600 maliyet çıkarır. nogvia Host Kit ile nogvia.com\'den yalnızca bir kez $49 öder ve yazılıma bilgisayarınızda ömür boyu sahip olursunuz.',
         },
         {
           title: '%100 Çevrimdışı ve Gizli',
@@ -337,7 +390,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       tableTitle: 'Karşılaştırma: nogvia vs Standart SaaS Araçları',
       colFeature: 'Özellik',
       colSaas: 'Aylık Abonelikli SaaS / Canva',
-      colNogvia: 'nogvia Host Kit ($15.99)',
+      colNogvia: 'nogvia Host Kit ($49)',
     },
     guestGuide: {
       kicker: 'Ürün 1: Misafir Rehberi Oluşturucu',
@@ -367,7 +420,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       feat2Desc: 'Misafirler WiFi şifresini tek tıkla kopyalar, yanlış yazma ve gece yarısı mesajları sona erer.',
       feat3Title: 'Doğrudan Arama & WhatsApp Butonları',
       feat3Desc: 'Acil durumlarda misafirler numara aramadan doğrudan tek tıkla size ulaşabilir.',
-      buyButton: 'Misafir Rehberini Host Kit İçinde Al ($15.99)',
+      buyButton: 'Guest Guide\'ı Satın Al — $29',
     },
     finance: {
       kicker: 'Ürün 2: nogvia Finans',
@@ -399,7 +452,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       feat3Desc: 'Muhasebeciniz veya vergi danışmanınız için biçimlendirilmiş .xlsx dosyalarını tek tıkla oluşturun.',
       excelExportTitle: 'Excel ve Google Sheets\'e Aktarın',
       excelExportDesc: 'Finans tablonuzu tek tıkla .xlsx olarak dışa aktarın, Google Sheets\'e yükleyin ve tüm gelir-gider hareketlerinize her yerden erişin.',
-      buyButton: 'nogvia Finans\'ı Host Kit İçinde Al ($15.99)',
+      buyButton: 'nogvia Finance\'ı Satın Al — $29',
     },
     videos: {
       kicker: 'Ürün Tanıtımları ve Videolar',
@@ -432,8 +485,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       v2FeatTitle: 'Dağınık Notlara Son Verin',
       v2FeatDesc: 'Kağıt ev kurallarını ve karmaşık hesaplamaları ömür boyu sürecek dijital çevrimdışı bir çözümle değiştirin.',
       ctaTitle: 'Kiralık mülkünüzü düzene sokmaya hazır mısınız?',
-      ctaSub: 'Etsy üzerinden anında dijital indirme. Tek ödeme $15.99.',
-      buyButton: 'Host Kit\'i Etsy\'den Al',
+      ctaSub: 'nogvia.com üzerinden anında dijital indirme. Tek ödeme $49.',
+      buyButton: 'Host Kit\'i Satın Al — $49',
     },
     bundle: {
       kicker: 'Hepsi Bir Arada Ev Sahibi Kiti',
@@ -446,14 +499,14 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       f2Desc: 'Airbnb, Vrbo, Booking ve Direkt rezervasyon gelir-giderlerini tek tıkla Excel\'e aktarın.',
       processTitle: '3 Adımda Kurulum Süreci:',
       step1Title: 'Adım 1',
-      step1Desc: 'Satın alım sonrası ZIP dosyasını Etsy\'den indirin',
+      step1Desc: 'Satın alım sonrası ZIP dosyasını nogvia.com\'den indirin',
       step2Title: 'Adım 2',
       step2Desc: '`start-hub` dosyasına çift tıklayın',
       step3Title: 'Adım 3',
       step3Desc: 'Çevrimdışı ev sahibi uygulamanızın keyfini çıkarın',
       licenseTag: 'Ömür Boyu Lisans',
-      buyButton: 'Etsy\'den Anında Erişim Sağla ($15.99)',
-      guarantee: 'Anında Dijital İndirme • Etsy Güvenceli Satış',
+      buyButton: 'Hemen Satın Al — $49',
+      guarantee: 'Anında Dijital İndirme • nogvia.com Güvenceli Satış',
       checklist: [
         'Misafir Rehberi Oluşturucu (Tam Sürüm)',
         'nogvia Finans Takipçisi (Tam Sürüm)',
@@ -475,20 +528,20 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       guideCat: 'Misafir Rehberi',
       finCat: 'Finans',
       ctaTitle: 'nogvia Host Kit\'i satın almaya hazır mısınız?',
-      ctaSub: 'Etsy üzerinden anında indirme. $15.99 tek seferlik ödeme, abonelik yok.',
-      buyButton: 'Etsy\'den Satın Al — $15.99',
+      ctaSub: 'nogvia.com üzerinden anında indirme. $49 tek seferlik ödeme, abonelik yok.',
+      buyButton: 'Satın Al — $49',
     },
     cta: {
-      kicker: 'Tek Ödeme $15.99 • Ömür Boyu Sahip Ol',
+      kicker: 'Tek Ödeme $49 • Ömür Boyu Sahip Ol',
       title: 'Kiralık Mülkünüzü %100',
       titleAccent: 'Çevrimdışı Yönetmeye Hazır Mısınız?',
-      subtitle: 'Aylık bulut aboneliklerini bırakıp gerçek çevrimdışı masaüstü yazılımına geçen ev sahiplerine katılın. nogvia Host Kit\'e bugün Etsy\'den sahip olun.',
+      subtitle: 'Aylık bulut aboneliklerini bırakıp gerçek çevrimdışı masaüstü yazılımına geçen ev sahiplerine katılın. nogvia Host Kit\'e bugün nogvia.com\'den sahip olun.',
       cardTag: 'Eksiksiz Paket Dahil',
       cardTitle: 'nogvia Host Kit',
       cardSub: 'Misafir Rehberi Oluşturucu + nogvia Finans + Yerel Çalışma Alanı',
       oneTimeText: 'Tek seferlik ödeme',
-      buyButton: 'Etsy\'den Şimdi Satın Al — $15.99',
-      guarantee: 'Anında Dijital İndirme • Etsy Onaylı Güvenli İşlem',
+      buyButton: 'nogvia.com\'den Şimdi Satın Al — $49',
+      guarantee: 'Anında Dijital İndirme • nogvia.com Onaylı Güvenli İşlem',
       checklist: [
         'Dijital Misafir Rehberi Oluşturucu',
         'nogvia Finans & Excel Aktarıcısı',
@@ -501,7 +554,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         feature: 'Fiyatlandırma Modeli',
         saas: '$20 - $50 / ay (Yılda $360+)',
         saasNegative: true,
-        nogvia: 'Tek Ödeme $15.99 (Ömür Boyu)',
+        nogvia: 'Tek Ödeme $49 (Ömür Boyu)',
         nogviaPositive: true,
       },
       {
@@ -544,7 +597,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       {
         category: 'pricing',
         question: 'Bu gerçekten aylık ücreti olmayan tek seferlik bir ödeme mi?',
-        answer: 'Evet! Kesinlikle hiçbir aylık abonelik veya gizli ücret yoktur. nogvia Host Kit\'i Etsy\'den bir kez satın alır ve yazılıma bilgisayarınızda ömür boyu sahip olursunuz.',
+        answer: 'Evet! Kesinlikle hiçbir aylık abonelik veya gizli ücret yoktur. nogvia Host Kit\'i nogvia.com\'den bir kez satın alır ve yazılıma bilgisayarınızda ömür boyu sahip olursunuz.',
       },
       {
         category: 'general',
@@ -609,9 +662,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       name: 'nogvia',
       tagline: 'Offline host tools for vacation rentals',
       alternateTagline: 'Run your rental offline — one kit, zero subscriptions',
-      price: '$15.99',
-      originalPrice: '$79',
-      discountText: 'Save 80% — Pay Once, Lifetime Ownership',
+      price: '$49',
+      originalPrice: '$58',
+      discountText: 'Save vs buying separately — pay once, own forever',
     },
     nav: {
       guestGuide: 'Guest Guide',
@@ -620,8 +673,43 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       comparison: 'Comparison',
       faq: 'FAQ',
       contact: 'Contact',
-      payOnceBadge: 'Pay Once $15.99',
+      payOnceBadge: 'Pay Once $49',
       buyKit: 'Get Host Kit',
+      pricing: 'Pricing',
+    },
+    pricing: {
+      kicker: 'Pay Once • No Subscription',
+      title: 'Choose the',
+      titleAccent: 'Right Tool',
+      subtitle: 'Guest guide builder, finance tracker, or the complete Host Kit bundle — all one-time purchases with lifetime use.',
+      oneTime: 'One-time',
+      bestValue: 'Best Value',
+      buyButton: 'Buy Now',
+      guarantee: 'Instant digital download • Secure checkout',
+      guestGuideTitle: 'Guest Guide Builder',
+      guestGuideSub: 'Create branded digital guest guides. Edit on your phone via QR.',
+      guestGuideFeatures: [
+        'Branded digital guest guides',
+        'QR phone editing',
+        'Export for guests',
+        'Mac & Windows compatible',
+      ],
+      financeTitle: 'nogvia Finance',
+      financeSub: 'Track income, expenses, and occupancy. Excel-compatible reports.',
+      financeFeatures: [
+        'Income & expense tracking',
+        'Excel (.xlsx) export',
+        'Multiple properties',
+        '100% offline & private',
+      ],
+      hostKitTitle: 'nogvia Host Kit',
+      hostKitSub: 'Guest Guide + Finance + Hub launcher — the complete bundle.',
+      hostKitFeatures: [
+        'Guest Guide Builder (full version)',
+        'nogvia Finance (full version)',
+        'nogvia Hub workspace',
+        'Save vs buying separately',
+      ],
     },
     contact: {
       kicker: 'Contact',
@@ -656,8 +744,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       title: 'Run Your Rental',
       titleAccent: '100% Offline.',
       subtitle: 'The complete desktop workspace for Airbnb and Vrbo hosts. Build branded digital QR guest guides and track rental finances directly on your computer — no Canva templates, no cloud lock-in.',
-      ctaPrimary: 'Get Host Kit on Etsy — $15.99',
-      ctaSecondary: 'Explore Tools',
+      ctaPrimary: 'Buy Host Kit — $49',
+      ctaSecondary: 'View Pricing',
       badge1: '1-Click Local Setup',
       badge2: '100% Offline & Private',
       badge3: 'Not a Canva Template',
@@ -678,7 +766,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       cards: [
         {
           title: 'No Monthly SaaS Fees',
-          desc: 'Subscription tools cost $240 to $600 per year. With nogvia Host Kit, you pay $15.99 once on Etsy and own the software on your computer for life.',
+          desc: 'Subscription tools cost $240 to $600 per year. With nogvia Host Kit, you pay $49 once on nogvia.com and own the software on your computer for life.',
         },
         {
           title: '100% Offline & Private',
@@ -692,7 +780,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       tableTitle: 'Feature Comparison: nogvia vs Standard SaaS Tools',
       colFeature: 'Feature',
       colSaas: 'Monthly SaaS / Canva Templates',
-      colNogvia: 'nogvia Host Kit ($15.99)',
+      colNogvia: 'nogvia Host Kit ($49)',
     },
     guestGuide: {
       kicker: 'Product 1: Guest Guide Builder',
@@ -722,7 +810,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       feat2Desc: 'Guests can copy WiFi passwords with a single tap, eliminating typos and late-night host questions.',
       feat3Title: 'Direct Phone & WhatsApp Triggers',
       feat3Desc: 'One-click buttons allow guests to call or message you directly during emergencies without digging for numbers.',
-      buyButton: 'Get Guest Guide Builder in Host Kit ($15.99)',
+      buyButton: 'Buy Guest Guide — $29',
     },
     finance: {
       kicker: 'Product 2: nogvia Finance',
@@ -754,7 +842,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       feat3Desc: 'Generate clean `.xlsx` spreadsheets formatted for your accountant or tax advisor in one click.',
       excelExportTitle: 'Export to Excel & Google Sheets',
       excelExportDesc: 'Export your finance table as an .xlsx file, import it into Google Sheets, and review every rental transaction from anywhere.',
-      buyButton: 'Get nogvia Finance in Host Kit ($15.99)',
+      buyButton: 'Buy nogvia Finance — $29',
     },
     videos: {
       kicker: 'Product Demonstrations & Videos',
@@ -787,8 +875,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       v2FeatTitle: 'Never Settle for Messy Notes Again',
       v2FeatDesc: 'Replace stacks of sticky notes, calculators, and coffee-stained paper house rules with an elegant, digital offline solution that lasts a lifetime.',
       ctaTitle: 'Ready to streamline your rental?',
-      ctaSub: 'Instant digital download via Etsy. Pay once $15.99.',
-      buyButton: 'Get Host Kit on Etsy',
+      ctaSub: 'Instant digital download via nogvia.com. Pay once $49.',
+      buyButton: 'Buy Host Kit — $49',
     },
     bundle: {
       kicker: 'All-In-One Host Kit',
@@ -801,14 +889,14 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       f2Desc: 'Log income & expenses across Airbnb, Vrbo, Booking, and Direct bookings with 1-click Excel exports.',
       processTitle: '3-Step Setup Process:',
       step1Title: 'Step 1',
-      step1Desc: 'Download ZIP from Etsy after purchase',
+      step1Desc: 'Download ZIP from nogvia.com after purchase',
       step2Title: 'Step 2',
       step2Desc: 'Double-click `start-hub`',
       step3Title: 'Step 3',
       step3Desc: 'Enjoy your offline rental suite forever',
       licenseTag: 'Lifetime License',
-      buyButton: 'Get Instant Access on Etsy ($15.99)',
-      guarantee: 'Instant Digital Download • Etsy Purchase Guarantee',
+      buyButton: 'Buy Now — $49',
+      guarantee: 'Instant Digital Download • nogvia.com Purchase Guarantee',
       checklist: [
         'Guest Guide Builder (Full Version)',
         'nogvia Finance Tracker (Full Version)',
@@ -830,20 +918,20 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       guideCat: 'Guest Guide',
       finCat: 'Finance',
       ctaTitle: 'Ready to buy the nogvia Host Kit?',
-      ctaSub: 'Get instant download access on Etsy. One-time payment of $15.99, no subscriptions.',
-      buyButton: 'Buy on Etsy — $15.99',
+      ctaSub: 'Get instant download access on nogvia.com. One-time payment of $49, no subscriptions.',
+      buyButton: 'Buy Now — $49',
     },
     cta: {
-      kicker: 'Pay Once $15.99 • Own Forever',
+      kicker: 'Pay Once $49 • Own Forever',
       title: 'Ready to Run Your Rental',
       titleAccent: '100% Offline?',
-      subtitle: 'Join vacation rental hosts who dropped monthly cloud subscriptions for real offline desktop software. Get the complete nogvia Host Kit on Etsy today.',
+      subtitle: 'Join vacation rental hosts who dropped monthly cloud subscriptions for real offline desktop software. Get the complete nogvia Host Kit on nogvia.com today.',
       cardTag: 'Complete Bundle Included',
       cardTitle: 'nogvia Host Kit',
       cardSub: 'Guest Guide Builder + nogvia Finance + Local Hub',
       oneTimeText: 'One-time payment',
-      buyButton: 'Buy on Etsy Now — $15.99',
-      guarantee: 'Instant Digital Download • Guaranteed Etsy Seller Transaction',
+      buyButton: 'Buy Now — $49',
+      guarantee: 'Instant Digital Download • Guaranteed nogvia.com Seller Transaction',
       checklist: [
         'Digital Guest Guide Builder',
         'nogvia Finance & Excel Exporter',
@@ -856,7 +944,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         feature: 'Pricing Model',
         saas: '$20 - $50 / month ($360+/year)',
         saasNegative: true,
-        nogvia: 'Pay Once $15.99 (Lifetime Ownership)',
+        nogvia: 'Pay Once $49 (Lifetime Ownership)',
         nogviaPositive: true,
       },
       {
@@ -899,7 +987,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       {
         category: 'pricing',
         question: 'Is this really a one-time payment with no monthly fees?',
-        answer: 'Yes! Absolutely zero monthly subscriptions or hidden charges. You purchase the nogvia Host Kit once on Etsy and own the software forever on your machine.',
+        answer: 'Yes! Absolutely zero monthly subscriptions or hidden charges. You purchase the nogvia Host Kit once on nogvia.com and own the software forever on your machine.',
       },
       {
         category: 'general',

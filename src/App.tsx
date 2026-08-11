@@ -8,9 +8,9 @@ import { VideoPortfolio } from './components/VideoPortfolio';
 import { HostKitBundle } from './components/HostKitBundle';
 import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
-import { PricingCtaSection } from './components/PricingCtaSection';
+import { ProductsPricingSection } from './components/ProductsPricingSection';
 import { NogviaLogo } from './components/NogviaLogo';
-import { ETSY_BUY_URL, BRAND_INFO, SUPPORT_EMAIL } from './constants/data';
+import { PRODUCTS, SUPPORT_EMAIL, BRAND_INFO, PURCHASE_LINK_PROPS } from './constants/data';
 import { useLanguage } from './context/LanguageContext';
 
 export default function App() {
@@ -30,8 +30,8 @@ export default function App() {
         <VideoPortfolio />
         <HostKitBundle />
         <FaqSection />
+        <ProductsPricingSection />
         <ContactSection />
-        <PricingCtaSection />
       </main>
 
       {/* Footer */}
@@ -48,6 +48,7 @@ export default function App() {
             <a href="#finance" className="hover:text-white transition-colors">{t.nav.finance}</a>
             <a href="#videos" className="hover:text-white transition-colors">{t.nav.videos}</a>
             <a href="#faq" className="hover:text-white transition-colors">{t.nav.faq}</a>
+            <a href="#pricing" className="hover:text-white transition-colors">{t.nav.pricing}</a>
             <a href="#contact" className="hover:text-white transition-colors">{t.nav.contact}</a>
             <a
               href={`mailto:${SUPPORT_EMAIL}`}
@@ -56,12 +57,11 @@ export default function App() {
               {SUPPORT_EMAIL}
             </a>
             <a
-              href={ETSY_BUY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={PRODUCTS.hostKit.checkoutUrl}
+              {...PURCHASE_LINK_PROPS}
               className="text-[#D4AF37] font-semibold hover:underline"
             >
-              {t.nav.buyKit} ({BRAND_INFO.price})
+              {t.nav.buyKit} ({PRODUCTS.hostKit.price})
             </a>
           </div>
 

@@ -1,19 +1,68 @@
-import { FaqItem, ComparisonRow, RevenueChannel } from '../types';
-
-export const ETSY_BUY_URL = 'https://www.etsy.com/listing/4550175542/offline-host-kit-guest-guide-finance?ref=listings_manager_grid';
+import { FaqItem, ComparisonRow } from '../types';
 
 export const SUPPORT_EMAIL = 'info@nogvia.com';
 export const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 export const SUPPORT_REPLY_HOURS = 48;
 
+/** Etsy listings — default purchase channel until Lemon Squeezy / other methods are added. */
+export const ETSY_URLS = {
+  hostKit:
+    'https://www.etsy.com/listing/4550175542/offline-host-kit-guest-guide-finance?ref=listings_manager_grid',
+  guestGuide:
+    'https://www.etsy.com/listing/4551595941/digital-guest-guide-builder-for-airbnb?ref=listings_manager_grid',
+  finance:
+    'https://www.etsy.com/listing/4551625325/nogvia-finance-vacation-rental-income?ref=listings_manager_grid',
+} as const;
+
+const purchaseUrl = (envKey: keyof ImportMetaEnv, etsyUrl: string) => {
+  const override = import.meta.env[envKey];
+  return typeof override === 'string' && override.length > 0 ? override : etsyUrl;
+};
+
+export const CHECKOUT_URLS = {
+  hostKit: purchaseUrl('VITE_CHECKOUT_HOST_KIT', ETSY_URLS.hostKit),
+  guestGuide: purchaseUrl('VITE_CHECKOUT_GUEST_GUIDE', ETSY_URLS.guestGuide),
+  finance: purchaseUrl('VITE_CHECKOUT_FINANCE', ETSY_URLS.finance),
+} as const;
+
+/** Use on all external purchase links (Etsy, Lemon Squeezy, etc.). */
+export const PURCHASE_LINK_PROPS = {
+  target: '_blank',
+  rel: 'noopener noreferrer',
+} as const;
+
+export const PRODUCTS = {
+  hostKit: {
+    id: 'host-kit',
+    name: 'nogvia Host Kit',
+    price: '$49',
+    compareAt: '$58',
+    checkoutUrl: CHECKOUT_URLS.hostKit,
+  },
+  guestGuide: {
+    id: 'guest-guide',
+    name: 'Guest Guide Builder',
+    price: '$29',
+    compareAt: null,
+    checkoutUrl: CHECKOUT_URLS.guestGuide,
+  },
+  finance: {
+    id: 'finance',
+    name: 'nogvia Finance',
+    price: '$29',
+    compareAt: null,
+    checkoutUrl: CHECKOUT_URLS.finance,
+  },
+} as const;
+
 export const BRAND_INFO = {
   name: 'nogvia',
   tagline: 'Offline host tools for vacation rentals',
   alternateTagline: 'Run your rental offline — one kit, zero subscriptions',
-  price: '$15.99',
-  originalPrice: '$79',
-  discountText: 'Save 80% — Pay Once, Lifetime Ownership',
-  etsyUrl: ETSY_BUY_URL,
+  price: PRODUCTS.hostKit.price,
+  originalPrice: PRODUCTS.hostKit.compareAt ?? '$79',
+  discountText: 'Save vs buying separately — pay once, own forever',
+  checkoutUrl: PRODUCTS.hostKit.checkoutUrl,
 };
 
 export const COMPARISON_DATA: ComparisonRow[] = [
@@ -21,7 +70,7 @@ export const COMPARISON_DATA: ComparisonRow[] = [
     feature: 'Pricing Model',
     saas: '$20 - $50 / month ($360+/year)',
     saasNegative: true,
-    nogvia: 'Pay Once $15.99 (Lifetime Ownership)',
+    nogvia: 'Pay once from $29 (lifetime ownership)',
     nogviaPositive: true,
   },
   {
@@ -65,7 +114,7 @@ export const FAQ_DATA: FaqItem[] = [
   {
     category: 'pricing',
     question: 'Is this really a one-time payment with no monthly fees?',
-    answer: 'Yes! Absolutely zero monthly subscriptions or hidden charges. You purchase the nogvia Host Kit once on Etsy and own the software forever on your machine.',
+    answer: 'Yes! Absolutely zero monthly subscriptions or hidden charges. You purchase nogvia software once and own it on your computer for life.',
   },
   {
     category: 'general',
@@ -84,21 +133,9 @@ export const FAQ_DATA: FaqItem[] = [
   },
   {
     category: 'finance',
-    question: 'Can I track multiple rental properties in nogvia Finance?',
+    question: 'Can I track multiple properties and export to Excel?',
     answer: 'Yes! You can log income and expenses for multiple properties (e.g. Sunset Bay Villa, Beach House, Downtown Apartment), filter revenue by platform (Airbnb, Vrbo, Booking.com, Direct), and export tax-ready reports to Microsoft Excel with one click.',
   },
-  {
-    category: 'general',
-    question: 'Does my data stay private?',
-    answer: '100%. All your guest details, property notes, revenue records, and expense logs are stored locally on your device. Nothing is sent to remote cloud servers or sold to third parties.',
-  },
-];
-
-export const REVENUE_CHANNELS: RevenueChannel[] = [
-  { name: 'Airbnb', amount: 5798, percentage: 55, color: '#f97316' },
-  { name: 'Vrbo', amount: 2480, percentage: 24, color: '#38bdf8' },
-  { name: 'Booking.com', amount: 1420, percentage: 14, color: '#a855f7' },
-  { name: 'Direct Bookings', amount: 850, percentage: 7, color: '#34d399' },
 ];
 
 export const SAMPLE_GUEST_GUIDE = {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NogviaLogo } from './NogviaLogo';
-import { ETSY_BUY_URL, BRAND_INFO } from '../constants/data';
+import { PRODUCTS, BRAND_INFO, PURCHASE_LINK_PROPS } from '../constants/data';
 import { ShoppingBag, Menu, X, ShieldCheck, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -26,6 +26,7 @@ export const Navbar: React.FC = () => {
     { name: t.nav.finance, href: '#finance' },
     { name: t.nav.videos, href: '#videos' },
     { name: t.nav.faq, href: '#faq' },
+    { name: t.nav.pricing, href: '#pricing' },
     { name: t.nav.contact, href: '#contact' },
   ];
 
@@ -75,9 +76,8 @@ export const Navbar: React.FC = () => {
             </div>
 
             <a
-              href={ETSY_BUY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={PRODUCTS.hostKit.checkoutUrl}
+              {...PURCHASE_LINK_PROPS}
               className="relative inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
@@ -127,9 +127,8 @@ export const Navbar: React.FC = () => {
                 <span className="font-bold text-[#D4AF37]">{BRAND_INFO.price} ({language === 'tr' ? 'Tek Seferlik' : 'One-Time'})</span>
               </div>
               <a
-                href={ETSY_BUY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={PRODUCTS.hostKit.checkoutUrl}
+                {...PURCHASE_LINK_PROPS}
                 className="w-full flex items-center justify-center gap-2 py-3.5 px-4 font-bold text-xs uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-lg transition-colors"
               >
                 <ShoppingBag className="w-4 h-4" />

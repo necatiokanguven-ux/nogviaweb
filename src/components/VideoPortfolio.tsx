@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ETSY_BUY_URL } from '../constants/data';
+import { PRODUCTS, PURCHASE_LINK_PROPS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
 import {
@@ -80,7 +80,7 @@ export const VideoPortfolio: React.FC = () => {
                     controls
                     playsInline
                     preload="metadata"
-                    poster={MEDIA.hostKitHero}
+                    poster={MEDIA.heroHostKit}
                   >
                     <source src={MEDIA.productWalkthroughVideo} type="video/mp4" />
                   </video>
@@ -145,7 +145,7 @@ export const VideoPortfolio: React.FC = () => {
                     controls
                     playsInline
                     preload="metadata"
-                    poster={MEDIA.hostKitHero}
+                    poster={MEDIA.heroHostKit}
                   >
                     <source src={MEDIA.hostStoryVideo} type="video/mp4" />
                   </video>
@@ -185,9 +185,8 @@ export const VideoPortfolio: React.FC = () => {
               <div className="text-xs text-white/50">{t.videos.ctaSub}</div>
             </div>
             <a
-              href={ETSY_BUY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={PRODUCTS.hostKit.checkoutUrl}
+              {...PURCHASE_LINK_PROPS}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow transition-colors"
             >
               <ShoppingBag className="w-4 h-4" />
