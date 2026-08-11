@@ -19,8 +19,37 @@ export interface Translations {
     videos: string;
     comparison: string;
     faq: string;
+    contact: string;
     payOnceBadge: string;
     buyKit: string;
+  };
+  contact: {
+    kicker: string;
+    title: string;
+    titleAccent: string;
+    subtitle: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    subjectLabel: string;
+    subjectGeneral: string;
+    subjectOrder: string;
+    subjectTechnical: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    submit: string;
+    submitting: string;
+    successTitle: string;
+    successBody: string;
+    errorTitle: string;
+    errorBody: string;
+    mailtoHint: string;
+    privacyNote: string;
+    replyNote: string;
+  };
+  footer: {
+    contact: string;
   };
   hero: {
     kicker: string;
@@ -235,8 +264,37 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       videos: 'Tanıtım Videoları',
       comparison: 'Karşılaştırma',
       faq: 'SSS',
+      contact: 'İletişim',
       payOnceBadge: 'Tek Ödeme $15.99',
       buyKit: 'Kiti Satın Al',
+    },
+    contact: {
+      kicker: 'İletişim',
+      title: 'Sorularınız mı',
+      titleAccent: 'var?',
+      subtitle: 'Sipariş, kurulum veya teknik destek için bize yazın. Genellikle 48 saat içinde yanıtlıyoruz.',
+      nameLabel: 'Adınız',
+      namePlaceholder: 'Ad Soyad',
+      emailLabel: 'E-posta',
+      emailPlaceholder: 'ornek@email.com',
+      subjectLabel: 'Konu',
+      subjectGeneral: 'Genel soru',
+      subjectOrder: 'Sipariş / satın alma',
+      subjectTechnical: 'Teknik destek',
+      messageLabel: 'Mesajınız',
+      messagePlaceholder: 'Size nasıl yardımcı olabiliriz?',
+      submit: 'Mesaj Gönder',
+      submitting: 'Gönderiliyor…',
+      successTitle: 'Mesajınız alındı',
+      successBody: 'Teşekkürler! En kısa sürede size dönüş yapacağız.',
+      errorTitle: 'Gönderilemedi',
+      errorBody: 'Lütfen tekrar deneyin veya doğrudan e-posta gönderin.',
+      mailtoHint: 'Form çalışmıyorsa:',
+      privacyNote: 'Form verileriniz yalnızca talebinize yanıt vermek için kullanılır.',
+      replyNote: 'Yanıt süresi: genellikle 48 saat içinde.',
+    },
+    footer: {
+      contact: 'İletişim',
     },
     hero: {
       kicker: 'Aylık Ücret YOK • Tek Sefer Öde, Ömür Boyu Sahip Ol',
@@ -561,8 +619,37 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       videos: 'Videos',
       comparison: 'Comparison',
       faq: 'FAQ',
+      contact: 'Contact',
       payOnceBadge: 'Pay Once $15.99',
       buyKit: 'Get Host Kit',
+    },
+    contact: {
+      kicker: 'Contact',
+      title: 'Questions?',
+      titleAccent: 'We\'re here.',
+      subtitle: 'Reach out for orders, setup help, or technical support. We typically reply within 48 hours.',
+      nameLabel: 'Your name',
+      namePlaceholder: 'Full name',
+      emailLabel: 'Email',
+      emailPlaceholder: 'you@example.com',
+      subjectLabel: 'Subject',
+      subjectGeneral: 'General question',
+      subjectOrder: 'Order / purchase',
+      subjectTechnical: 'Technical support',
+      messageLabel: 'Message',
+      messagePlaceholder: 'How can we help?',
+      submit: 'Send Message',
+      submitting: 'Sending…',
+      successTitle: 'Message received',
+      successBody: 'Thank you! We will get back to you as soon as possible.',
+      errorTitle: 'Could not send',
+      errorBody: 'Please try again or email us directly.',
+      mailtoHint: 'If the form does not work:',
+      privacyNote: 'Your form data is used only to respond to your request.',
+      replyNote: 'Response time: usually within 48 hours.',
+    },
+    footer: {
+      contact: 'Contact',
     },
     hero: {
       kicker: 'NO Monthly Fees • Pay Once, Own Forever',

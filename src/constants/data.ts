@@ -2,6 +2,10 @@ import { FaqItem, ComparisonRow, RevenueChannel } from '../types';
 
 export const ETSY_BUY_URL = 'https://www.etsy.com/listing/4550175542/offline-host-kit-guest-guide-finance?ref=listings_manager_grid';
 
+export const SUPPORT_EMAIL = 'info@nogvia.com';
+export const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+export const SUPPORT_REPLY_HOURS = 48;
+
 export const BRAND_INFO = {
   name: 'nogvia',
   tagline: 'Offline host tools for vacation rentals',

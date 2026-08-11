@@ -7,9 +7,10 @@ import { FinanceShowcase } from './components/FinanceShowcase';
 import { VideoPortfolio } from './components/VideoPortfolio';
 import { HostKitBundle } from './components/HostKitBundle';
 import { FaqSection } from './components/FaqSection';
+import { ContactSection } from './components/ContactSection';
 import { PricingCtaSection } from './components/PricingCtaSection';
 import { NogviaLogo } from './components/NogviaLogo';
-import { ETSY_BUY_URL, BRAND_INFO } from './constants/data';
+import { ETSY_BUY_URL, BRAND_INFO, SUPPORT_EMAIL } from './constants/data';
 import { useLanguage } from './context/LanguageContext';
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
         <VideoPortfolio />
         <HostKitBundle />
         <FaqSection />
+        <ContactSection />
         <PricingCtaSection />
       </main>
 
@@ -46,6 +48,13 @@ export default function App() {
             <a href="#finance" className="hover:text-white transition-colors">{t.nav.finance}</a>
             <a href="#videos" className="hover:text-white transition-colors">{t.nav.videos}</a>
             <a href="#faq" className="hover:text-white transition-colors">{t.nav.faq}</a>
+            <a href="#contact" className="hover:text-white transition-colors">{t.nav.contact}</a>
+            <a
+              href={`mailto:${SUPPORT_EMAIL}`}
+              className="hover:text-white transition-colors"
+            >
+              {SUPPORT_EMAIL}
+            </a>
             <a
               href={ETSY_BUY_URL}
               target="_blank"
