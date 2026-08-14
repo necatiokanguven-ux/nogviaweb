@@ -1,5 +1,5 @@
 import React from 'react';
-import { PRODUCTS, PURCHASE_LINK_PROPS } from '../constants/data';
+import { PRODUCTS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
 import {
@@ -40,7 +40,6 @@ export const Hero: React.FC = () => {
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <a
                 href={PRODUCTS.hostKit.checkoutUrl}
-                {...PURCHASE_LINK_PROPS}
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-2xl transition-all transform hover:-translate-y-1 active:translate-y-0 shadow-[#D4AF37]/20 focus:outline-none"
               >
                 <ShoppingBag className="w-4 h-4" />

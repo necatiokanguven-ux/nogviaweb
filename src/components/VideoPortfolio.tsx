@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PRODUCTS, PURCHASE_LINK_PROPS } from '../constants/data';
+import { PRODUCTS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
 import {
@@ -186,7 +186,6 @@ export const VideoPortfolio: React.FC = () => {
             </div>
             <a
               href={PRODUCTS.hostKit.checkoutUrl}
-              {...PURCHASE_LINK_PROPS}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow transition-colors"
             >
               <ShoppingBag className="w-4 h-4" />

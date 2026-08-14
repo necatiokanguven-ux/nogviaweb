@@ -1,5 +1,5 @@
 import React from 'react';
-import { PRODUCTS, BRAND_INFO, PURCHASE_LINK_PROPS } from '../constants/data';
+import { PRODUCTS, BRAND_INFO } from '../constants/data';
 import { useLanguage } from '../context/LanguageContext';
 import { Check, X, DollarSign, WifiOff, FileSpreadsheet, ShoppingBag } from 'lucide-react';
 
@@ -65,7 +65,6 @@ export const ProblemSolution: React.FC = () => {
             </div>
             <a
               href={PRODUCTS.hostKit.checkoutUrl}
-              {...PURCHASE_LINK_PROPS}
               className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm transition-colors shrink-0"
             >
               <ShoppingBag className="w-4 h-4" />

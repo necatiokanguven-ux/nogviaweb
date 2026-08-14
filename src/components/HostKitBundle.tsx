@@ -1,5 +1,5 @@
 import React from 'react';
-import { PRODUCTS, PURCHASE_LINK_PROPS } from '../constants/data';
+import { PRODUCTS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
 import {
@@ -117,7 +117,6 @@ export const HostKitBundle: React.FC = () => {
 
             <a
               href={PRODUCTS.hostKit.checkoutUrl}
-              {...PURCHASE_LINK_PROPS}
               className="mt-8 w-full flex items-center justify-center gap-2 py-4 px-6 font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-xl transition-all"
             >
               <ShoppingBag className="w-5 h-5" />

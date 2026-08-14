@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NogviaLogo } from './NogviaLogo';
-import { PRODUCTS, BRAND_INFO, PURCHASE_LINK_PROPS } from '../constants/data';
+import { PRODUCTS, BRAND_INFO } from '../constants/data';
 import { ShoppingBag, Menu, X, ShieldCheck, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -77,7 +77,6 @@ export const Navbar: React.FC = () => {
 
             <a
               href={PRODUCTS.hostKit.checkoutUrl}
-              {...PURCHASE_LINK_PROPS}
               className="relative inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
@@ -128,7 +127,6 @@ export const Navbar: React.FC = () => {
               </div>
               <a
                 href={PRODUCTS.hostKit.checkoutUrl}
-                {...PURCHASE_LINK_PROPS}
                 className="w-full flex items-center justify-center gap-2 py-3.5 px-4 font-bold text-xs uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-lg transition-colors"
               >
                 <ShoppingBag className="w-4 h-4" />

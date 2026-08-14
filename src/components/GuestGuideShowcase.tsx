@@ -1,5 +1,5 @@
 import React from 'react';
-import { PRODUCTS, PURCHASE_LINK_PROPS } from '../constants/data';
+import { PRODUCTS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
 import {
@@ -67,7 +67,6 @@ export const GuestGuideShowcase: React.FC = () => {
           <div className="mt-8 text-center">
             <a
               href={PRODUCTS.guestGuide.checkoutUrl}
-              {...PURCHASE_LINK_PROPS}
               className="inline-flex items-center gap-2 px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-lg transition-colors"
             >
               <ShoppingBag className="w-4 h-4" />

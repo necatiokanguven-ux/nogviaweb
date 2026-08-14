@@ -4,6 +4,12 @@ export const SUPPORT_EMAIL = 'info@nogvia.com';
 export const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 export const SUPPORT_REPLY_HOURS = 48;
 
+export const CHECKOUT_PAGE_PATHS = {
+  hostKit: '/checkout/host-kit',
+  guestGuide: '/checkout/guest-guide',
+  finance: '/checkout/finance',
+} as const;
+
 /** Etsy listings — default purchase channel until Lemon Squeezy / other methods are added. */
 export const ETSY_URLS = {
   hostKit:
@@ -25,7 +31,7 @@ export const CHECKOUT_URLS = {
   finance: purchaseUrl('VITE_CHECKOUT_FINANCE', ETSY_URLS.finance),
 } as const;
 
-/** Use on all external purchase links (Etsy, Lemon Squeezy, etc.). */
+/** Use on external marketplace checkout links (Etsy, Lemon Squeezy direct). */
 export const PURCHASE_LINK_PROPS = {
   target: '_blank',
   rel: 'noopener noreferrer',
@@ -37,21 +43,21 @@ export const PRODUCTS = {
     name: 'nogvia Host Kit',
     price: '$49',
     compareAt: '$58',
-    checkoutUrl: CHECKOUT_URLS.hostKit,
+    checkoutUrl: CHECKOUT_PAGE_PATHS.hostKit,
   },
   guestGuide: {
     id: 'guest-guide',
     name: 'Guest Guide Builder',
     price: '$29',
     compareAt: null,
-    checkoutUrl: CHECKOUT_URLS.guestGuide,
+    checkoutUrl: CHECKOUT_PAGE_PATHS.guestGuide,
   },
   finance: {
     id: 'finance',
     name: 'nogvia Finance',
     price: '$29',
     compareAt: null,
-    checkoutUrl: CHECKOUT_URLS.finance,
+    checkoutUrl: CHECKOUT_PAGE_PATHS.finance,
   },
 } as const;
 

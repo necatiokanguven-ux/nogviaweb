@@ -69,6 +69,49 @@ export interface Translations {
   footer: {
     contact: string;
   };
+  payment: {
+    kicker: string;
+    title: string;
+    titleAccent: string;
+    subtitle: string;
+    backHome: string;
+    productLabel: string;
+    productHint: string;
+    methodLabel: string;
+    methodHint: string;
+    selectedProduct: string;
+    accountHolder: string;
+    ibanTry: string;
+    ibanUsd: string;
+    bankIntro: string;
+    bankTlNote: string;
+    bankCurrencyWarning: string;
+    bankNote: string;
+    cryptoIntro: string;
+    cryptoWarning: string;
+    linkIntro: string;
+    etsyCta: string;
+    lemonCta: string;
+    linkNote: string;
+    noteLabel: string;
+    notePlaceholder: string;
+    noteHint: string;
+    notifySupport: string;
+    emailSubject: string;
+    footerNote: string;
+    copy: string;
+    copied: string;
+    methods: {
+      bank: string;
+      crypto: string;
+      link: string;
+    };
+    products: {
+      hostKit: string;
+      guestGuide: string;
+      finance: string;
+    };
+  };
   hero: {
     kicker: string;
     title: string;
@@ -348,6 +391,57 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     },
     footer: {
       contact: 'İletişim',
+    },
+    payment: {
+      kicker: 'Güvenli Ödeme',
+      title: 'Ödeme',
+      titleAccent: 'Yöntemini Seç',
+      subtitle: 'Havale, kripto veya link ile ödeme yapın. Hangi ürünü alacağınızı seçin; seçtiğiniz yönteme göre talimatlar aşağıda görünür.',
+      backHome: 'Ana Sayfa',
+      productLabel: 'Ürün',
+      productHint: 'Satın almak istediğiniz yazılımı seçin',
+      methodLabel: 'Ödeme Yöntemi',
+      methodHint: 'Lütfen ödeme yöntemi seçin',
+      selectedProduct: 'Seçili ürün',
+      accountHolder: 'Hesap Sahibi',
+      ibanTry: 'TL Hesabı (IBAN)',
+      ibanUsd: 'USD Hesabı (IBAN)',
+      bankIntro:
+        'Aşağıdaki banka hesaplarından birine havale/EFT yapın. Açıklama kısmına e-posta adresinizi ve ürün adını yazın.',
+      bankTlNote:
+        'TL ile ödeme yapacaksanız sundoviz.com üzerinden USD satış fiyatını kontrol edin, ürün fiyatını (USD) bu kur ile çarparak bulacağınız tutarı TL olarak havale/EFT yapınız.',
+      bankCurrencyWarning:
+        'Lütfen USD ve TL hesaplarını karıştırmayınız. USD hesabına TL, TL hesabına USD göndermeyiniz.',
+      bankNote:
+        'Ödeme açıklamasına mutlaka e-posta adresinizi ve "{product}" yazın. Ödeme sonrası dekontu info@nogvia.com adresine gönderin; indirme linkini 24–48 saat içinde paylaşırız.',
+      cryptoIntro:
+        'Yalnızca aşağıdaki adrese USDT (TRC-20) gönderin. Gönderim tutarı seçili ürün fiyatına eşit olmalıdır.',
+      cryptoWarning:
+        'Yalnızca USDT (TRC-20) gönderebilirsiniz. Yanlış ağ veya yanlış kripto türü ile yapılan transferlerden sorumlu değiliz. Lütfen adresi ve kripto türünü göndermeden önce kontrol edin.',
+      linkIntro:
+        'Aşağıdaki linklerden birini seçerek güvenli ödeme sayfasına gidebilirsiniz. Ödeme harici bir platformda tamamlanır.',
+      etsyCta: 'Etsy ile Öde',
+      lemonCta: 'Lemon Squeezy ile Öde',
+      linkNote: 'Ödeme harici bir güvenli sayfada tamamlanır. nogvia ödeme bilgilerinizi saklamaz.',
+      noteLabel: 'Not',
+      notePlaceholder: 'E-posta adresiniz, sipariş notu veya ödeme referansı…',
+      noteHint:
+        'Havale veya kripto sonrası destek ekibine bilgi göndermek için notunuzu ekleyip aşağıdaki butonu kullanabilirsiniz.',
+      notifySupport: 'Ödemeyi Bildir / Destek',
+      emailSubject: 'nogvia ödeme bildirimi',
+      footerNote: 'Sorularınız için info@nogvia.com — genellikle 48 saat içinde yanıt.',
+      copy: 'Kopyala',
+      copied: 'Kopyalandı',
+      methods: {
+        bank: 'Havale / EFT',
+        crypto: 'Kripto',
+        link: 'Link ile Öde',
+      },
+      products: {
+        hostKit: 'nogvia Host Kit',
+        guestGuide: 'Guest Guide Builder',
+        finance: 'nogvia Finance',
+      },
     },
     hero: {
       kicker: 'Aylık Ücret YOK • Tek Sefer Öde, Ömür Boyu Sahip Ol',
@@ -738,6 +832,58 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     },
     footer: {
       contact: 'Contact',
+    },
+    payment: {
+      kicker: 'Secure Checkout',
+      title: 'Choose Your',
+      titleAccent: 'Payment Method',
+      subtitle:
+        'Pay by bank transfer, crypto, or payment link. Select your product first — instructions update based on the method you choose.',
+      backHome: 'Back to Home',
+      productLabel: 'Product',
+      productHint: 'Select the software you want to purchase',
+      methodLabel: 'Payment Method',
+      methodHint: 'Please select a payment method',
+      selectedProduct: 'Selected product',
+      accountHolder: 'Account Holder',
+      ibanTry: 'TRY Account (IBAN)',
+      ibanUsd: 'USD Account (IBAN)',
+      bankIntro:
+        'Send a bank transfer to one of the accounts below. Include your email address and product name in the payment reference.',
+      bankTlNote:
+        'If paying in TRY, check the USD selling rate on sundoviz.com, multiply the product price (USD) by that rate, and send the resulting amount in TRY via bank transfer/EFT.',
+      bankCurrencyWarning:
+        'Please do not mix USD and TRY accounts. Do not send TRY to the USD account or USD to the TRY account.',
+      bankNote:
+        'Always include your email and "{product}" in the transfer reference. After payment, email your receipt to info@nogvia.com — we will send your download link within 24–48 hours.',
+      cryptoIntro:
+        'Send USDT (TRC-20) only to the address below. The amount must match the selected product price.',
+      cryptoWarning:
+        'Only USDT (TRC-20) is accepted. We are not responsible for transfers sent on the wrong network or with the wrong cryptocurrency. Please verify the address and asset type before sending.',
+      linkIntro:
+        'Choose one of the links below to continue to a secure checkout page. Payment is completed on an external platform.',
+      etsyCta: 'Pay on Etsy',
+      lemonCta: 'Pay on Lemon Squeezy',
+      linkNote: 'Checkout completes on a secure external page. nogvia does not store your payment details.',
+      noteLabel: 'Note',
+      notePlaceholder: 'Your email, order note, or payment reference…',
+      noteHint:
+        'After a bank transfer or crypto payment, add your details here and use the button below to notify our support team.',
+      notifySupport: 'Notify Payment / Contact Support',
+      emailSubject: 'nogvia payment notification',
+      footerNote: 'Questions? Email info@nogvia.com — we usually reply within 48 hours.',
+      copy: 'Copy',
+      copied: 'Copied',
+      methods: {
+        bank: 'Bank Transfer',
+        crypto: 'Cryptocurrency',
+        link: 'Pay by Link',
+      },
+      products: {
+        hostKit: 'nogvia Host Kit',
+        guestGuide: 'Guest Guide Builder',
+        finance: 'nogvia Finance',
+      },
     },
     hero: {
       kicker: 'NO Monthly Fees • Pay Once, Own Forever',
