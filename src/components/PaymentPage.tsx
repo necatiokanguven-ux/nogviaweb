@@ -303,6 +303,9 @@ export const PaymentPage: React.FC = () => {
                   <span>{t.payment.lemonCta} — {product.price}</span>
                 </a>
                 <p className="text-xs text-white/45 leading-relaxed">{t.payment.linkNote}</p>
+                <div className="rounded-sm border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-100/90 leading-relaxed">
+                  {t.payment.linkPriceWarning}
+                </div>
               </div>
             )}
 

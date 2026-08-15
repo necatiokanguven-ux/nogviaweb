@@ -93,6 +93,7 @@ export interface Translations {
     etsyCta: string;
     lemonCta: string;
     linkNote: string;
+    linkPriceWarning: string;
     noteLabel: string;
     notePlaceholder: string;
     noteHint: string;
@@ -423,6 +424,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       etsyCta: 'Etsy ile Öde',
       lemonCta: 'Lemon Squeezy ile Öde',
       linkNote: 'Ödeme harici bir güvenli sayfada tamamlanır. nogvia ödeme bilgilerinizi saklamaz.',
+      linkPriceWarning:
+        'Sitede gösterilen fiyatlar USD cinsindendir. Link ile ödemede Lemon Squeezy veya Etsy checkout ekranında kur farkı, yerel para birimi ve vergiler nedeniyle nihai tutar farklı görünebilir. Bu normaldir; kesin tutar seçtiğiniz platformun ödeme sayfasında gösterilir.',
       noteLabel: 'Not',
       notePlaceholder: 'E-posta adresiniz, sipariş notu veya ödeme referansı…',
       noteHint:
@@ -865,6 +868,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       etsyCta: 'Pay on Etsy',
       lemonCta: 'Pay on Lemon Squeezy',
       linkNote: 'Checkout completes on a secure external page. nogvia does not store your payment details.',
+      linkPriceWarning:
+        'Prices on this site are shown in USD. When paying via link, the final amount on Lemon Squeezy or Etsy may differ due to exchange rates, local currency, and taxes. This is normal — your exact total is shown on the checkout page of the platform you choose.',
       noteLabel: 'Note',
       notePlaceholder: 'Your email, order note, or payment reference…',
       noteHint:
