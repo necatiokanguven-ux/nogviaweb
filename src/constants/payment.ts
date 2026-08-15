@@ -20,13 +20,20 @@ const lemonUrl = (envKey: keyof ImportMetaEnv, fallback: string) => {
   return typeof override === 'string' && override.length > 0 ? override : fallback;
 };
 
-const DEFAULT_LEMON_CHECKOUT = 'https://nogvia.lemonsqueezy.com/checkout';
-
-/** Lemon Squeezy checkout links — all products use Host Kit checkout until store variants are live. */
+/** Lemon Squeezy checkout links per product. */
 export const LEMON_SQUEEZY_URLS: Record<ProductSlug, string> = {
-  'host-kit': lemonUrl('VITE_CHECKOUT_HOST_KIT', DEFAULT_LEMON_CHECKOUT),
-  'guest-guide': lemonUrl('VITE_CHECKOUT_GUEST_GUIDE', DEFAULT_LEMON_CHECKOUT),
-  finance: lemonUrl('VITE_CHECKOUT_FINANCE', DEFAULT_LEMON_CHECKOUT),
+  'host-kit': lemonUrl(
+    'VITE_CHECKOUT_HOST_KIT',
+    'https://nogvia.lemonsqueezy.com/checkout/buy/87bdc5a1-0df4-4172-b510-f22df2e4909e',
+  ),
+  'guest-guide': lemonUrl(
+    'VITE_CHECKOUT_GUEST_GUIDE',
+    'https://nogvia.lemonsqueezy.com/checkout/buy/e05ff4be-e553-45b0-8ca8-70a76af447f1',
+  ),
+  finance: lemonUrl(
+    'VITE_CHECKOUT_FINANCE',
+    'https://nogvia.lemonsqueezy.com/checkout/buy/e9d7c7d6-6846-4598-8b51-455d7560d52e',
+  ),
 };
 
 export const ETSY_PRODUCT_URLS: Record<ProductSlug, string> = {
