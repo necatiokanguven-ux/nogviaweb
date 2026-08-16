@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { HOST_KIT_LITE_DOWNLOAD_URL, PRODUCTS } from '../constants/data';
+import { PRODUCTS } from '../constants/data';
 import { useLanguage } from '../context/LanguageContext';
+import { LiteDownloadForm } from './LiteDownloadForm';
 import {
   ChevronDown,
-  Download,
   HardDrive,
   Info,
   ShieldCheck,
@@ -91,15 +91,9 @@ export const LiteDownloadSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-4">
-          <a
-            href={HOST_KIT_LITE_DOWNLOAD_URL}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-xs font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-2xl transition-all transform hover:-translate-y-0.5"
-            download
-          >
-            <Download className="w-4 h-4" />
-            <span>{copy.downloadButton}</span>
-          </a>
+        <LiteDownloadForm />
+
+        <div className="flex flex-col items-center gap-4 mt-8">
           <a
             href={PRODUCTS.hostKit.checkoutUrl}
             className="text-sm text-white/50 hover:text-[#D4AF37] transition-colors"

@@ -1,4 +1,6 @@
 import React from 'react';
+import { LiteDownloadProvider } from './context/LiteDownloadContext';
+import { LiteDownloadModal } from './components/LiteDownloadModal';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProblemSolution } from './components/ProblemSolution';
@@ -20,8 +22,10 @@ function LandingPage() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-[#0A0A0B] text-[#E0E0E0] font-sans antialiased selection:bg-[#D4AF37]/30 selection:text-white">
-      <Navbar />
+    <LiteDownloadProvider>
+      <div className="min-h-screen bg-[#0A0A0B] text-[#E0E0E0] font-sans antialiased selection:bg-[#D4AF37]/30 selection:text-white">
+        <Navbar />
+        <LiteDownloadModal />
 
       <main>
         <Hero />
@@ -67,7 +71,8 @@ function LandingPage() {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </LiteDownloadProvider>
   );
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { PRODUCTS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
+import { useLiteDownload } from '../context/LiteDownloadContext';
 import { Check, ShoppingBag, Sparkles, ShieldCheck, Download } from 'lucide-react';
 
 const productMedia = {
@@ -12,6 +13,7 @@ const productMedia = {
 
 export const ProductsPricingSection: React.FC = () => {
   const { t } = useLanguage();
+  const { openModal } = useLiteDownload();
 
   const paidCards = [
     {
@@ -88,13 +90,14 @@ export const ProductsPricingSection: React.FC = () => {
                 ))}
               </ul>
 
-              <a
-                href="#try-lite"
+              <button
+                type="button"
+                onClick={openModal}
                 className="mt-8 w-full flex items-center justify-center gap-2 py-3.5 px-6 text-xs font-bold uppercase tracking-widest text-black bg-emerald-400 hover:bg-emerald-300 rounded-sm transition-colors"
               >
                 <Download className="w-4 h-4" />
                 <span>{t.pricing.liteButton}</span>
-              </a>
+              </button>
             </div>
           </article>
 

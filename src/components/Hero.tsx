@@ -2,6 +2,7 @@ import React from 'react';
 import { PRODUCTS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
+import { useLiteDownload } from '../context/LiteDownloadContext';
 import {
   Sparkles,
   HardDrive,
@@ -14,6 +15,7 @@ import {
 
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
+  const { openModal } = useLiteDownload();
 
   return (
     <section className="relative pt-28 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-radial-glow">
@@ -47,13 +49,14 @@ export const Hero: React.FC = () => {
                 <span>{t.hero.ctaPrimary}</span>
               </a>
 
-              <a
-                href="#try-lite"
+              <button
+                type="button"
+                onClick={openModal}
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/40 rounded-sm transition-colors"
               >
                 <Download className="w-4 h-4" />
                 <span>{t.hero.ctaTrial}</span>
-              </a>
+              </button>
             </div>
 
             <a

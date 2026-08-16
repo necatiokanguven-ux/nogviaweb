@@ -1,0 +1,17 @@
+name = "nogvia-lite-download"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+[[kv_namespaces]]
+binding = "OTP_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+[vars]
+ALLOWED_ORIGIN = "https://nogvia.com,http://localhost:3000"
+
+# Secrets (set via: npx wrangler secret put RESEND_API_KEY)
+# RESEND_FROM = "nogvia <info@nogvia.com>"
+
+[[routes]]
+pattern = "nogvia.com/api/lite/*"
+zone_name = "nogvia.com"

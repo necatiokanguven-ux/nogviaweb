@@ -41,6 +41,31 @@ export interface Translations {
     hideDetails: string;
     limitedTitle: string;
     limitedFeatures: string[];
+    formTitle: string;
+    formSubtitle: string;
+    firstNameLabel: string;
+    firstNamePlaceholder: string;
+    lastNameLabel: string;
+    lastNamePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    consentLabel: string;
+    consentRequired: string;
+    requiredFields: string;
+    sendCodeButton: string;
+    sendingCode: string;
+    codeLabel: string;
+    codePlaceholder: string;
+    codeSent: string;
+    verifyButton: string;
+    verifying: string;
+    resendCode: string;
+    resendCooldown: string;
+    downloadReady: string;
+    startDownload: string;
+    invalidCode: string;
+    requestError: string;
+    verifyError: string;
   };
   pricing: {
     kicker: string;
@@ -390,6 +415,33 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         'Finance: En fazla 1 mülk, 30 gelir ve 30 gider kaydı',
         'Tüm kısıtlamalar Host Kit Full ($49) ile kaldırılır',
       ],
+      formTitle: 'İndirmeden önce doğrulayın',
+      formSubtitle:
+        'Ad, soyad ve e-posta adresinizi girin. E-postanıza 6 haneli doğrulama kodu göndereceğiz — sahte adreslerle indirme engellenir.',
+      firstNameLabel: 'Ad',
+      firstNamePlaceholder: 'Adınız',
+      lastNameLabel: 'Soyad',
+      lastNamePlaceholder: 'Soyadınız',
+      emailLabel: 'E-posta',
+      emailPlaceholder: 'ornek@email.com',
+      consentLabel:
+        'E-posta adresimin indirme ve nogvia güncellemeleri için kullanılmasına izin veriyorum.',
+      consentRequired: 'Devam etmek için onay kutusunu işaretleyin.',
+      requiredFields: 'Lütfen ad, soyad ve e-posta alanlarını doldurun.',
+      sendCodeButton: 'Doğrulama Kodu Gönder',
+      sendingCode: 'Kod gönderiliyor…',
+      codeLabel: 'E-posta doğrulama kodu',
+      codePlaceholder: '6 haneli kod',
+      codeSent: '{email} adresine 6 haneli kod gönderdik. Lütfen kodu girin.',
+      verifyButton: 'Kodu Doğrula ve İndir',
+      verifying: 'Doğrulanıyor…',
+      resendCode: 'Kodu tekrar gönder',
+      resendCooldown: 'Tekrar gönder ({seconds}s)',
+      downloadReady: 'E-posta doğrulandı. Host Kit Lite indirmeye hazırsınız.',
+      startDownload: 'Host Kit Lite İndir',
+      invalidCode: 'Lütfen 6 haneli doğrulama kodunu girin.',
+      requestError: 'Doğrulama kodu gönderilemedi. Lütfen tekrar deneyin.',
+      verifyError: 'Doğrulama kodu geçersiz veya süresi dolmuş.',
     },
     pricing: {
       kicker: 'Tek Sefer Öde • Abonelik Yok',
@@ -879,6 +931,33 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         'Finance: Up to 1 property, 30 income, and 30 expense entries',
         'All limits removed with Host Kit Full ($49)',
       ],
+      formTitle: 'Verify before you download',
+      formSubtitle:
+        'Enter your name and email. We will send a 6-digit verification code — fake addresses cannot download.',
+      firstNameLabel: 'First name',
+      firstNamePlaceholder: 'Your first name',
+      lastNameLabel: 'Last name',
+      lastNamePlaceholder: 'Your last name',
+      emailLabel: 'Email',
+      emailPlaceholder: 'you@example.com',
+      consentLabel:
+        'I agree that my email may be used for this download and occasional nogvia updates.',
+      consentRequired: 'Please accept the consent checkbox to continue.',
+      requiredFields: 'Please fill in your first name, last name, and email.',
+      sendCodeButton: 'Send Verification Code',
+      sendingCode: 'Sending code…',
+      codeLabel: 'Email verification code',
+      codePlaceholder: '6-digit code',
+      codeSent: 'We sent a 6-digit code to {email}. Enter it below.',
+      verifyButton: 'Verify Code & Download',
+      verifying: 'Verifying…',
+      resendCode: 'Resend code',
+      resendCooldown: 'Resend in {seconds}s',
+      downloadReady: 'Email verified. You are ready to download Host Kit Lite.',
+      startDownload: 'Download Host Kit Lite',
+      invalidCode: 'Please enter the 6-digit verification code.',
+      requestError: 'Could not send the verification code. Please try again.',
+      verifyError: 'Invalid or expired verification code.',
     },
     pricing: {
       kicker: 'Pay Once • No Subscription',
