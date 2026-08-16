@@ -22,6 +22,24 @@ export interface Translations {
     buyKit: string;
     pricing: string;
   };
+  liteDownload: {
+    kicker: string;
+    title: string;
+    titleAccent: string;
+    subtitle: string;
+    windowsNoteTitle: string;
+    windowsNoteSummary: string;
+    windowsNoteDetails: string[];
+    macNote: string;
+    requirementsNote: string;
+    downloadButton: string;
+    buyFullLink: string;
+    trustOffline: string;
+    trustNoAccount: string;
+    trustUpgrade: string;
+    showDetails: string;
+    hideDetails: string;
+  };
   pricing: {
     kicker: string;
     title: string;
@@ -330,6 +348,32 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       payOnceBadge: 'Tek Ödeme $49',
       buyKit: 'Kiti Satın Al',
       pricing: 'Fiyatlar',
+    },
+    liteDownload: {
+      kicker: 'Ücretsiz Deneme',
+      title: 'Host Kit',
+      titleAccent: 'Lite',
+      subtitle:
+        'Guest Guide + Finance + Hub — satın almadan önce nogvia\'yı bilgisayarınızda deneyin. Hesap veya kredi kartı gerekmez.',
+      windowsNoteTitle: 'Windows kullanıcıları — indirmeden önce okuyun',
+      windowsNoteSummary:
+        'Windows, start-all.bat dosyasını ilk çalıştırdığınızda SmartScreen uyarısı gösterebilir. Bağımsız masaüstü uygulamaları için bu normaldir; dosyanın güvensiz olduğu anlamına gelmez.',
+      windowsNoteDetails: [
+        'ZIP dosyasını indirin ve klasörü çıkarın.',
+        'İsteğe bağlı: ZIP\'e sağ tıklayın → Özellikler → Engeli kaldır → Uygula.',
+        'Klasörü açın ve start-all.bat (veya start-hub) dosyasını çalıştırın.',
+        'SmartScreen görünürse: Daha fazla bilgi → Yine de çalıştır.',
+        'nogvia bilgisayarınızda yerel olarak çalışır — çevrimdışı, arka planda gizli servis yok.',
+      ],
+      macNote: 'Mac kullanıcıları: Aynı klasördeki macOS başlatma dosyasını kullanın (SmartScreen uyarısı yok).',
+      requirementsNote: 'Yüklü değilse Python 3 gerekir (python.org\'dan ücretsiz).',
+      downloadButton: 'Host Kit Lite İndir (Ücretsiz)',
+      buyFullLink: 'Tam sürüme hazır mısınız? Host Kit satın alın — $49',
+      trustOffline: 'Bilgisayarınızda %100 çevrimdışı',
+      trustNoAccount: 'Abonelik veya hesap yok',
+      trustUpgrade: 'Aynı nogvia uygulamaları — istediğiniz zaman Full\'a geçin',
+      showDetails: 'Kurulum adımlarını göster',
+      hideDetails: 'Kurulum adımlarını gizle',
     },
     pricing: {
       kicker: 'Tek Sefer Öde • Abonelik Yok',
@@ -773,6 +817,32 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       payOnceBadge: 'Pay Once $49',
       buyKit: 'Get Host Kit',
       pricing: 'Pricing',
+    },
+    liteDownload: {
+      kicker: 'Free Trial',
+      title: 'Host Kit',
+      titleAccent: 'Lite',
+      subtitle:
+        'Guest Guide + Finance + Hub — try nogvia on your computer before you buy. No account, no credit card.',
+      windowsNoteTitle: 'Windows users — read before you download',
+      windowsNoteSummary:
+        'Windows may show a SmartScreen message the first time you run start-all.bat. This is normal for independent desktop apps and does not mean the file is unsafe.',
+      windowsNoteDetails: [
+        'Download the ZIP and extract the folder.',
+        'Optional: Right-click the ZIP → Properties → Unblock → Apply.',
+        'Open the folder and run start-all.bat (or start-hub).',
+        'If SmartScreen appears: More info → Run anyway.',
+        'nogvia runs locally on your PC — offline, with no hidden background services.',
+      ],
+      macNote: 'Mac users: use the macOS start file in the same folder (no SmartScreen prompt).',
+      requirementsNote: 'Requires Python 3 (free from python.org) if not already installed.',
+      downloadButton: 'Download Host Kit Lite (Free)',
+      buyFullLink: 'Ready for the full version? Buy Host Kit — $49',
+      trustOffline: '100% offline on your computer',
+      trustNoAccount: 'No subscription or account',
+      trustUpgrade: 'Same nogvia apps — upgrade to Full anytime',
+      showDetails: 'Show setup steps',
+      hideDetails: 'Hide setup steps',
     },
     pricing: {
       kicker: 'Pay Once • No Subscription',

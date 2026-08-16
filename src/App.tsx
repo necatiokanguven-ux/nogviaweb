@@ -8,6 +8,7 @@ import { VideoPortfolio } from './components/VideoPortfolio';
 import { HostKitBundle } from './components/HostKitBundle';
 import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
+import { LiteDownloadSection } from './components/LiteDownloadSection';
 import { ProductsPricingSection } from './components/ProductsPricingSection';
 import { PaymentPage } from './components/PaymentPage';
 import { NogviaLogo } from './components/NogviaLogo';
@@ -29,6 +30,7 @@ function LandingPage() {
         <FinanceShowcase />
         <VideoPortfolio />
         <HostKitBundle />
+        <LiteDownloadSection />
         <FaqSection />
         <ProductsPricingSection />
         <ContactSection />

@@ -63,17 +63,17 @@ export const ProductsPricingSection: React.FC = () => {
                 card.badge ? 'border-[#D4AF37]/60 glow-gold' : 'border-white/10'
               }`}
             >
-              <div className="relative">
-                <img
-                  src={productMedia[card.key]}
-                  alt={card.title}
-                  className="w-full aspect-[4/3] object-cover border-b border-white/10"
-                />
+              <div className="relative bg-[#141416] border-b border-white/10 px-4 pt-4 pb-3 sm:px-5 sm:pt-5">
                 {card.badge && (
-                  <span className="absolute top-4 left-4 px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-[#D4AF37] text-black rounded-sm">
+                  <span className="absolute top-3 right-3 z-10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-[#D4AF37] text-black rounded-sm shadow-md">
                     {card.badge}
                   </span>
                 )}
+                <img
+                  src={productMedia[card.key]}
+                  alt={card.title}
+                  className="w-full h-44 sm:h-52 object-contain object-center"
+                />
               </div>
 
               <div className="flex flex-col flex-1 p-6">

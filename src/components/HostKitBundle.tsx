@@ -84,11 +84,13 @@ export const HostKitBundle: React.FC = () => {
 
           {/* Right Column: Pricing Badge Card */}
           <div className="lg:col-span-5 bg-[#0A0A0B] border border-white/10 rounded-sm p-8 text-center relative overflow-hidden shadow-2xl glow-gold">
-            <img
-              src={MEDIA.productHostKit}
-              alt="nogvia Host Kit bundle"
-              className="w-full rounded-sm border border-white/10 mb-6 object-cover"
-            />
+            <div className="rounded-sm border border-white/10 bg-[#141416] p-4 mb-6">
+              <img
+                src={MEDIA.productHostKit}
+                alt="nogvia Host Kit bundle"
+                className="w-full max-h-56 object-contain object-center mx-auto"
+              />
+            </div>
 
             {/* Top Badge */}
             <div className="inline-block bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-sm mb-6">
