@@ -1,15 +1,23 @@
-export const SUPABASE_URL =
+const envSupabaseUrl =
   typeof import.meta.env.VITE_SUPABASE_URL === 'string'
     ? import.meta.env.VITE_SUPABASE_URL.replace(/\/+$/, '')
     : '';
 
-export const SUPABASE_ANON_KEY =
-  (typeof import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY === 'string' &&
+const envSupabaseKey =
+  typeof import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY === 'string' &&
   import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY.length > 0
     ? import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
     : typeof import.meta.env.VITE_SUPABASE_ANON_KEY === 'string'
       ? import.meta.env.VITE_SUPABASE_ANON_KEY
-      : '');
+      : '';
+
+/** Production defaults when Hostinger build has no VITE_* env (publishable key is public). */
+const DEFAULT_SUPABASE_URL = 'https://elrfdqlkitczdhfyrlui.supabase.co';
+const DEFAULT_SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_UjfA73fgA6vc3Vtz4_NPBg_jJzqtivo';
+
+export const SUPABASE_URL = envSupabaseUrl || DEFAULT_SUPABASE_URL;
+
+export const SUPABASE_ANON_KEY = envSupabaseKey || DEFAULT_SUPABASE_PUBLISHABLE_KEY;
 
 const CLOUDFLARE_API_BASE = 'https://nogvia.com/api/lite';
 
@@ -73,7 +81,23 @@ async function postJson<T>(path: string, body: unknown): Promise<T> {
     body: JSON.stringify(body),
   });
 
-  const result = (await response.json()) as T & { message?: string; error?: string };
+  const raw = await response.text();
+  const contentType = response.headers.get('content-type') ?? '';
+
+  if (!contentType.includes('application/json')) {
+    throw new Error(
+      'Download verification is temporarily unavailable. Please try again in a few minutes.',
+    );
+  }
+
+  let result: T & { message?: string; error?: string };
+  try {
+    result = JSON.parse(raw) as T & { message?: string; error?: string };
+  } catch {
+    throw new Error(
+      'Download verification is temporarily unavailable. Please try again in a few minutes.',
+    );
+  }
 
   if (!response.ok) {
     throw new Error(result.message || result.error || 'Request failed');
