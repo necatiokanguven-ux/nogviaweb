@@ -39,6 +39,8 @@ export interface Translations {
     trustUpgrade: string;
     showDetails: string;
     hideDetails: string;
+    limitedTitle: string;
+    limitedFeatures: string[];
   };
   pricing: {
     kicker: string;
@@ -58,6 +60,12 @@ export interface Translations {
     hostKitTitle: string;
     hostKitSub: string;
     hostKitFeatures: string[];
+    liteBadge: string;
+    liteTitle: string;
+    liteSub: string;
+    liteFeatures: string[];
+    liteButton: string;
+    freeLabel: string;
   };
   contact: {
     kicker: string;
@@ -137,6 +145,7 @@ export interface Translations {
     titleAccent: string;
     subtitle: string;
     ctaPrimary: string;
+    ctaTrial: string;
     ctaSecondary: string;
     badge1: string;
     badge2: string;
@@ -350,11 +359,11 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       pricing: 'Fiyatlar',
     },
     liteDownload: {
-      kicker: 'Ücretsiz Deneme',
+      kicker: 'Ücretsiz · Kısıtlı Sürüm',
       title: 'Host Kit',
       titleAccent: 'Lite',
       subtitle:
-        'Guest Guide + Finance + Hub — satın almadan önce nogvia\'yı bilgisayarınızda deneyin. Hesap veya kredi kartı gerekmez.',
+        'Guest Guide + Finance + Hub — satın almadan önce nogvia\'yı bilgisayarınızda deneyin. Dışa aktarma ve bazı gelişmiş özellikler kısıtlıdır; süre sınırı yoktur.',
       windowsNoteTitle: 'Windows kullanıcıları — indirmeden önce okuyun',
       windowsNoteSummary:
         'Windows, start-all.bat dosyasını ilk çalıştırdığınızda SmartScreen uyarısı gösterebilir. Bağımsız masaüstü uygulamaları için bu normaldir; dosyanın güvensiz olduğu anlamına gelmez.',
@@ -367,13 +376,20 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       ],
       macNote: 'Mac kullanıcıları: Aynı klasördeki macOS başlatma dosyasını kullanın (SmartScreen uyarısı yok).',
       requirementsNote: 'Yüklü değilse Python 3 gerekir (python.org\'dan ücretsiz).',
-      downloadButton: 'Host Kit Lite İndir (Ücretsiz)',
+      downloadButton: 'Host Kit Lite İndir (Ücretsiz · Kısıtlı)',
       buyFullLink: 'Tam sürüme hazır mısınız? Host Kit satın alın — $49',
       trustOffline: 'Bilgisayarınızda %100 çevrimdışı',
       trustNoAccount: 'Abonelik veya hesap yok',
-      trustUpgrade: 'Aynı nogvia uygulamaları — istediğiniz zaman Full\'a geçin',
+      trustUpgrade: 'Aynı uygulamalar — Full sürümle tüm özellikler açılır',
       showDetails: 'Kurulum adımlarını göster',
       hideDetails: 'Kurulum adımlarını gizle',
+      limitedTitle: 'Lite sürümde neler kısıtlı?',
+      limitedFeatures: [
+        'Guest Guide: ZIP/JSON dışa aktarma ve QR PNG/SVG indirme kapalı',
+        'Finance: Excel dışa aktarma, JSON içe aktarma ve örnek veri kapalı',
+        'Finance: En fazla 1 mülk, 30 gelir ve 30 gider kaydı',
+        'Tüm kısıtlamalar Host Kit Full ($49) ile kaldırılır',
+      ],
     },
     pricing: {
       kicker: 'Tek Sefer Öde • Abonelik Yok',
@@ -408,6 +424,18 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         'nogvia Hub çalışma alanı',
         'Ayrı ayrı almaya göre tasarruf',
       ],
+      liteBadge: 'Ücretsiz · Kısıtlı',
+      liteTitle: 'nogvia Host Kit Lite',
+      liteSub:
+        'Guest Guide + Finance + Hub — deneyin. Dışa aktarma ve bazı gelişmiş özellikler kısıtlıdır.',
+      liteFeatures: [
+        'Guest Guide + Finance + Hub dahil',
+        'Hesap veya kredi kartı gerekmez',
+        '%100 çevrimdışı, bilgisayarınızda çalışır',
+        'Dışa aktarma ve içe aktarma — Full sürümde açılır',
+      ],
+      liteButton: 'Ücretsiz İndir',
+      freeLabel: 'Ücretsiz',
     },
     contact: {
       kicker: 'İletişim',
@@ -496,6 +524,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       titleAccent: 'Çevrimdışı Yönetin.',
       subtitle: 'Airbnb ve Vrbo ev sahipleri için eksiksiz masaüstü çalışma alanı. Canva şablonlarına veya buluta bağımlı kalmadan markalı dijital QR misafir rehberleri oluşturun ve finanslarınızı doğrudan bilgisayarınızda takip edin.',
       ctaPrimary: 'Host Kit\'i Satın Al — $49',
+      ctaTrial: 'Ücretsiz Kısıtlı Sürüm',
       ctaSecondary: 'Fiyatları Gör',
       badge1: 'Tek Tıkla Yerel Kurulum',
       badge2: '%100 Çevrimdışı ve Gizli',
@@ -819,11 +848,11 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       pricing: 'Pricing',
     },
     liteDownload: {
-      kicker: 'Free Trial',
+      kicker: 'Free · Limited Edition',
       title: 'Host Kit',
       titleAccent: 'Lite',
       subtitle:
-        'Guest Guide + Finance + Hub — try nogvia on your computer before you buy. No account, no credit card.',
+        'Guest Guide + Finance + Hub — try nogvia on your computer before you buy. Export and some advanced features are limited; there is no time limit.',
       windowsNoteTitle: 'Windows users — read before you download',
       windowsNoteSummary:
         'Windows may show a SmartScreen message the first time you run start-all.bat. This is normal for independent desktop apps and does not mean the file is unsafe.',
@@ -836,13 +865,20 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       ],
       macNote: 'Mac users: use the macOS start file in the same folder (no SmartScreen prompt).',
       requirementsNote: 'Requires Python 3 (free from python.org) if not already installed.',
-      downloadButton: 'Download Host Kit Lite (Free)',
+      downloadButton: 'Download Host Kit Lite (Free · Limited)',
       buyFullLink: 'Ready for the full version? Buy Host Kit — $49',
       trustOffline: '100% offline on your computer',
       trustNoAccount: 'No subscription or account',
-      trustUpgrade: 'Same nogvia apps — upgrade to Full anytime',
+      trustUpgrade: 'Same apps — unlock everything with Host Kit Full',
       showDetails: 'Show setup steps',
       hideDetails: 'Hide setup steps',
+      limitedTitle: 'What is limited in Lite?',
+      limitedFeatures: [
+        'Guest Guide: ZIP/JSON export and QR PNG/SVG download are locked',
+        'Finance: Excel export, JSON import, and sample data are locked',
+        'Finance: Up to 1 property, 30 income, and 30 expense entries',
+        'All limits removed with Host Kit Full ($49)',
+      ],
     },
     pricing: {
       kicker: 'Pay Once • No Subscription',
@@ -877,6 +913,18 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         'nogvia Hub workspace',
         'Save vs buying separately',
       ],
+      liteBadge: 'Free · Limited',
+      liteTitle: 'nogvia Host Kit Lite',
+      liteSub:
+        'Guest Guide + Finance + Hub — try before you buy. Export and some advanced features are limited.',
+      liteFeatures: [
+        'Guest Guide + Finance + Hub included',
+        'No account or credit card required',
+        '100% offline on your computer',
+        'Export and import — unlocked in Full edition',
+      ],
+      liteButton: 'Download Free',
+      freeLabel: 'Free',
     },
     contact: {
       kicker: 'Contact',
@@ -966,6 +1014,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       titleAccent: '100% Offline.',
       subtitle: 'The complete desktop workspace for Airbnb and Vrbo hosts. Build branded digital QR guest guides and track rental finances directly on your computer — no Canva templates, no cloud lock-in.',
       ctaPrimary: 'Buy Host Kit — $49',
+      ctaTrial: 'Try Free Limited Edition',
       ctaSecondary: 'View Pricing',
       badge1: '1-Click Local Setup',
       badge2: '100% Offline & Private',

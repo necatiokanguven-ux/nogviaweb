@@ -9,6 +9,7 @@ import {
   ArrowRight,
   ShieldAlert,
   ShoppingBag,
+  Download,
 } from 'lucide-react';
 
 export const Hero: React.FC = () => {
@@ -37,7 +38,7 @@ export const Hero: React.FC = () => {
               {t.hero.subtitle}
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <a
                 href={PRODUCTS.hostKit.checkoutUrl}
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 text-xs font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-2xl transition-all transform hover:-translate-y-1 active:translate-y-0 shadow-[#D4AF37]/20 focus:outline-none"
@@ -47,13 +48,21 @@ export const Hero: React.FC = () => {
               </a>
 
               <a
-                href="#pricing"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-semibold uppercase tracking-widest text-white/80 bg-[#0F0F10] hover:bg-white/10 border border-white/10 rounded-sm transition-colors"
+                href="#try-lite"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/40 rounded-sm transition-colors"
               >
-                <span>{t.hero.ctaSecondary}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37]" />
+                <Download className="w-4 h-4" />
+                <span>{t.hero.ctaTrial}</span>
               </a>
             </div>
+
+            <a
+              href="#pricing"
+              className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white/50 hover:text-[#D4AF37] transition-colors"
+            >
+              <span>{t.hero.ctaSecondary}</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37]" />
+            </a>
 
             <div className="mt-10 pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="flex items-center gap-2 text-xs text-white/70 bg-[#0F0F10] p-3 rounded-sm border border-white/5">

@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   Sparkles,
   ArrowUpRight,
+  Lock,
 } from 'lucide-react';
 
 export const LiteDownloadSection: React.FC = () => {
@@ -43,6 +44,20 @@ export const LiteDownloadSection: React.FC = () => {
           <div className="flex items-center gap-2 bg-[#0A0A0B] border border-white/10 rounded-sm p-3">
             <ArrowUpRight className="w-4 h-4 text-[#D4AF37] shrink-0" />
             <span>{copy.trustUpgrade}</span>
+          </div>
+        </div>
+
+        <div className="rounded-sm border border-emerald-500/25 bg-emerald-500/5 p-5 sm:p-6 mb-8 text-left">
+          <div className="flex items-start gap-3">
+            <Lock className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+            <div className="min-w-0">
+              <h3 className="text-sm font-semibold text-white">{copy.limitedTitle}</h3>
+              <ul className="mt-3 space-y-2 text-sm text-white/60 list-disc pl-5">
+                {copy.limitedFeatures.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 

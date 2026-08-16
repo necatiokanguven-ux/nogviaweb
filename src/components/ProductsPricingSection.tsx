@@ -2,7 +2,7 @@ import React from 'react';
 import { PRODUCTS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
-import { Check, ShoppingBag, Sparkles, ShieldCheck } from 'lucide-react';
+import { Check, ShoppingBag, Sparkles, ShieldCheck, Download } from 'lucide-react';
 
 const productMedia = {
   guestGuide: MEDIA.productGuestGuide,
@@ -13,7 +13,7 @@ const productMedia = {
 export const ProductsPricingSection: React.FC = () => {
   const { t } = useLanguage();
 
-  const cards = [
+  const paidCards = [
     {
       key: 'guestGuide' as const,
       product: PRODUCTS.guestGuide,
@@ -55,8 +55,50 @@ export const ProductsPricingSection: React.FC = () => {
           <p className="mt-6 text-lg text-white/60 leading-relaxed">{t.pricing.subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {cards.map((card) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <article className="flex flex-col bg-[#0F0F10] border border-emerald-500/40 rounded-sm overflow-hidden shadow-2xl shadow-emerald-500/5">
+            <div className="relative bg-[#141416] border-b border-white/10 px-4 pt-4 pb-3 sm:px-5 sm:pt-5">
+              <span className="absolute top-3 right-3 z-10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-emerald-500 text-black rounded-sm shadow-md">
+                {t.pricing.liteBadge}
+              </span>
+              <img
+                src={MEDIA.productHostKit}
+                alt={t.pricing.liteTitle}
+                className="w-full h-44 sm:h-52 object-contain object-center"
+              />
+            </div>
+
+            <div className="flex flex-col flex-1 p-6">
+              <h3 className="text-xl font-serif-luxury text-white">{t.pricing.liteTitle}</h3>
+              <p className="mt-2 text-sm text-white/55 leading-relaxed">{t.pricing.liteSub}</p>
+
+              <div className="mt-5 flex items-end gap-3">
+                <span className="text-4xl font-serif-luxury text-emerald-400">$0</span>
+                <span className="text-[10px] uppercase tracking-wider text-emerald-400/80 font-bold pb-1 ml-auto">
+                  {t.pricing.freeLabel}
+                </span>
+              </div>
+
+              <ul className="mt-6 space-y-2.5 text-sm text-white/70 flex-1">
+                {t.pricing.liteFeatures.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="#try-lite"
+                className="mt-8 w-full flex items-center justify-center gap-2 py-3.5 px-6 text-xs font-bold uppercase tracking-widest text-black bg-emerald-400 hover:bg-emerald-300 rounded-sm transition-colors"
+              >
+                <Download className="w-4 h-4" />
+                <span>{t.pricing.liteButton}</span>
+              </a>
+            </div>
+          </article>
+
+          {paidCards.map((card) => (
             <article
               key={card.key}
               className={`flex flex-col bg-[#0F0F10] border rounded-sm overflow-hidden shadow-2xl ${
