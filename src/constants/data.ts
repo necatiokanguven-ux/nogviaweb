@@ -37,12 +37,12 @@ export const PURCHASE_LINK_PROPS = {
   rel: 'noopener noreferrer',
 } as const;
 
-/** Free Host Kit Lite — Cloudflare-proxied Bunny CDN (override via VITE_HOST_KIT_LITE_DOWNLOAD_URL). */
+/** Free Host Kit Lite — Bunny CDN (override via VITE_HOST_KIT_LITE_DOWNLOAD_URL). */
 export const HOST_KIT_LITE_DOWNLOAD_URL =
   typeof import.meta.env.VITE_HOST_KIT_LITE_DOWNLOAD_URL === 'string' &&
   import.meta.env.VITE_HOST_KIT_LITE_DOWNLOAD_URL.length > 0
     ? import.meta.env.VITE_HOST_KIT_LITE_DOWNLOAD_URL
-    : 'https://download.nogvia.com/nogvia_hub_lite.zip';
+    : 'https://nogviahubkits.b-cdn.net/nogvia_hub_lite.zip';
 
 export const PRODUCTS = {
   hostKit: {
