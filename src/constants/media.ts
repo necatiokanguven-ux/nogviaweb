@@ -7,6 +7,9 @@ export const MEDIA = {
   productGuestGuide: '/images/product-guest-guide.png',
   productFinance: '/images/product-finance.png',
   excelExport: '/images/exel.png',
+  platformWindows: '/images/icons/windows.png',
+  platformMacos: '/images/icons/macos.png',
+  platformLinux: '/images/icons/linux.png',
   productWalkthroughVideo: '/videos/product-walkthrough.mp4',
   hostStoryVideo: '/videos/host-story.mp4',
 } as const;
