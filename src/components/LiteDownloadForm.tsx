@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Download, Mail, ShieldCheck, User } from 'lucide-react';
+import { DesktopOnlyNotice } from './DesktopOnlyNotice';
 import { useLanguage } from '../context/LanguageContext';
 import { useLiteDownload } from '../context/LiteDownloadContext';
+import { useLikelyMobileDevice } from '../lib/deviceSupport';
 import {
   getVerifiedLiteSession,
   requestLiteOtp,
@@ -22,6 +24,7 @@ export const LiteDownloadForm: React.FC<LiteDownloadFormProps> = ({
   const { t } = useLanguage();
   const copy = t.liteDownload;
   const { triggerDownload, saveLead } = useLiteDownload();
+  const isMobile = useLikelyMobileDevice();
 
   const [step, setStep] = useState<Step>('form');
   const [firstName, setFirstName] = useState('');
@@ -134,6 +137,7 @@ export const LiteDownloadForm: React.FC<LiteDownloadFormProps> = ({
   };
 
   const handleDownload = () => {
+    if (isMobile) return;
     triggerDownload();
     if (variant === 'modal') onClose?.();
   };
@@ -150,7 +154,9 @@ export const LiteDownloadForm: React.FC<LiteDownloadFormProps> = ({
         <p className="mt-2 text-sm text-white/60 leading-relaxed">{copy.formSubtitle}</p>
       </div>
 
-      {step === 'form' ? (
+      <DesktopOnlyNotice className="mb-6" />
+
+      {isMobile ? null : step === 'form' ? (
         <form onSubmit={handleRequestCode} className="space-y-4 text-left">
           <input
             type="text"
@@ -237,7 +243,7 @@ export const LiteDownloadForm: React.FC<LiteDownloadFormProps> = ({
         </form>
       ) : null}
 
-      {step === 'verify' ? (
+      {!isMobile && step === 'verify' ? (
         <form onSubmit={handleVerifyCode} className="space-y-4 text-left">
           <p className="text-sm text-white/65">{copy.codeSent.replace('{email}', email)}</p>
 
@@ -285,7 +291,7 @@ export const LiteDownloadForm: React.FC<LiteDownloadFormProps> = ({
         </form>
       ) : null}
 
-      {step === 'ready' ? (
+      {!isMobile && step === 'ready' ? (
         <div className="space-y-4 text-left">
           <p className="text-sm text-emerald-300">{copy.downloadReady}</p>
           <button

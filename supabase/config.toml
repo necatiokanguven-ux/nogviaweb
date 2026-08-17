@@ -20,3 +20,12 @@ verify_jwt = false
 
 [functions.verify-otp]
 verify_jwt = false
+
+[functions.request-payment-otp]
+verify_jwt = false
+
+[functions.verify-payment-otp]
+verify_jwt = false
+
+[functions.submit-crypto-payment]
+verify_jwt = false

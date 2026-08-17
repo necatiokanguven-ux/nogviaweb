@@ -3,6 +3,8 @@ import { PRODUCTS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
 import { useLiteDownload } from '../context/LiteDownloadContext';
+import { useLikelyMobileDevice } from '../lib/deviceSupport';
+import { DesktopPlatformIcons } from './DesktopPlatformIcons';
 import { Check, ShoppingBag, Sparkles, ShieldCheck, Download } from 'lucide-react';
 
 const productMedia = {
@@ -14,6 +16,7 @@ const productMedia = {
 export const ProductsPricingSection: React.FC = () => {
   const { t } = useLanguage();
   const { openModal } = useLiteDownload();
+  const isMobile = useLikelyMobileDevice();
 
   const paidCards = [
     {
@@ -90,10 +93,23 @@ export const ProductsPricingSection: React.FC = () => {
                 ))}
               </ul>
 
+              <div className="mt-6 flex flex-col gap-3">
+                <div className="flex items-center justify-between gap-3 rounded-sm border border-sky-500/25 bg-sky-500/5 px-3 py-2">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-sky-200/80">
+                    {t.desktopOnly.badge}
+                  </span>
+                  <DesktopPlatformIcons size="sm" />
+                </div>
+                <p className="text-[10px] text-white/45 leading-relaxed">
+                  {t.desktopOnly.androidIosNote}
+                </p>
+              </div>
+
               <button
                 type="button"
                 onClick={openModal}
-                className="mt-8 w-full flex items-center justify-center gap-2 py-3.5 px-6 text-xs font-bold uppercase tracking-widest text-black bg-emerald-400 hover:bg-emerald-300 rounded-sm transition-colors"
+                disabled={isMobile}
+                className="mt-4 w-full flex items-center justify-center gap-2 py-3.5 px-6 text-xs font-bold uppercase tracking-widest text-black bg-emerald-400 hover:bg-emerald-300 rounded-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Download className="w-4 h-4" />
                 <span>{t.pricing.liteButton}</span>

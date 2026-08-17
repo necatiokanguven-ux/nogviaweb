@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PRODUCTS } from '../constants/data';
 import { useLanguage } from '../context/LanguageContext';
+import { DesktopOnlyNotice } from './DesktopOnlyNotice';
 import { LiteDownloadForm } from './LiteDownloadForm';
 import {
   ChevronDown,
@@ -31,6 +32,8 @@ export const LiteDownloadSection: React.FC = () => {
           </h2>
           <p className="mt-4 text-base sm:text-lg text-white/60 leading-relaxed">{copy.subtitle}</p>
         </div>
+
+        <DesktopOnlyNotice className="mb-8" />
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8 text-xs text-white/65">
           <div className="flex items-center gap-2 bg-[#0A0A0B] border border-white/10 rounded-sm p-3">

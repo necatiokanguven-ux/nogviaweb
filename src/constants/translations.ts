@@ -22,6 +22,14 @@ export interface Translations {
     buyKit: string;
     pricing: string;
   };
+  desktopOnly: {
+    badge: string;
+    supportedHint: string;
+    androidIosNote: string;
+    mobileBlockedTitle: string;
+    mobileBlockedMessage: string;
+    checkoutNote: string;
+  };
   liteDownload: {
     kicker: string;
     title: string;
@@ -162,6 +170,46 @@ export interface Translations {
       hostKit: string;
       guestGuide: string;
       finance: string;
+    };
+    manualCheckout: {
+      sectionTitle: string;
+      sectionSubtitle: string;
+      firstNameLabel: string;
+      firstNamePlaceholder: string;
+      lastNameLabel: string;
+      lastNamePlaceholder: string;
+      emailLabel: string;
+      emailPlaceholder: string;
+      phoneLabel: string;
+      phonePlaceholder: string;
+      requiredFields: string;
+      invalidPhone: string;
+      sendCodeButton: string;
+      sendingCode: string;
+      codeLabel: string;
+      codePlaceholder: string;
+      codeSent: string;
+      verifyButton: string;
+      verifying: string;
+      resendCode: string;
+      resendCooldown: string;
+      requestError: string;
+      verifyError: string;
+      invalidCode: string;
+      orderCodeLabel: string;
+      bankOrderHint: string;
+      bankPendingMessage: string;
+      bankDoneMessage: string;
+      cryptoPayHint: string;
+      continueToTxButton: string;
+      txHashLabel: string;
+      txHashPlaceholder: string;
+      txHashHint: string;
+      submitTxButton: string;
+      submittingTx: string;
+      submitTxError: string;
+      invalidTxHash: string;
+      cryptoDoneMessage: string;
     };
   };
   hero: {
@@ -383,6 +431,17 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       buyKit: 'Kiti Satın Al',
       pricing: 'Fiyatlar',
     },
+    desktopOnly: {
+      badge: 'Desktop only',
+      supportedHint:
+        'nogvia masaüstü yazılımıdır. Kurulum ve indirme yalnızca desteklenen masaüstü işletim sistemlerinde yapılabilir.',
+      androidIosNote: 'Android ve iOS üzerinde çalıştırılamaz.',
+      mobileBlockedTitle: 'Mobil cihazdan indirme kapalı',
+      mobileBlockedMessage:
+        'Bu yazılım mobil uygulama değildir. Lütfen indirmeyi bir masaüstü bilgisayardan yapın.',
+      checkoutNote:
+        'Satın aldığınız yazılım masaüstü bilgisayar için dijital indirme olarak teslim edilir. Android ve iOS üzerinde çalıştırılamaz.',
+    },
     liteDownload: {
       kicker: 'Ücretsiz · Kısıtlı Sürüm',
       title: 'Host Kit',
@@ -532,15 +591,15 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       ibanTry: 'TL Hesabı (IBAN)',
       ibanUsd: 'USD Hesabı (IBAN)',
       bankIntro:
-        'Aşağıdaki banka hesaplarından birine havale/EFT yapın. Açıklama kısmına e-posta adresinizi ve ürün adını yazın.',
+        'Önce iletişim bilgilerinizi doğrulayın. Size benzersiz bir sipariş kodu vereceğiz — havale açıklamasına yalnızca bu kodu yazın.',
       bankTlNote:
         'TL ile ödeme yapacaksanız sundoviz.com üzerinden USD satış fiyatını kontrol edin, ürün fiyatını (USD) bu kur ile çarparak bulacağınız tutarı TL olarak havale/EFT yapınız.',
       bankCurrencyWarning:
         'Lütfen USD ve TL hesaplarını karıştırmayınız. USD hesabına TL, TL hesabına USD göndermeyiniz.',
       bankNote:
-        'Ödeme açıklamasına mutlaka e-posta adresinizi ve "{product}" yazın. Ödeme sonrası dekontu info@nogvia.com adresine gönderin; indirme linkini 24–48 saat içinde paylaşırız.',
+        'Ödeme onaylandıktan sonra ürün, doğrulanmış e-posta adresinize gönderilir. Sahte bildirimler otomatik teslim alamaz.',
       cryptoIntro:
-        'Yalnızca aşağıdaki adrese USDT (TRC-20) gönderin. Gönderim tutarı seçili ürün fiyatına eşit olmalıdır.',
+        'Önce iletişim bilgilerinizi doğrulayın. Ardından USDT (TRC-20) gönderin ve işlem hash kodunuzu girin.',
       cryptoWarning:
         'Yalnızca USDT (TRC-20) gönderebilirsiniz. Yanlış ağ veya yanlış kripto türü ile yapılan transferlerden sorumlu değiliz. Lütfen adresi ve kripto türünü göndermeden önce kontrol edin.',
       linkIntro:
@@ -553,8 +612,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       noteLabel: 'Not',
       notePlaceholder: 'E-posta adresiniz, sipariş notu veya ödeme referansı…',
       noteHint:
-        'Havale veya kripto sonrası destek ekibine bilgi göndermek için notunuzu ekleyip aşağıdaki butonu kullanabilirsiniz.',
-      notifySupport: 'Ödemeyi Bildir / Destek',
+        'Manuel ödeme bildirimi artık e-posta ile değil, doğrulanmış sipariş formu üzerinden alınır.',
+      notifySupport: 'Destek',
       emailSubject: 'nogvia ödeme bildirimi',
       footerNote: 'Sorularınız için info@nogvia.com — genellikle 48 saat içinde yanıt.',
       copy: 'Kopyala',
@@ -568,6 +627,53 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         hostKit: 'nogvia Host Kit',
         guestGuide: 'Guest Guide Builder',
         finance: 'nogvia Finance',
+      },
+      manualCheckout: {
+        sectionTitle: 'Sipariş doğrulama',
+        sectionSubtitle:
+          'Ad, soyad, e-posta ve telefon bilgilerinizi girin. E-postanıza güvenlik kodu gönderilir. Doğrulama olmadan sipariş oluşturulmaz.',
+        firstNameLabel: 'Ad',
+        firstNamePlaceholder: 'Adınız',
+        lastNameLabel: 'Soyad',
+        lastNamePlaceholder: 'Soyadınız',
+        emailLabel: 'E-posta',
+        emailPlaceholder: 'ornek@email.com',
+        phoneLabel: 'Telefon',
+        phonePlaceholder: '+90 5XX XXX XX XX',
+        requiredFields: 'Lütfen tüm alanları doldurun.',
+        invalidPhone: 'Geçerli bir telefon numarası girin.',
+        sendCodeButton: 'Güvenlik Kodu Gönder',
+        sendingCode: 'Gönderiliyor…',
+        codeLabel: '6 haneli kod',
+        codePlaceholder: '123456',
+        codeSent: 'Doğrulama kodu {email} adresine gönderildi.',
+        verifyButton: 'Doğrula ve Devam Et',
+        verifying: 'Doğrulanıyor…',
+        resendCode: 'Kodu tekrar gönder',
+        resendCooldown: '{seconds} sn sonra tekrar gönderebilirsiniz',
+        requestError: 'Kod gönderilemedi. Lütfen tekrar deneyin.',
+        verifyError: 'Doğrulama başarısız. Kodu kontrol edin.',
+        invalidCode: 'Geçerli 6 haneli bir kod girin.',
+        orderCodeLabel: 'Sipariş kodu (havale açıklaması)',
+        bankOrderHint:
+          'Havale/EFT açıklama alanına yalnızca "{code}" yazın. Ürün: {product}. Başka bir şey yazmayın.',
+        bankPendingMessage:
+          'Ödemenizi bankada gördükten sonra ürün {price} tutarındaki siparişiniz için 24–48 saat içinde doğrulanmış e-posta adresinize gönderilir.',
+        bankDoneMessage:
+          'Bilgileriniz alındı. Ödeme bankada onaylandıktan sonra ürün doğrulanmış e-posta adresinize gönderilecektir.',
+        cryptoPayHint:
+          'Tam olarak {price} USDT (TRC-20) gönderin. Sipariş kodunuz: {code}. Ödeme sonrası işlem hash kodunu girin.',
+        continueToTxButton: 'Ödemeyi Yaptım — Hash Kodunu Gir',
+        txHashLabel: 'TRC-20 işlem hash (TX ID)',
+        txHashPlaceholder: '64 karakterlik transaction hash',
+        txHashHint:
+          'Tronscan üzerindeki işlem hash kodunu girin. Yanlış hash ile sipariş onaylanmaz.',
+        submitTxButton: 'İşlem Hash Kodunu Gönder',
+        submittingTx: 'Gönderiliyor…',
+        submitTxError: 'Hash kodu gönderilemedi. Lütfen tekrar deneyin.',
+        invalidTxHash: 'Geçerli 64 karakterlik bir TRC-20 transaction hash girin.',
+        cryptoDoneMessage:
+          'Hash kodunuz alındı. Ödeme blockchain üzerinde doğrulandıktan sonra ürün e-posta adresinize gönderilecektir.',
       },
     },
     hero: {
@@ -899,6 +1005,17 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       buyKit: 'Get Host Kit',
       pricing: 'Pricing',
     },
+    desktopOnly: {
+      badge: 'Desktop only',
+      supportedHint:
+        'nogvia is desktop software. Download and setup are only available on supported desktop operating systems.',
+      androidIosNote: 'Cannot be installed or run on Android or iOS.',
+      mobileBlockedTitle: 'Download blocked on mobile',
+      mobileBlockedMessage:
+        'This is not a mobile app. Please download from a desktop computer.',
+      checkoutNote:
+        'Your purchase is delivered as a desktop download. Cannot be installed or run on Android or iOS.',
+    },
     liteDownload: {
       kicker: 'Free · Limited Edition',
       title: 'Host Kit',
@@ -1049,15 +1166,15 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       ibanTry: 'TRY Account (IBAN)',
       ibanUsd: 'USD Account (IBAN)',
       bankIntro:
-        'Send a bank transfer to one of the accounts below. Include your email address and product name in the payment reference.',
+        'Verify your contact details first. We will give you a unique order code — put only that code in the bank transfer reference.',
       bankTlNote:
         'If paying in TRY, check the USD selling rate on sundoviz.com, multiply the product price (USD) by that rate, and send the resulting amount in TRY via bank transfer/EFT.',
       bankCurrencyWarning:
         'Please do not mix USD and TRY accounts. Do not send TRY to the USD account or USD to the TRY account.',
       bankNote:
-        'Always include your email and "{product}" in the transfer reference. After payment, email your receipt to info@nogvia.com — we will send your download link within 24–48 hours.',
+        'After payment is confirmed, the product is sent to your verified email. Fake notifications cannot trigger automatic delivery.',
       cryptoIntro:
-        'Send USDT (TRC-20) only to the address below. The amount must match the selected product price.',
+        'Verify your contact details first. Then send USDT (TRC-20) and enter your transaction hash after payment.',
       cryptoWarning:
         'Only USDT (TRC-20) is accepted. We are not responsible for transfers sent on the wrong network or with the wrong cryptocurrency. Please verify the address and asset type before sending.',
       linkIntro:
@@ -1070,8 +1187,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       noteLabel: 'Note',
       notePlaceholder: 'Your email, order note, or payment reference…',
       noteHint:
-        'After a bank transfer or crypto payment, add your details here and use the button below to notify our support team.',
-      notifySupport: 'Notify Payment / Contact Support',
+        'Manual payment notifications are now handled through the verified checkout form, not by email.',
+      notifySupport: 'Support',
       emailSubject: 'nogvia payment notification',
       footerNote: 'Questions? Email info@nogvia.com — we usually reply within 48 hours.',
       copy: 'Copy',
@@ -1085,6 +1202,53 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         hostKit: 'nogvia Host Kit',
         guestGuide: 'Guest Guide Builder',
         finance: 'nogvia Finance',
+      },
+      manualCheckout: {
+        sectionTitle: 'Order verification',
+        sectionSubtitle:
+          'Enter your first name, last name, email, and phone. A security code will be sent to your email. No order is created without verification.',
+        firstNameLabel: 'First name',
+        firstNamePlaceholder: 'Your first name',
+        lastNameLabel: 'Last name',
+        lastNamePlaceholder: 'Your last name',
+        emailLabel: 'Email',
+        emailPlaceholder: 'you@email.com',
+        phoneLabel: 'Phone',
+        phonePlaceholder: '+1 555 000 0000',
+        requiredFields: 'Please fill in all fields.',
+        invalidPhone: 'Enter a valid phone number.',
+        sendCodeButton: 'Send Security Code',
+        sendingCode: 'Sending…',
+        codeLabel: '6-digit code',
+        codePlaceholder: '123456',
+        codeSent: 'Verification code sent to {email}.',
+        verifyButton: 'Verify and Continue',
+        verifying: 'Verifying…',
+        resendCode: 'Resend code',
+        resendCooldown: 'You can resend in {seconds}s',
+        requestError: 'Could not send code. Please try again.',
+        verifyError: 'Verification failed. Check your code.',
+        invalidCode: 'Enter a valid 6-digit code.',
+        orderCodeLabel: 'Order code (transfer reference)',
+        bankOrderHint:
+          'Put only "{code}" in the bank transfer reference field. Product: {product}. Do not add anything else.',
+        bankPendingMessage:
+          'After we see your payment in the bank, your {price} order will be delivered to your verified email within 24–48 hours.',
+        bankDoneMessage:
+          'Your details are saved. After payment is confirmed in the bank, the product will be sent to your verified email.',
+        cryptoPayHint:
+          'Send exactly {price} USDT (TRC-20). Your order code: {code}. After payment, enter your transaction hash.',
+        continueToTxButton: 'I Paid — Enter Transaction Hash',
+        txHashLabel: 'TRC-20 transaction hash (TX ID)',
+        txHashPlaceholder: '64-character transaction hash',
+        txHashHint:
+          'Enter the transaction hash from Tronscan. Orders with an invalid hash will not be approved.',
+        submitTxButton: 'Submit Transaction Hash',
+        submittingTx: 'Submitting…',
+        submitTxError: 'Could not submit hash. Please try again.',
+        invalidTxHash: 'Enter a valid 64-character TRC-20 transaction hash.',
+        cryptoDoneMessage:
+          'Your hash was received. After we verify the payment on the blockchain, the product will be sent to your email.',
       },
     },
     hero: {

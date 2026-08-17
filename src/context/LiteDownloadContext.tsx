@@ -1,5 +1,6 @@
 import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
 import { HOST_KIT_LITE_DOWNLOAD_URL } from '../constants/data';
+import { isLikelyMobileDevice } from '../lib/deviceSupport';
 import { LiteLead, setVerifiedLiteSession } from '../lib/liteDownloadApi';
 
 type LiteDownloadContextValue = {
@@ -16,6 +17,10 @@ export function LiteDownloadProvider({ children }: { children: React.ReactNode }
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const triggerDownload = useCallback(() => {
+    if (isLikelyMobileDevice()) {
+      return;
+    }
+
     const link = document.createElement('a');
     link.href = HOST_KIT_LITE_DOWNLOAD_URL;
     link.download = 'nogvia_hub_lite.zip';

@@ -1,19 +1,15 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   ArrowLeft,
   Building2,
-  Check,
-  Copy,
   ExternalLink,
   Globe,
   Link2,
   Wallet,
 } from 'lucide-react';
 import { NogviaLogo } from './NogviaLogo';
-import { PRODUCTS, PURCHASE_LINK_PROPS, SUPPORT_EMAIL } from '../constants/data';
+import { PRODUCTS, PURCHASE_LINK_PROPS } from '../constants/data';
 import {
-  BANK_DETAILS,
-  CRYPTO_DETAILS,
   ETSY_PRODUCT_URLS,
   LEMON_SQUEEZY_URLS,
   PaymentMethod,
@@ -22,6 +18,8 @@ import {
   parseProductSlugFromSearch,
 } from '../constants/payment';
 import { useLanguage } from '../context/LanguageContext';
+import { DesktopOnlyNotice } from './DesktopOnlyNotice';
+import { ManualPaymentCheckout } from './ManualPaymentCheckout';
 
 const PRODUCT_META: Record<
   ProductSlug,
@@ -31,38 +29,6 @@ const PRODUCT_META: Record<
   'guest-guide': { key: 'guestGuide', labelKey: 'guestGuide' },
   finance: { key: 'finance', labelKey: 'finance' },
 };
-
-function CopyField({ label, value }: { label: string; value: string }) {
-  const { t } = useLanguage();
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(value.replace(/\s/g, ''));
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
-    } catch {
-      /* clipboard unavailable */
-    }
-  }, [value]);
-
-  return (
-    <div className="rounded-sm border border-white/10 bg-[#0A0A0B]/80 p-4">
-      <p className="text-[10px] uppercase tracking-widest text-white/45 mb-2">{label}</p>
-      <div className="flex items-start justify-between gap-3">
-        <p className="font-mono text-sm text-white break-all leading-relaxed">{value}</p>
-        <button
-          type="button"
-          onClick={handleCopy}
-          className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-[#38bdf8]/40 text-[#38bdf8] text-[10px] font-bold uppercase tracking-wider hover:bg-[#38bdf8]/10 transition-colors"
-        >
-          {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-          <span>{copied ? t.payment.copied : t.payment.copy}</span>
-        </button>
-      </div>
-    </div>
-  );
-}
 
 function MethodToggle({
   active,
@@ -110,7 +76,6 @@ function MethodToggle({
 export const PaymentPage: React.FC = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const [method, setMethod] = useState<PaymentMethod>('bank');
-  const [note, setNote] = useState('');
   const [routeTick, setRouteTick] = useState(0);
 
   useEffect(() => {
@@ -195,6 +160,8 @@ export const PaymentPage: React.FC = () => {
           <p className="mt-4 text-white/55 leading-relaxed">{t.payment.subtitle}</p>
         </div>
 
+        <DesktopOnlyNotice className="mb-8" />
+
         <section className="mb-8">
           <div className="flex items-baseline justify-between gap-4 mb-4">
             <h2 className="text-sm font-bold text-white">{t.payment.productLabel}</h2>
@@ -255,15 +222,18 @@ export const PaymentPage: React.FC = () => {
             {method === 'bank' && (
               <div className="space-y-4">
                 <p className="text-sm text-white/65 leading-relaxed">{t.payment.bankIntro}</p>
+                <ManualPaymentCheckout
+                  productSlug={productSlug}
+                  productLabel={productLabel}
+                  productPrice={product.price}
+                  method="bank"
+                />
                 <div className="rounded-sm border border-sky-500/30 bg-sky-500/10 p-4 text-sm text-sky-100/90 leading-relaxed">
                   {t.payment.bankTlNote}
                 </div>
                 <div className="rounded-sm border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-100/90 leading-relaxed">
                   {t.payment.bankCurrencyWarning}
                 </div>
-                <CopyField label={t.payment.accountHolder} value={BANK_DETAILS.accountHolder} />
-                <CopyField label={t.payment.ibanTry} value={BANK_DETAILS.ibanTry} />
-                <CopyField label={t.payment.ibanUsd} value={BANK_DETAILS.ibanUsd} />
                 <div className="rounded-sm border border-[#D4AF37]/25 bg-[#D4AF37]/5 p-4 text-sm text-white/70 leading-relaxed">
                   {t.payment.bankNote.replace('{product}', productLabel)}
                 </div>
@@ -273,9 +243,11 @@ export const PaymentPage: React.FC = () => {
             {method === 'crypto' && (
               <div className="space-y-4">
                 <p className="text-sm text-white/65 leading-relaxed">{t.payment.cryptoIntro}</p>
-                <CopyField
-                  label={`${CRYPTO_DETAILS.currency} (${CRYPTO_DETAILS.network})`}
-                  value={CRYPTO_DETAILS.address}
+                <ManualPaymentCheckout
+                  productSlug={productSlug}
+                  productLabel={productLabel}
+                  productPrice={product.price}
+                  method="crypto"
                 />
                 <div className="rounded-sm border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-amber-100/90 leading-relaxed">
                   {t.payment.cryptoWarning}
@@ -309,29 +281,6 @@ export const PaymentPage: React.FC = () => {
               </div>
             )}
 
-            {(method === 'bank' || method === 'crypto') && (
-              <div className="space-y-3 pt-2">
-                <label className="block">
-                  <span className="text-[10px] uppercase tracking-widest text-white/45">{t.payment.noteLabel}</span>
-                  <textarea
-                    value={note}
-                    onChange={(event) => setNote(event.target.value)}
-                    rows={3}
-                    placeholder={t.payment.notePlaceholder}
-                    className="mt-2 w-full rounded-sm border border-white/10 bg-[#0F0F10] px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#38bdf8]/50 resize-y"
-                  />
-                </label>
-                <p className="text-xs text-white/45 leading-relaxed">{t.payment.noteHint}</p>
-                <a
-                  href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(
-                    `${t.payment.emailSubject} — ${productLabel}`,
-                  )}&body=${encodeURIComponent(note)}`}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-sm border border-white/15 text-white text-xs font-bold uppercase tracking-widest hover:border-[#38bdf8]/50 hover:text-[#38bdf8] transition-colors"
-                >
-                  {t.payment.notifySupport}
-                </a>
-              </div>
-            )}
           </div>
         </section>
 

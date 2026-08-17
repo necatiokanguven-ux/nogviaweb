@@ -3,6 +3,8 @@ import { PRODUCTS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
 import { useLiteDownload } from '../context/LiteDownloadContext';
+import { useLikelyMobileDevice } from '../lib/deviceSupport';
+import { DesktopPlatformIcons } from './DesktopPlatformIcons';
 import {
   Sparkles,
   HardDrive,
@@ -16,6 +18,7 @@ import {
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
   const { openModal } = useLiteDownload();
+  const isMobile = useLikelyMobileDevice();
 
   return (
     <section className="relative pt-28 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-radial-glow">
@@ -52,11 +55,20 @@ export const Hero: React.FC = () => {
               <button
                 type="button"
                 onClick={openModal}
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/40 rounded-sm transition-colors"
+                disabled={isMobile}
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-bold uppercase tracking-widest text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/40 rounded-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Download className="w-4 h-4" />
                 <span>{t.hero.ctaTrial}</span>
               </button>
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-sky-200/80">
+                {t.desktopOnly.badge}
+              </span>
+              <DesktopPlatformIcons size="sm" />
+              <span className="text-[10px] text-white/40">{t.desktopOnly.androidIosNote}</span>
             </div>
 
             <a
