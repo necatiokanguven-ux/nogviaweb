@@ -3,6 +3,7 @@ import { Check, Hash, Mail, Phone, ShieldCheck, User } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { BANK_DETAILS, CRYPTO_DETAILS, ProductSlug } from '../constants/payment';
 import {
+  confirmBankPayment,
   getManualPaymentOrder,
   isValidPhoneInput,
   isValidTxHashInput,
@@ -104,6 +105,14 @@ export const ManualPaymentCheckout: React.FC<ManualPaymentCheckoutProps> = ({
     setOrder(saved);
 
     if (saved.paymentMethod === 'bank') {
+      if (
+        saved.status === 'pending_review' ||
+        saved.status === 'paid' ||
+        saved.status === 'fulfilled'
+      ) {
+        setStep('done');
+        return;
+      }
       setStep('bank_ready');
       return;
     }
@@ -201,6 +210,32 @@ export const ManualPaymentCheckout: React.FC<ManualPaymentCheckoutProps> = ({
       setResendCooldown(60);
     } catch (err) {
       setError(err instanceof Error ? err.message : copy.requestError);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleConfirmBank = async () => {
+    setError('');
+
+    if (!order) {
+      setError(copy.verifyError);
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await confirmBankPayment({
+        orderCode: order.orderCode,
+        email: order.email,
+      });
+
+      const updatedOrder = { ...order, status: 'pending_review' };
+      saveManualPaymentOrder(updatedOrder);
+      setOrder(updatedOrder);
+      setStep('done');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : copy.submitBankError);
     } finally {
       setLoading(false);
     }
@@ -400,6 +435,17 @@ export const ManualPaymentCheckout: React.FC<ManualPaymentCheckoutProps> = ({
           <div className="rounded-sm border border-emerald-500/25 bg-emerald-500/10 p-4 text-sm text-emerald-100/90 leading-relaxed">
             {copy.bankPendingMessage.replace('{price}', productPrice)}
           </div>
+          {error ? <p className="text-sm text-red-400">{error}</p> : null}
+          <button
+            type="button"
+            disabled={loading}
+            onClick={() => {
+              void handleConfirmBank();
+            }}
+            className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 text-xs font-bold uppercase tracking-widest text-black bg-[#38bdf8] hover:bg-[#5cc8ff] rounded-sm transition-colors disabled:opacity-60"
+          >
+            {loading ? copy.submittingBank : copy.confirmBankButton}
+          </button>
         </div>
       ) : null}
 

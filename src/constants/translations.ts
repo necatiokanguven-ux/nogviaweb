@@ -200,6 +200,9 @@ export interface Translations {
       bankOrderHint: string;
       bankPendingMessage: string;
       bankDoneMessage: string;
+      confirmBankButton: string;
+      submittingBank: string;
+      submitBankError: string;
       cryptoPayHint: string;
       continueToTxButton: string;
       txHashLabel: string;
@@ -660,7 +663,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         bankPendingMessage:
           'Ödemenizi bankada gördükten sonra ürün {price} tutarındaki siparişiniz için 24–48 saat içinde doğrulanmış e-posta adresinize gönderilir.',
         bankDoneMessage:
-          'Bilgileriniz alındı. Ödeme bankada onaylandıktan sonra ürün doğrulanmış e-posta adresinize gönderilecektir.',
+          'Teşekkür ederiz. Ödeme bildiriminiz alındı ve onay e-postası gönderildi. Bankada ödemeniz doğrulandıktan sonra indirme linki bu e-posta adresinize iletilecektir (genellikle 24–48 saat).',
+        confirmBankButton: 'Ödemeyi Yaptım',
+        submittingBank: 'Gönderiliyor…',
+        submitBankError: 'Ödeme bildirimi gönderilemedi. Lütfen tekrar deneyin.',
         cryptoPayHint:
           'Tam olarak {price} USDT (TRC-20) gönderin. Sipariş kodunuz: {code}. Ödeme sonrası işlem hash kodunu girin.',
         continueToTxButton: 'Ödemeyi Yaptım — Hash Kodunu Gir',
@@ -1235,7 +1241,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         bankPendingMessage:
           'After we see your payment in the bank, your {price} order will be delivered to your verified email within 24–48 hours.',
         bankDoneMessage:
-          'Your details are saved. After payment is confirmed in the bank, the product will be sent to your verified email.',
+          'Thank you. Your payment notification was received and a confirmation email was sent. After we verify your transfer, your download link will be delivered to this email (usually within 24–48 hours).',
+        confirmBankButton: 'I Have Paid',
+        submittingBank: 'Submitting…',
+        submitBankError: 'Could not submit payment notification. Please try again.',
         cryptoPayHint:
           'Send exactly {price} USDT (TRC-20). Your order code: {code}. After payment, enter your transaction hash.',
         continueToTxButton: 'I Paid — Enter Transaction Hash',

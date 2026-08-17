@@ -34,6 +34,11 @@ export type SubmitCryptoPaymentPayload = {
   txHash: string;
 };
 
+export type ConfirmBankPaymentPayload = {
+  orderCode: string;
+  email: string;
+};
+
 const MANUAL_PAYMENT_SESSION_KEY = 'nogvia-manual-payment-order-v1';
 
 function supabaseHeaders() {
@@ -90,6 +95,13 @@ export async function verifyPaymentOtp(payload: VerifyPaymentOtpPayload) {
 
 export async function submitCryptoPayment(payload: SubmitCryptoPaymentPayload) {
   return postJson<{ success: boolean; message: string }>('/submit-crypto-payment', payload);
+}
+
+export async function confirmBankPayment(payload: ConfirmBankPaymentPayload) {
+  return postJson<{ success: boolean; message: string; alreadySubmitted?: boolean }>(
+    '/confirm-bank-payment',
+    payload,
+  );
 }
 
 export function saveManualPaymentOrder(order: ManualPaymentOrder) {

@@ -29,3 +29,6 @@ verify_jwt = false
 
 [functions.submit-crypto-payment]
 verify_jwt = false
+
+[functions.confirm-bank-payment]
+verify_jwt = false
