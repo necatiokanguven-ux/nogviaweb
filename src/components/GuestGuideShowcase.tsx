@@ -1,7 +1,9 @@
 import React from 'react';
 import { PRODUCTS } from '../constants/data';
 import { MEDIA } from '../constants/media';
+import { VIDEO_CATALOG } from '../constants/videos';
 import { useLanguage } from '../context/LanguageContext';
+import { YoutubeEmbed } from './YoutubeEmbed';
 import {
   QrCode,
   Wifi,
@@ -62,6 +64,16 @@ export const GuestGuideShowcase: React.FC = () => {
                 {t.guestGuide.feat3Desc}
               </p>
             </div>
+          </div>
+
+          <div className="mt-8 p-4 sm:p-6 bg-[#141416] rounded-sm border border-white/10 text-left">
+            <h3 className="text-sm font-serif-luxury text-white">{t.guestGuide.watchHowToTitle}</h3>
+            <p className="mt-1 mb-4 text-xs text-white/60">{t.guestGuide.watchHowToDesc}</p>
+            <YoutubeEmbed
+              youtubeId={VIDEO_CATALOG.guestGuideHowTo.youtubeId}
+              title={t.videos.items.guestGuideHowTo.title}
+              playLabel={t.videos.playLabel}
+            />
           </div>
 
           <div className="mt-8 text-center">

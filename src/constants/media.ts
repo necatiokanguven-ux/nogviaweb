@@ -10,6 +10,4 @@ export const MEDIA = {
   platformWindows: '/images/icons/windows.png',
   platformMacos: '/images/icons/macos.png',
   platformLinux: '/images/icons/linux.png',
-  productWalkthroughVideo: '/videos/product-walkthrough.mp4',
-  hostStoryVideo: '/videos/host-story.mp4',
 } as const;

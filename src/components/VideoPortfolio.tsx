@@ -1,183 +1,118 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { PRODUCTS } from '../constants/data';
-import { MEDIA } from '../constants/media';
 import { useLanguage } from '../context/LanguageContext';
 import {
-  Play,
-  Film,
-  QrCode,
-  Laptop,
-  ShoppingBag,
-  Zap,
-} from 'lucide-react';
+  DEFAULT_VIDEO_KEY,
+  VIDEO_CATALOG,
+  VIDEO_CATEGORIES,
+  VIDEOS_BY_CATEGORY,
+  type VideoCategory,
+  type VideoKey,
+} from '../constants/videos';
+import { YoutubeEmbed } from './YoutubeEmbed';
+import { Film, ShoppingBag } from 'lucide-react';
 
 export const VideoPortfolio: React.FC = () => {
-  const [activeVideo, setActiveVideo] = useState<1 | 2>(2);
   const { t } = useLanguage();
+  const [activeCategory, setActiveCategory] = useState<VideoCategory>('howToUse');
+  const categoryVideos = VIDEOS_BY_CATEGORY[activeCategory];
+  const [activeVideoKey, setActiveVideoKey] = useState<VideoKey>(
+    categoryVideos[0] ?? DEFAULT_VIDEO_KEY,
+  );
+
+  const activeVideo = VIDEO_CATALOG[activeVideoKey];
+  const activeCopy = t.videos.items[activeVideoKey];
+
+  const sidebarVideos = useMemo(
+    () => categoryVideos.map((key) => ({ key, entry: VIDEO_CATALOG[key] })),
+    [categoryVideos],
+  );
+
+  const handleCategoryChange = (category: VideoCategory) => {
+    setActiveCategory(category);
+    const first = VIDEOS_BY_CATEGORY[category][0];
+    if (first) setActiveVideoKey(first);
+  };
 
   return (
     <section id="videos" className="py-20 md:py-32 bg-[#0A0A0B] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-sm bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-semibold uppercase tracking-widest mb-4">
             <Film className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>{t.videos.kicker}</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-serif-luxury font-light text-white tracking-tight">
-            {t.videos.title} <span className="text-[#D4AF37] font-bold">{t.videos.titleAccent}</span>
+            {t.videos.title}{' '}
+            <span className="text-[#D4AF37] font-bold">{t.videos.titleAccent}</span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-white/60">
-            {t.videos.subtitle}
-          </p>
+          <p className="mt-4 text-base sm:text-lg text-white/60">{t.videos.subtitle}</p>
         </div>
 
-        {/* Video Selector Tabs */}
-        <div className="flex flex-col sm:flex-row justify-center mb-8 gap-3">
-          <button
-            onClick={() => setActiveVideo(2)}
-            className={`flex items-center justify-center gap-2 px-5 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all ${
-              activeVideo === 2
-                ? 'bg-[#D4AF37] text-black shadow-lg glow-gold'
-                : 'bg-[#0F0F10] text-white/60 hover:text-white border border-white/10'
-            }`}
-          >
-            <Play className="w-4 h-4 fill-current" />
-            <span>{t.videos.video1Tab}</span>
-          </button>
-
-          <button
-            onClick={() => setActiveVideo(1)}
-            className={`flex items-center justify-center gap-2 px-5 py-3 rounded-sm text-xs font-bold uppercase tracking-wider transition-all ${
-              activeVideo === 1
-                ? 'bg-[#D4AF37] text-black shadow-lg glow-gold'
-                : 'bg-[#0F0F10] text-white/60 hover:text-white border border-white/10'
-            }`}
-          >
-            <Play className="w-4 h-4 fill-current" />
-            <span>{t.videos.video2Tab}</span>
-          </button>
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {VIDEO_CATEGORIES.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => handleCategoryChange(category)}
+              className={`px-4 py-2.5 rounded-sm text-[11px] font-bold uppercase tracking-wider transition-all ${
+                activeCategory === category
+                  ? 'bg-[#D4AF37] text-black shadow-lg glow-gold'
+                  : 'bg-[#0F0F10] text-white/60 hover:text-white border border-white/10'
+              }`}
+            >
+              {t.videos.categories[category]}
+            </button>
+          ))}
         </div>
 
-        {/* Main Video Showcase Frame */}
-        <div className="max-w-4xl mx-auto bg-[#0F0F10] rounded-sm border border-white/10 overflow-hidden shadow-2xl relative">
-          {activeVideo === 2 ? (
-            <div className="p-6 sm:p-10 space-y-6 text-left">
-              <div className="space-y-4">
-                <div className="flex justify-between items-start gap-3">
-                  <span className="bg-[#D4AF37] text-black text-[10px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-wider">
-                    {t.videos.v1Tag}
-                  </span>
-                  <h3 className="text-sm sm:text-base font-serif-luxury text-white text-right">
-                    {t.videos.v1Title}
-                  </h3>
-                </div>
-
-                <div className="aspect-video w-full bg-[#0A0A0B] rounded-sm overflow-hidden border border-white/10">
-                  <video
-                    key={MEDIA.productWalkthroughVideo}
-                    className="w-full h-full object-cover"
-                    controls
-                    playsInline
-                    preload="metadata"
-                    poster={MEDIA.heroHostKit}
-                  >
-                    <source src={MEDIA.productWalkthroughVideo} type="video/mp4" />
-                  </video>
-                </div>
-
-                <p className="text-xs sm:text-sm text-white/60 max-w-2xl">
-                  {t.videos.v1Sub}
-                </p>
+        <div className="max-w-5xl mx-auto bg-[#0F0F10] rounded-sm border border-white/10 overflow-hidden shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_240px]">
+            <div className="p-6 sm:p-8 space-y-4 text-left border-b lg:border-b-0 lg:border-r border-white/10">
+              <div>
+                <h3 className="text-lg font-serif-luxury text-white">{activeCopy.title}</h3>
+                <p className="mt-2 text-sm text-white/60">{activeCopy.description}</p>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] font-mono text-white/50">
-                  <div className="bg-[#141416] p-2 rounded-sm border border-white/5">
-                    <span className="text-[#D4AF37] font-bold block">0:01</span> {t.videos.v1Timeline.t1}
-                  </div>
-                  <div className="bg-[#141416] p-2 rounded-sm border border-white/5">
-                    <span className="text-sky-400 font-bold block">0:03</span> {t.videos.v1Timeline.t2}
-                  </div>
-                  <div className="bg-[#141416] p-2 rounded-sm border border-white/5">
-                    <span className="text-[#D4AF37] font-bold block">0:06</span> {t.videos.v1Timeline.t3}
-                  </div>
-                  <div className="bg-[#141416] p-2 rounded-sm border border-white/5">
-                    <span className="text-emerald-400 font-bold block">0:12</span> {t.videos.v1Timeline.t4}
-                  </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4 bg-[#141416] rounded-sm border border-white/10">
-                  <h4 className="text-sm font-serif-luxury text-white flex items-center gap-2">
-                    <QrCode className="w-4 h-4 text-[#D4AF37]" /> {t.videos.v1Feat1Title}
-                  </h4>
-                  <p className="text-xs text-white/60 mt-1">
-                    {t.videos.v1Feat1Desc}
-                  </p>
-                </div>
-
-                <div className="p-4 bg-[#141416] rounded-sm border border-white/10">
-                  <h4 className="text-sm font-serif-luxury text-white flex items-center gap-2">
-                    <Laptop className="w-4 h-4 text-emerald-400" /> {t.videos.v1Feat2Title}
-                  </h4>
-                  <p className="text-xs text-white/60 mt-1">
-                    {t.videos.v1Feat2Desc}
-                  </p>
-                </div>
-              </div>
+              <YoutubeEmbed
+                key={activeVideoKey}
+                youtubeId={activeVideo.youtubeId}
+                title={activeCopy.title}
+                playLabel={t.videos.playLabel}
+              />
             </div>
-          ) : (
-            <div className="p-6 sm:p-10 space-y-6 text-left">
-              <div className="space-y-4">
-                <div className="flex justify-between items-start gap-3">
-                  <span className="bg-[#D4AF37] text-black text-[10px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-wider">
-                    {t.videos.v2Tag}
-                  </span>
-                  <h3 className="text-sm sm:text-base font-serif-luxury text-white text-right">
-                    {t.videos.v2Title}
-                  </h3>
-                </div>
 
-                <div className="aspect-video w-full bg-[#0A0A0B] rounded-sm overflow-hidden border border-white/10">
-                  <video
-                    key={MEDIA.hostStoryVideo}
-                    className="w-full h-full object-cover"
-                    controls
-                    playsInline
-                    preload="metadata"
-                    poster={MEDIA.heroHostKit}
+            <aside className="p-4 sm:p-5 bg-[#141416] space-y-2">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-3">
+                {t.videos.categories[activeCategory]}
+              </p>
+              {sidebarVideos.map(({ key }) => {
+                const copy = t.videos.items[key];
+                const isActive = key === activeVideoKey;
+
+                return (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => setActiveVideoKey(key)}
+                    className={`w-full text-left p-3 rounded-sm border transition-colors ${
+                      isActive
+                        ? 'border-[#D4AF37]/50 bg-[#D4AF37]/10'
+                        : 'border-white/5 bg-[#0F0F10] hover:border-white/15'
+                    }`}
                   >
-                    <source src={MEDIA.hostStoryVideo} type="video/mp4" />
-                  </video>
-                </div>
-
-                <p className="text-xs sm:text-sm text-white/60 max-w-2xl">
-                  {t.videos.v2Sub}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-3 gap-2 text-[11px] font-mono text-white/50">
-                  <div className="bg-[#141416] p-2 rounded-sm border border-white/5">
-                    <span className="text-red-400 font-bold block">Phase 1</span> {t.videos.v2Timeline.t1}
-                  </div>
-                  <div className="bg-[#141416] p-2 rounded-sm border border-white/5">
-                    <span className="text-yellow-400 font-bold block">Phase 2</span> {t.videos.v2Timeline.t2}
-                  </div>
-                  <div className="bg-[#141416] p-2 rounded-sm border border-white/5">
-                    <span className="text-emerald-400 font-bold block">Phase 3</span> {t.videos.v2Timeline.t3}
-                  </div>
-              </div>
-
-              <div className="p-4 bg-[#141416] rounded-sm border border-white/10">
-                <h4 className="text-sm font-serif-luxury text-white flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-[#D4AF37]" /> {t.videos.v2FeatTitle}
-                </h4>
-                <p className="text-xs text-white/60 mt-1">
-                  {t.videos.v2FeatDesc}
-                </p>
-              </div>
-            </div>
-          )}
+                    <span
+                      className={`block text-xs font-semibold leading-snug ${
+                        isActive ? 'text-[#D4AF37]' : 'text-white'
+                      }`}
+                    >
+                      {copy.title}
+                    </span>
+                  </button>
+                );
+              })}
+            </aside>
+          </div>
 
           <div className="p-6 bg-[#141416] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
@@ -197,5 +132,3 @@ export const VideoPortfolio: React.FC = () => {
     </section>
   );
 };
-
-

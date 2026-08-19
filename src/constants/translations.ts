@@ -277,6 +277,8 @@ export interface Translations {
     feat2Desc: string;
     feat3Title: string;
     feat3Desc: string;
+    watchHowToTitle: string;
+    watchHowToDesc: string;
     buyButton: string;
   };
   finance: {
@@ -309,6 +311,8 @@ export interface Translations {
     feat3Desc: string;
     excelExportTitle: string;
     excelExportDesc: string;
+    watchHowToTitle: string;
+    watchHowToDesc: string;
     buyButton: string;
   };
   videos: {
@@ -316,31 +320,22 @@ export interface Translations {
     title: string;
     titleAccent: string;
     subtitle: string;
-    video1Tab: string;
-    video2Tab: string;
-    v1Tag: string;
-    v1Title: string;
-    v1Sub: string;
-    v1Timeline: {
-      t1: string;
-      t2: string;
-      t3: string;
-      t4: string;
+    playLabel: string;
+    categories: {
+      howToUse: string;
+      installation: string;
+      guides: string;
+      marketing: string;
     };
-    v1Feat1Title: string;
-    v1Feat1Desc: string;
-    v1Feat2Title: string;
-    v1Feat2Desc: string;
-    v2Tag: string;
-    v2Title: string;
-    v2Sub: string;
-    v2Timeline: {
-      t1: string;
-      t2: string;
-      t3: string;
+    items: {
+      guestGuideHowTo: { title: string; description: string };
+      financeHowTo: { title: string; description: string };
+      liteInstall: { title: string; description: string };
+      guestGuidePublishQr: { title: string; description: string };
+      guestGuideCustomSection: { title: string; description: string };
+      marketingHubkits: { title: string; description: string };
+      marketingStopManaging: { title: string; description: string };
     };
-    v2FeatTitle: string;
-    v2FeatDesc: string;
     ctaTitle: string;
     ctaSub: string;
     buyButton: string;
@@ -754,6 +749,9 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       feat2Desc: 'Misafirler WiFi şifresini tek tıkla kopyalar, yanlış yazma ve gece yarısı mesajları sona erer.',
       feat3Title: 'Doğrudan Arama & WhatsApp Butonları',
       feat3Desc: 'Acil durumlarda misafirler numara aramadan doğrudan tek tıkla size ulaşabilir.',
+      watchHowToTitle: 'Nasıl kullanılır?',
+      watchHowToDesc:
+        'Guest Guide Builder ile dijital misafir rehberinizi adım adım nasıl oluşturacağınızı izleyin.',
       buyButton: 'Guest Guide\'ı Satın Al — $29',
     },
     finance: {
@@ -786,38 +784,54 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       feat3Desc: 'Muhasebeciniz veya vergi danışmanınız için biçimlendirilmiş .xlsx dosyalarını tek tıkla oluşturun.',
       excelExportTitle: 'Excel ve Google Sheets\'e Aktarın',
       excelExportDesc: 'Finans tablonuzu tek tıkla .xlsx olarak dışa aktarın, Google Sheets\'e yükleyin ve tüm gelir-gider hareketlerinize her yerden erişin.',
+      watchHowToTitle: 'Nasıl kullanılır?',
+      watchHowToDesc:
+        'Finance Tracker ile gelir, gider ve raporları bilgisayarınızda nasıl yöneteceğinizi izleyin.',
       buyButton: 'nogvia Finance\'ı Satın Al — $29',
     },
     videos: {
-      kicker: 'Ürün Tanıtımları ve Videolar',
-      title: 'nogvia Host Kit\'i',
-      titleAccent: 'İş Başında Görün',
-      subtitle: 'Çevrimdışı olarak QR misafir rehberleri oluşturmanın ve finansları yönetmenin ne kadar basit olduğunu izleyin.',
-      video1Tab: 'Video 1: Tam Ürün Tanıtımı',
-      video2Tab: 'Video 2: Ev Sahibi Dönüşüm Hikayesi',
-      v1Tag: 'Eksiksiz Tanıtım',
-      v1Title: 'nogvia Host Kit - Gerçek Bağımsız Masaüstü Uygulaması',
-      v1Sub: '"TEK SEFER AL, ÖMÜR BOYU KULLAN! CANVA YOK. ŞABLON YOK."',
-      v1Timeline: {
-        t1: 'QR Kod Taraması',
-        t2: 'Mobil Misafir Rehberi',
-        t3: 'Masaüstü Düzenleyici',
-        t4: 'Finans Paneli',
+      kicker: 'Eğitim Videoları',
+      title: 'nogvia\'yı',
+      titleAccent: 'İzleyerek Öğrenin',
+      subtitle:
+        'Guest Guide, Finance, kurulum ve gelişmiş rehberler — tüm videolar tek yerde. Performans için videolar tıklayınca yüklenir.',
+      playLabel: 'Videoyu oynat',
+      categories: {
+        howToUse: 'Nasıl kullanılır',
+        installation: 'Kurulum',
+        guides: 'Rehberler',
+        marketing: 'Tanıtım',
       },
-      v1Feat1Title: 'Anında QR Kod Taraması',
-      v1Feat1Desc: 'Misafirler duvardaki çerçeveyi veya etiketi taratarak WiFi şifrelerini ve ev kurallarını anında görüntüler.',
-      v1Feat2Title: 'Bütünleşik Masaüstü Merkezi',
-      v1Feat2Desc: '`start-hub` ile misafir rehberlerini ve finansları bilgisayarınızdan çevrimdışı yönetin.',
-      v2Tag: 'Dönüşüm Hikayesi',
-      v2Title: 'Esnemiş Tablolardan Çevrimdışı Huzura',
-      v2Sub: 'Dağınık ev sahibi notlarının nogvia ile nasıl şık bir çevrimdışı çalışma alanına dönüştüğünü görün.',
-      v2Timeline: {
-        t1: 'Kağıt Karmaşası & Stres',
-        t2: 'Dönüşüm Süreci',
-        t3: 'Düzenli nogvia Çalışma Alanı',
+      items: {
+        guestGuideHowTo: {
+          title: 'Guest Guide Builder — Nasıl kullanılır',
+          description: 'Dijital misafir rehberinizi sıfırdan oluşturmayı öğrenin.',
+        },
+        financeHowTo: {
+          title: 'Finance Tracker — Nasıl kullanılır',
+          description: 'Gelir, gider ve raporları yerel panelde yönetin.',
+        },
+        liteInstall: {
+          title: 'Host Kit Lite — İndirme ve kurulum',
+          description: 'Ücretsiz Lite sürümünü bilgisayarınıza kurun.',
+        },
+        guestGuidePublishQr: {
+          title: 'Rehberi yayınlama + QR kod',
+          description: 'Rehberinizi çevrimiçi yayınlayın ve QR kod oluşturun.',
+        },
+        guestGuideCustomSection: {
+          title: 'Özel bölüm ekleme',
+          description: 'Guest Guide\'a kendi özel bölümlerinizi ekleyin.',
+        },
+        marketingHubkits: {
+          title: 'nogvia Hub Kits tanıtım',
+          description: 'Airbnb, Vrbo, Booking ve otel kiralamalarını tek yerden yönetin.',
+        },
+        marketingStopManaging: {
+          title: 'Her şeyi kendiniz yönetmeyi bırakın',
+          description: 'Ev sahipleri için çevrimdışı nogvia çözümü.',
+        },
       },
-      v2FeatTitle: 'Dağınık Notlara Son Verin',
-      v2FeatDesc: 'Kağıt ev kurallarını ve karmaşık hesaplamaları ömür boyu sürecek dijital çevrimdışı bir çözümle değiştirin.',
       ctaTitle: 'Kiralık mülkünüzü düzene sokmaya hazır mısınız?',
       ctaSub: 'nogvia.com üzerinden anında dijital indirme. Tek ödeme $49.',
       buyButton: 'Host Kit\'i Satın Al — $49',
@@ -1332,6 +1346,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       feat2Desc: 'Guests can copy WiFi passwords with a single tap, eliminating typos and late-night host questions.',
       feat3Title: 'Direct Phone & WhatsApp Triggers',
       feat3Desc: 'One-click buttons allow guests to call or message you directly during emergencies without digging for numbers.',
+      watchHowToTitle: 'How to use',
+      watchHowToDesc: 'Watch how to build your digital guest guide step by step.',
       buyButton: 'Buy Guest Guide — $29',
     },
     finance: {
@@ -1364,38 +1380,53 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       feat3Desc: 'Generate clean `.xlsx` spreadsheets formatted for your accountant or tax advisor in one click.',
       excelExportTitle: 'Export to Excel & Google Sheets',
       excelExportDesc: 'Export your finance table as an .xlsx file, import it into Google Sheets, and review every rental transaction from anywhere.',
+      watchHowToTitle: 'How to use',
+      watchHowToDesc: 'Watch how to track income, expenses, and reports on your computer.',
       buyButton: 'Buy nogvia Finance — $29',
     },
     videos: {
-      kicker: 'Product Demonstrations & Videos',
-      title: 'See nogvia Host Kit',
-      titleAccent: 'in Action',
-      subtitle: 'Watch how simple it is to generate QR guest guides and manage rental finances offline.',
-      video1Tab: 'Video 1: Full Product Walkthrough',
-      video2Tab: 'Video 2: Host Transformation Story',
-      v1Tag: 'Full Showcase',
-      v1Title: 'nogvia Host Kit - Real Standalone App Demo',
-      v1Sub: '"BUY ONCE, USE LIFETIME! NO CANVA. NO TEMPLATES."',
-      v1Timeline: {
-        t1: 'QR Scan Wall',
-        t2: 'Mobile Guest Guide',
-        t3: 'Desktop Builder',
-        t4: 'Finance Dashboard',
+      kicker: 'Video Tutorials',
+      title: 'Learn nogvia',
+      titleAccent: 'by Watching',
+      subtitle:
+        'Guest Guide, Finance, setup, and advanced guides — all in one place. Videos load on click for faster page speed.',
+      playLabel: 'Play video',
+      categories: {
+        howToUse: 'How to use',
+        installation: 'Installation',
+        guides: 'Guides',
+        marketing: 'Overview',
       },
-      v1Feat1Title: 'Instant QR Scanning',
-      v1Feat1Desc: 'Guests scan the wall frame or sticker to instantly view WiFi passwords and house rules on their mobile screen.',
-      v1Feat2Title: 'Unified Desktop Hub',
-      v1Feat2Desc: 'Launch `start-hub` to manage guest guides and rental finances locally from one computer workspace.',
-      v2Tag: 'Transformation Story',
-      v2Title: 'From Spreadsheet Chaos to Offline Peace of Mind',
-      v2Sub: 'Watch how host clutter transforms into a sleek, organized offline workspace with nogvia.',
-      v2Timeline: {
-        t1: 'Paper Chaos & Stress',
-        t2: 'Transformation',
-        t3: 'Clean nogvia Workspace',
+      items: {
+        guestGuideHowTo: {
+          title: 'Guest Guide Builder — How to use',
+          description: 'Learn how to create your digital guest guide from scratch.',
+        },
+        financeHowTo: {
+          title: 'Finance Tracker — How to use',
+          description: 'Manage income, expenses, and reports in the local panel.',
+        },
+        liteInstall: {
+          title: 'Host Kit Lite — Download & install',
+          description: 'Install the free Lite edition on your desktop.',
+        },
+        guestGuidePublishQr: {
+          title: 'Publish online + QR code',
+          description: 'Publish your guide online and generate a QR code.',
+        },
+        guestGuideCustomSection: {
+          title: 'Add a custom section',
+          description: 'Add your own custom sections to the guest guide.',
+        },
+        marketingHubkits: {
+          title: 'nogvia Hub Kits overview',
+          description: 'Manage Airbnb, Vrbo, Booking, and hotel rentals in one place.',
+        },
+        marketingStopManaging: {
+          title: 'Stop managing everything yourself',
+          description: 'The offline nogvia solution for rental hosts.',
+        },
       },
-      v2FeatTitle: 'Never Settle for Messy Notes Again',
-      v2FeatDesc: 'Replace stacks of sticky notes, calculators, and coffee-stained paper house rules with an elegant, digital offline solution that lasts a lifetime.',
       ctaTitle: 'Ready to streamline your rental?',
       ctaSub: 'Instant digital download via nogvia.com. Pay once $49.',
       buyButton: 'Buy Host Kit — $49',
