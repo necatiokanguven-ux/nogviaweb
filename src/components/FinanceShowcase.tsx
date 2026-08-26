@@ -1,5 +1,5 @@
 import React from 'react';
-import { PRODUCTS, WEB_DEMO_URLS } from '../constants/data';
+import { PRODUCTS, WEB_DEMO_URLS, DEMO_LINK_PROPS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { VIDEO_CATALOG } from '../constants/videos';
 import { useLanguage } from '../context/LanguageContext';
@@ -95,6 +95,7 @@ export const FinanceShowcase: React.FC = () => {
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href={WEB_DEMO_URLS.finance}
+              {...DEMO_LINK_PROPS}
               className="inline-flex items-center gap-2 px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-white bg-white/10 hover:bg-white/20 border border-white/15 rounded-sm transition-colors"
             >
               <ExternalLink className="w-4 h-4" />

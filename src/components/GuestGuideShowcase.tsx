@@ -1,5 +1,5 @@
 import React from 'react';
-import { PRODUCTS, WEB_DEMO_URLS } from '../constants/data';
+import { PRODUCTS, WEB_DEMO_URLS, DEMO_LINK_PROPS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { VIDEO_CATALOG } from '../constants/videos';
 import { useLanguage } from '../context/LanguageContext';
@@ -78,6 +78,7 @@ export const GuestGuideShowcase: React.FC = () => {
               <p className="mt-2 text-sm text-white/60 leading-relaxed">{t.guestGuide.liveDemoDesc}</p>
               <a
                 href={WEB_DEMO_URLS.guestGuide}
+                {...DEMO_LINK_PROPS}
                 className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 text-[10px] font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm transition-colors"
               >
                 <ExternalLink className="w-3.5 h-3.5" />

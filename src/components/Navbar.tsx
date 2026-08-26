@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NogviaLogo } from './NogviaLogo';
-import { PRODUCTS, BRAND_INFO, WEB_DEMO_URLS } from '../constants/data';
+import { PRODUCTS, BRAND_INFO, WEB_DEMO_URLS, DEMO_LINK_PROPS } from '../constants/data';
 import { ShoppingBag, Menu, X, ShieldCheck, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -53,6 +53,7 @@ export const Navbar: React.FC = () => {
               <a
                 key={idx}
                 href={link.href}
+                {...(link.external ? DEMO_LINK_PROPS : {})}
                 className={`text-xs tracking-widest uppercase font-medium transition-colors ${
                   link.external
                     ? 'text-sky-300/90 hover:text-sky-200'
@@ -119,7 +120,10 @@ export const Navbar: React.FC = () => {
               <a
                 key={idx}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                {...(link.external ? DEMO_LINK_PROPS : {})}
+                onClick={() => {
+                  if (!link.external) setMobileMenuOpen(false)
+                }}
                 className={`text-sm font-semibold tracking-widest uppercase py-2 border-b border-white/5 ${
                   link.external
                     ? 'text-sky-300 hover:text-sky-200'

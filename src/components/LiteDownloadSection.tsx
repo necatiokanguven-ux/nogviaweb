@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PRODUCTS, WEB_DEMO_URLS } from '../constants/data';
+import { PRODUCTS, WEB_DEMO_URLS, DEMO_LINK_PROPS } from '../constants/data';
 import { useLanguage } from '../context/LanguageContext';
 import { DesktopOnlyNotice } from './DesktopOnlyNotice';
 import { LiteDownloadForm } from './LiteDownloadForm';
@@ -106,6 +106,7 @@ export const LiteDownloadSection: React.FC = () => {
               <div className="mt-4 flex flex-col sm:flex-row gap-3">
                 <a
                   href={WEB_DEMO_URLS.guestGuide}
+                  {...DEMO_LINK_PROPS}
                   className="inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-bold uppercase tracking-widest text-black bg-sky-400 hover:bg-white rounded-sm transition-colors"
                 >
                   <ExternalLink className="w-4 h-4" />
@@ -113,6 +114,7 @@ export const LiteDownloadSection: React.FC = () => {
                 </a>
                 <a
                   href={WEB_DEMO_URLS.finance}
+                  {...DEMO_LINK_PROPS}
                   className="inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-bold uppercase tracking-widest text-white bg-white/10 hover:bg-white/20 border border-white/15 rounded-sm transition-colors"
                 >
                   <ExternalLink className="w-4 h-4" />
