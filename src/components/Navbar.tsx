@@ -77,11 +77,6 @@ export const Navbar: React.FC = () => {
               <span>{language === 'tr' ? 'TR | EN' : 'EN | TR'}</span>
             </button>
 
-            <div className="hidden lg:flex items-center gap-1.5 text-xs text-white/50 bg-[#0F0F10] px-3.5 py-1.5 rounded-sm border border-white/10">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span className="tracking-wider uppercase text-[10px]">{t.nav.payOnceBadge}</span>
-            </div>
-
             <a
               href={PRODUCTS.hostKit.checkoutUrl}
               className="relative inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none"
