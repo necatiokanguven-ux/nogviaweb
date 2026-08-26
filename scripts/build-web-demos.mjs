@@ -8,23 +8,38 @@ const workspace = join(root, '..')
 const guestGuideDir = join(workspace, 'nogvia_guest-guide')
 const financeDir = join(workspace, 'nogvia_finance')
 const demoRoot = join(root, 'public', 'demo')
+const guestDemoIndex = join(demoRoot, 'guest-guide', 'index.html')
+const financeDemoIndex = join(demoRoot, 'finance', 'index.html')
 
 function run(command, cwd) {
   execSync(command, { cwd, stdio: 'inherit', shell: true })
 }
 
+function hasCommittedDemos() {
+  return existsSync(guestDemoIndex) && existsSync(financeDemoIndex)
+}
+
 if (process.env.SKIP_WEB_DEMOS === '1') {
-  console.log('SKIP_WEB_DEMOS=1 — browser demo build skipped.')
+  if (hasCommittedDemos()) {
+    console.log('SKIP_WEB_DEMOS=1 — using committed demo bundles in public/demo/.')
+  } else {
+    console.warn('SKIP_WEB_DEMOS=1 but public/demo bundles are missing.')
+  }
   process.exit(0)
 }
 
-for (const [label, dir] of [
-  ['nogvia_guest-guide', guestGuideDir],
-  ['nogvia_finance', financeDir],
-]) {
-  if (!existsSync(join(dir, 'package.json'))) {
-    throw new Error(`Missing ${label} at ${dir}. Set SKIP_WEB_DEMOS=1 to skip demo bundling.`)
+const hasGuestGuideRepo = existsSync(join(guestGuideDir, 'package.json'))
+const hasFinanceRepo = existsSync(join(financeDir, 'package.json'))
+
+if (!hasGuestGuideRepo || !hasFinanceRepo) {
+  if (hasCommittedDemos()) {
+    console.log('Sibling app repos not found — using committed demo bundles in public/demo/.')
+    process.exit(0)
   }
+
+  throw new Error(
+    'Missing nogvia_guest-guide or nogvia_finance repo, and no committed demo bundles in public/demo/.',
+  )
 }
 
 console.log('Building Guest Guide web demo…')

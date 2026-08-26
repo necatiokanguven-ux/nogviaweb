@@ -1,0 +1,226 @@
+{
+  "projectVersion": 1,
+  "savedAt": "2026-08-04T08:00:00.000Z",
+  "project": {
+    "branding": {
+      "projectName": "Sunset Bay Villa Guide",
+      "brandName": "Sunset Bay Estate",
+      "tagline": "Coastal luxury with private pool and ocean views",
+      "logoMediaId": null,
+      "heroImageMediaId": "media-demo-hero",
+      "faviconMediaId": null,
+      "accentColor": "#f97316",
+      "theme": "minimal"
+    },
+    "publishSettings": {
+      "websiteUrl": "https://sunsetbay.example.com/guest-guide"
+    },
+    "mediaLibrary": [
+      {
+        "id": "media-demo-hero",
+        "name": "Villa Exterior at Sunset",
+        "fileName": "villa-exterior.jpg",
+        "kind": "image",
+        "mimeType": "image/jpeg",
+        "url": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80",
+        "createdAt": "2026-08-04T08:00:00.000Z"
+      },
+      {
+        "id": "media-demo-pool",
+        "name": "Infinity Pool",
+        "fileName": "infinity-pool.jpg",
+        "kind": "image",
+        "mimeType": "image/jpeg",
+        "url": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+        "createdAt": "2026-08-04T08:00:00.000Z"
+      },
+      {
+        "id": "media-demo-living",
+        "name": "Open-Plan Living Room",
+        "fileName": "living-room.jpg",
+        "kind": "image",
+        "mimeType": "image/jpeg",
+        "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+        "createdAt": "2026-08-04T08:00:00.000Z"
+      },
+      {
+        "id": "media-demo-bedroom",
+        "name": "Master Suite",
+        "fileName": "master-bedroom.jpg",
+        "kind": "image",
+        "mimeType": "image/jpeg",
+        "url": "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80",
+        "createdAt": "2026-08-04T08:00:00.000Z"
+      },
+      {
+        "id": "media-demo-dining",
+        "name": "Outdoor Dining Terrace",
+        "fileName": "dining-terrace.jpg",
+        "kind": "image",
+        "mimeType": "image/jpeg",
+        "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+        "createdAt": "2026-08-04T08:00:00.000Z"
+      },
+      {
+        "id": "media-demo-house-manual",
+        "name": "House Manual PDF",
+        "fileName": "house-manual.pdf",
+        "kind": "document",
+        "mimeType": "application/pdf",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        "createdAt": "2026-08-04T08:00:00.000Z"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "section-demo-welcome",
+        "type": "sectionHeader",
+        "title": "Welcome",
+        "heading": "Welcome to Sunset Bay Villa",
+        "subtitle": "Your private coastal retreat"
+      },
+      {
+        "id": "property-demo",
+        "type": "property",
+        "title": "Property Overview",
+        "subtitle": "Private villa",
+        "description": "A contemporary cliffside villa with panoramic ocean views, heated infinity pool, and concierge-style guest services.",
+        "property": {
+          "name": "Sunset Bay Villa",
+          "type": "Luxury vacation rental",
+          "shortDescription": "A contemporary cliffside villa with panoramic ocean views, heated infinity pool, and concierge-style guest services.",
+          "maxGuests": "8",
+          "bedrooms": "4",
+          "beds": "5",
+          "bathrooms": "4",
+          "highlights": ["Ocean-view infinity pool", "Private chef on request", "Smart home controls", "Gated parking"],
+          "coverImage": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=80"
+        }
+      },
+      {
+        "id": "welcome-demo",
+        "type": "welcome",
+        "title": "Welcome Message",
+        "subtitle": "We are delighted to host you",
+        "message": "Thank you for choosing Sunset Bay Villa. This digital guide includes WiFi details, house rules, appliance instructions, local recommendations, and emergency contacts. Your host team is available throughout your stay."
+      },
+      {
+        "id": "gallery-demo",
+        "type": "gallery",
+        "title": "Photo Gallery",
+        "images": [],
+        "mediaIds": ["media-demo-pool", "media-demo-living", "media-demo-bedroom", "media-demo-dining"]
+      },
+      {
+        "id": "section-demo-stay",
+        "type": "sectionHeader",
+        "title": "During Your Stay",
+        "heading": "During Your Stay",
+        "subtitle": "WiFi, rules, and home guide"
+      },
+      {
+        "id": "wifi-demo",
+        "type": "wifi",
+        "title": "WiFi",
+        "networkName": "SunsetBay_Guest",
+        "password": "Stay2026!",
+        "notes": "Fiber internet throughout the villa, pool deck, and guest suite. QR code for one-tap connection is on the kitchen counter card."
+      },
+      {
+        "id": "houseRules-demo",
+        "type": "houseRules",
+        "title": "House Rules",
+        "items": [
+          { "id": "hr-demo-1", "label": "Check-in / Check-out", "value": "Check-in from 4:00 PM. Check-out by 11:00 AM." },
+          { "id": "hr-demo-2", "label": "Quiet hours", "value": "10:00 PM – 8:00 AM. Please keep music low on the terrace." },
+          { "id": "hr-demo-3", "label": "Pool safety", "value": "No glass near the pool. Children must be supervised at all times." },
+          { "id": "hr-demo-4", "label": "Events", "value": "Small gatherings up to 12 guests require prior approval." }
+        ]
+      },
+      {
+        "id": "homeManual-demo",
+        "type": "homeManual",
+        "title": "Home Manual",
+        "items": [
+          { "id": "hm-demo-1", "deviceName": "Smart Thermostat", "category": "Climate", "instructions": "Use the wall panel in the hallway or the guest tablet. Recommended comfort setting: 22°C." },
+          { "id": "hm-demo-2", "deviceName": "Induction Cooktop", "category": "Kitchen", "instructions": "Only magnetic cookware. Power button for 3 seconds to unlock child safety mode." },
+          { "id": "hm-demo-3", "deviceName": "Pool Heating", "category": "Outdoor", "instructions": "Pool is pre-heated to 28°C. Towels are in the cabana cabinet." },
+          { "id": "hm-demo-4", "deviceName": "Sonos Audio", "category": "Entertainment", "instructions": "Connect to SunsetBay_Audio via the Sonos app. Do not change wired speaker pairing." }
+        ]
+      },
+      {
+        "id": "guestServices-demo",
+        "type": "guestServices",
+        "title": "Guest Services",
+        "items": [
+          { "name": "Private Chef", "description": "Seasonal menus and wine pairings. Book at least 24 hours in advance." },
+          { "name": "Daily Housekeeping", "description": "Mid-stay refresh available on request between 10:00 AM and 2:00 PM." },
+          { "name": "Airport Transfer", "description": "Private driver service to and from the regional airport." }
+        ]
+      },
+      {
+        "id": "section-demo-local",
+        "type": "sectionHeader",
+        "title": "Explore the Area",
+        "heading": "Explore the Area",
+        "subtitle": "Restaurants, beaches, and day trips"
+      },
+      {
+        "id": "localGuide-demo",
+        "type": "localGuide",
+        "title": "Local Recommendations",
+        "items": [
+          { "id": "lg-demo-1", "name": "Harbor Grill", "description": "Fresh seafood and sunset views. Reservations recommended on weekends.", "address": "12 Marina Walk", "phone": "+1 555 010 2000", "website": "https://example.com/harbor-grill", "googleMapsLink": "https://maps.google.com" },
+          { "id": "lg-demo-2", "name": "Crescent Bay Beach", "description": "Calm water ideal for swimming and paddleboarding. Public access 8 minutes by car.", "address": "Crescent Bay Road", "phone": "", "website": "https://example.com/crescent-bay", "googleMapsLink": "https://maps.google.com" },
+          { "id": "lg-demo-3", "name": "Coastal Wine Route", "description": "Three boutique wineries within a 30-minute scenic drive.", "address": "Route 1 Coastal Highway", "phone": "+1 555 010 3000", "website": "https://example.com/wine-route", "googleMapsLink": "https://maps.google.com" }
+        ]
+      },
+      {
+        "id": "transportation-demo",
+        "type": "transportation",
+        "title": "Getting Here",
+        "airport": "Regional airport transfers take approximately 45 minutes. Your driver will meet you at arrivals with a Sunset Bay sign.",
+        "taxi": "Licensed taxis are available at the airport rank. Ride-share apps operate in the area.",
+        "bus": "Coastal shuttle stops at the village center, 10 minutes by car from the villa.",
+        "metro": "No metro service in this area.",
+        "rentalCar": "On-site parking for two vehicles. EV charger available in the garage.",
+        "parking": "Gated driveway with keypad code shared at check-in.",
+        "walkingInfo": "Cliffside walking path to the village begins at the end of the driveway."
+      },
+      {
+        "id": "faq-demo",
+        "type": "faq",
+        "title": "Frequently Asked Questions",
+        "items": [
+          { "question": "Is early check-in available?", "answer": "Early check-in depends on the previous booking. Message your host after 12:00 PM on arrival day." },
+          { "question": "Are pets allowed?", "answer": "One well-behaved dog is welcome with prior approval and a cleaning fee." },
+          { "question": "Is the pool heated year-round?", "answer": "Yes, the infinity pool is heated and maintained daily." }
+        ]
+      },
+      {
+        "id": "emergency-demo",
+        "type": "emergency",
+        "title": "Emergency Contacts",
+        "hostPhone": "+1 555 010 1000",
+        "emergencyContact": "+1 555 010 1000",
+        "ambulance": "911",
+        "police": "911",
+        "fireDepartment": "911",
+        "hospital": "Coastal Medical Center — 18 minutes by car",
+        "pharmacy": "Village Pharmacy — open daily until 9:00 PM"
+      },
+      {
+        "id": "contact-demo",
+        "type": "contact",
+        "title": "Your Host",
+        "hostName": "Olivia Bennett",
+        "phone": "+1 555 010 1000",
+        "whatsapp": "+1 555 010 1000",
+        "email": "olivia@sunsetbay.example.com",
+        "website": "https://sunsetbay.example.com",
+        "googleMapsUrl": "https://maps.google.com",
+        "preferredContactMethod": "WhatsApp"
+      }
+    ]
+  }
+}

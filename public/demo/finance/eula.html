@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>End-User Agreement — nogvia Finance Panel</title>
+    <link rel="icon" type="image/svg+xml" href="/nogvia-mark.svg" />
+    <style>
+      :root {
+        --bg: #0f172a;
+        --surface: #1e293b;
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --accent: #f86800;
+        --line: #334155;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Calibri, 'Segoe UI', Arial, sans-serif;
+        background: radial-gradient(circle at top, #1e293b 0%, var(--bg) 55%);
+        color: var(--text);
+        line-height: 1.5;
+      }
+      .shell {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 32px 20px 40px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .brand img {
+        height: 32px;
+        width: auto;
+      }
+      .brand span {
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .panel {
+        background: color-mix(in srgb, var(--surface) 88%, black);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 18px 40px rgb(0 0 0 / 28%);
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 24px;
+      }
+      .lead {
+        margin: 0 0 20px;
+        color: var(--muted);
+      }
+      .notice {
+        margin: 0 0 20px;
+        padding: 12px 14px;
+        border-left: 4px solid var(--accent);
+        background: rgb(248 104 0 / 10%);
+        font-size: 14px;
+      }
+      .terms {
+        max-height: 340px;
+        overflow: auto;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgb(15 23 42 / 55%);
+        white-space: pre-wrap;
+        font-size: 13px;
+        color: #e2e8f0;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        margin-top: 20px;
+      }
+      label {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      label input {
+        margin-top: 3px;
+        accent-color: var(--accent);
+      }
+      button {
+        border: none;
+        border-radius: 8px;
+        padding: 10px 18px;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+      .btn-primary:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--muted);
+        border: 1px solid var(--line);
+      }
+      .error {
+        margin-top: 16px;
+        color: #fca5a5;
+        font-size: 14px;
+      }
+      .declined {
+        margin-top: 16px;
+        padding: 14px;
+        border-radius: 8px;
+        background: rgb(127 29 29 / 25%);
+        border: 1px solid rgb(248 113 113 / 35%);
+        color: #fecaca;
+        font-size: 14px;
+      }
+      .hidden { display: none; }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <div class="brand">
+        <img src="/nogvia-mark.svg" alt="nogvia" />
+        <span>Finance Panel</span>
+      </div>
+
+      <div class="panel">
+        <h1>End-User License Agreement</h1>
+        <p class="lead">Please read and accept these terms before using Finance Panel.</p>
+        <p class="notice"><strong>BY INSTALLING OR USING THIS SOFTWARE, YOU AGREE TO THESE TERMS.</strong></p>
+
+        <div id="terms" class="terms" aria-label="Agreement text">Loading agreement…</div>
+
+        <div class="actions">
+          <label>
+            <input id="agree" type="checkbox" />
+            <span>I have read and agree to the End-User License Agreement.</span>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="accept" class="btn-primary" type="button" disabled>I Agree — Open Finance Panel</button>
+          <button id="decline" class="btn-secondary" type="button">Decline</button>
+        </div>
+
+        <p id="error" class="error hidden" role="alert"></p>
+        <p id="declined" class="declined hidden">
+          You must accept the agreement to use Finance Panel. Close this window if you do not agree.
+          For questions, reply to your Etsy order message.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const agreeCheckbox = document.getElementById('agree')
+      const acceptButton = document.getElementById('accept')
+      const declineButton = document.getElementById('decline')
+      const termsEl = document.getElementById('terms')
+      const errorEl = document.getElementById('error')
+      const declinedEl = document.getElementById('declined')
+      const IS_WEB_DEMO = window.location.pathname.includes('/demo/')
+      const EULA_STORAGE_KEY = 'nogvia-eula-finance-v1'
+      const EULA_VERSION = '1'
+      const appHome = IS_WEB_DEMO ? './' : '/'
+
+      function webDemoAccepted() {
+        try {
+          return localStorage.getItem(EULA_STORAGE_KEY) === EULA_VERSION
+        } catch {
+          return false
+        }
+      }
+
+      async function redirectIfAccepted() {
+        if (IS_WEB_DEMO) {
+          if (webDemoAccepted()) window.location.replace(appHome)
+          return
+        }
+
+        try {
+          const response = await fetch('/api/eula/status')
+          if (!response.ok) return
+          const data = await response.json()
+          if (data.accepted) window.location.replace('/')
+        } catch {
+          // Static preview without API.
+        }
+      }
+
+      async function loadTerms() {
+        try {
+          const response = await fetch('/EULA.txt')
+          if (!response.ok) throw new Error('missing')
+          termsEl.textContent = await response.text()
+        } catch {
+          termsEl.textContent =
+            'Unable to load EULA.txt. Open eula.pdf in this folder or restart using start.bat / start.sh.'
+        }
+      }
+
+      agreeCheckbox.addEventListener('change', () => {
+        acceptButton.disabled = !agreeCheckbox.checked
+      })
+
+      acceptButton.addEventListener('click', async () => {
+        errorEl.classList.add('hidden')
+        acceptButton.disabled = true
+        if (IS_WEB_DEMO) {
+          try {
+            localStorage.setItem(EULA_STORAGE_KEY, EULA_VERSION)
+            window.location.replace(appHome)
+          } catch {
+            errorEl.textContent = 'Could not save your acceptance in this browser.'
+            errorEl.classList.remove('hidden')
+            acceptButton.disabled = !agreeCheckbox.checked
+          }
+          return
+        }
+
+        try {
+          const response = await fetch('/api/eula/accept', { method: 'POST' })
+          if (!response.ok) throw new Error('accept failed')
+          window.location.replace('/')
+        } catch {
+          errorEl.textContent = 'Could not save your acceptance. Restart using start.bat or start.sh and try again.'
+          errorEl.classList.remove('hidden')
+          acceptButton.disabled = !agreeCheckbox.checked
+        }
+      })
+
+      declineButton.addEventListener('click', () => {
+        declinedEl.classList.remove('hidden')
+      })
+
+      void redirectIfAccepted()
+      void loadTerms()
+    </script>
+  </body>
+</html>

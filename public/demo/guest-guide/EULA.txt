@@ -1,0 +1,76 @@
+nogvia — End-User License Agreement (EULA)
+================================================================
+
+SCOPE
+-----
+This Agreement applies only to the nogvia software product(s) included in
+the digital download package associated with your Etsy purchase.
+
+One-time purchase. Personal use on your own computers. No subscription.
+No nogvia online account is required.
+
+BY INSTALLING OR USING THIS SOFTWARE, YOU AGREE TO THESE TERMS.
+
+YOU MAY:
+- Install and use the software on your own computers
+- Use all features included in your specific download package for your own
+  vacation rental properties and personal hosting business
+- Back up your project data for personal use
+
+YOU MAY NOT:
+- Resell, redistribute, or share the software or any part of it
+- Remove or alter nogvia branding, copyright notices, or these terms
+- Use the software to create a competing product for sale
+- Claim authorship of the nogvia software
+- Split a bundled Host Kit and redistribute individual modules separately
+
+Commercial redistribution and white-label use require a separate written
+agreement from nogvia.
+
+PRODUCT-SPECIFIC TERMS (when included in your package)
+------------------------------------------------------
+
+Guest Guide Builder:
+- You may create, edit, and export guest guides for your own properties
+- Do not remove the "Powered by nogvia" footer on exported guest guides
+- Guest publishing requires your own third-party website host (e.g. Netlify);
+  nogvia does not provide hosting for guest-facing guides
+
+nogvia Finance:
+- You may enter, manage, and export your own rental income and expense data
+- This is an organizational tool, not professional tax, legal, or accounting
+  advice; consult a qualified professional for tax and accounting decisions
+- There is no live sync with banks or booking platforms
+
+nogvia Host Kit / Hub:
+- Covers Guest Guide Builder, nogvia Finance, and nogvia Hub launcher together
+- Each module stores data separately on your computer unless you export files
+
+----------------------------------------------------------------
+ADDITIONAL LEGAL TERMS
+----------------------------------------------------------------
+
+1. LIMITATION OF LIABILITY AND WARRANTY DISCLAIMER:
+The software is provided "AS IS", without warranty of any kind. In no event
+shall nogvia be liable for any data loss, system failure, or financial damages
+arising out of the use or inability to use this software.
+
+2. DIGITAL PRODUCT AND REFUNDS:
+This is a digital download. Purchases are generally non-refundable for change
+of mind once files are delivered or accessed.
+
+If a file is defective, missing, inaccessible, or materially different from
+what was described in the Etsy listing, contact us via your Etsy order message.
+We will work with you in good faith to resolve the issue in line with Etsy
+marketplace policies and applicable consumer protection laws.
+
+3. GOVERNING LAW AND JURISDICTION:
+This Agreement shall be governed by and construed in accordance with the laws
+of the Republic of Turkey. Any legal disputes arising from this agreement shall
+be exclusively resolved by the courts and enforcement offices of Izmir, Turkey.
+
+================================================================
+Unauthorized resale or redistribution may be reported to Etsy and enforced
+under applicable copyright law.
+
+Support: reply to your Etsy order message.

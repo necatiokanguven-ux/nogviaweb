@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844" fill="none">
+  <defs>
+    <mask id="phone-frame-mask">
+      <rect width="390" height="844" fill="#ffffff" />
+      <rect x="10" y="10" width="370" height="824" rx="46" ry="46" fill="#000000" />
+    </mask>
+  </defs>
+
+  <!-- Outer frame — nogvia orange, screen cut-out is transparent -->
+  <rect x="0" y="0" width="390" height="844" rx="56" ry="56" fill="#f97316" mask="url(#phone-frame-mask)" />
+
+  <!-- Top notch -->
+  <rect x="135" y="10" width="120" height="28" rx="14" ry="14" fill="#0f172a" />
+
+  <!-- Home indicator -->
+  <rect x="145" y="810" width="100" height="5" rx="2.5" fill="#ffffff" opacity="0.92" />
+</svg>

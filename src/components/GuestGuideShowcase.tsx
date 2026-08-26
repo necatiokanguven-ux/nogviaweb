@@ -85,6 +85,7 @@ export const GuestGuideShowcase: React.FC = () => {
               </a>
             </div>
             <img
+              key={language}
               src={liveDemoQr}
               alt={t.guestGuide.liveDemoAlt}
               className="w-full max-w-sm mx-auto rounded-sm border border-white/10 shadow-2xl"
