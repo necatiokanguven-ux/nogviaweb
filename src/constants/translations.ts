@@ -21,6 +21,8 @@ export interface Translations {
     payOnceBadge: string;
     buyKit: string;
     pricing: string;
+    demoGuestGuide: string;
+    demoFinance: string;
   };
   desktopOnly: {
     badge: string;
@@ -437,6 +439,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       payOnceBadge: 'Tek Ödeme $49',
       buyKit: 'Kiti Satın Al',
       pricing: 'Fiyatlar',
+      demoGuestGuide: 'Rehber Demo',
+      demoFinance: 'Finans Demo',
     },
     desktopOnly: {
       badge: 'Desktop only',
@@ -1051,6 +1055,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       payOnceBadge: 'Pay Once $49',
       buyKit: 'Get Host Kit',
       pricing: 'Pricing',
+      demoGuestGuide: 'Guide Demo',
+      demoFinance: 'Finance Demo',
     },
     desktopOnly: {
       badge: 'Desktop only',

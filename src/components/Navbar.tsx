@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NogviaLogo } from './NogviaLogo';
-import { PRODUCTS, BRAND_INFO } from '../constants/data';
+import { PRODUCTS, BRAND_INFO, WEB_DEMO_URLS } from '../constants/data';
 import { ShoppingBag, Menu, X, ShieldCheck, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -21,9 +21,11 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
+  const navLinks: Array<{ name: string; href: string; external?: boolean }> = [
     { name: t.nav.guestGuide, href: '#guest-guide' },
     { name: t.nav.finance, href: '#finance' },
+    { name: t.nav.demoGuestGuide, href: WEB_DEMO_URLS.guestGuide, external: true },
+    { name: t.nav.demoFinance, href: WEB_DEMO_URLS.finance, external: true },
     { name: t.nav.videos, href: '#videos' },
     { name: t.nav.faq, href: '#faq' },
     { name: t.nav.pricing, href: '#pricing' },
@@ -51,7 +53,11 @@ export const Navbar: React.FC = () => {
               <a
                 key={idx}
                 href={link.href}
-                className="text-xs tracking-widest uppercase font-medium text-white/60 hover:text-[#D4AF37] transition-colors"
+                className={`text-xs tracking-widest uppercase font-medium transition-colors ${
+                  link.external
+                    ? 'text-sky-300/90 hover:text-sky-200'
+                    : 'text-white/60 hover:text-[#D4AF37]'
+                }`}
               >
                 {link.name}
               </a>
@@ -114,7 +120,11 @@ export const Navbar: React.FC = () => {
                 key={idx}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-semibold tracking-widest uppercase text-white/80 hover:text-[#D4AF37] py-2 border-b border-white/5"
+                className={`text-sm font-semibold tracking-widest uppercase py-2 border-b border-white/5 ${
+                  link.external
+                    ? 'text-sky-300 hover:text-sky-200'
+                    : 'text-white/80 hover:text-[#D4AF37]'
+                }`}
               >
                 {link.name}
               </a>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>End-User Agreement — nogvia Guest Guide Builder</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <style>
       :root {
         --bg: #0f172a;
@@ -137,7 +137,7 @@
   <body>
     <div class="shell">
       <div class="brand">
-        <img src="/nogvia_logobeyaz.png" alt="nogvia" />
+        <img src="./nogvia_logobeyaz.png" alt="nogvia" />
         <span>Guest Guide Builder</span>
       </div>
 
@@ -206,7 +206,7 @@
 
       async function loadTerms() {
         try {
-          const response = await fetch('/EULA.txt')
+          const response = await fetch('./EULA.txt')
           if (!response.ok) throw new Error('missing')
           termsEl.textContent = await response.text()
         } catch {
