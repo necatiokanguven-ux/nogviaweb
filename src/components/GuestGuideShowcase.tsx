@@ -66,6 +66,22 @@ export const GuestGuideShowcase: React.FC = () => {
             </div>
           </div>
 
+          <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-4 sm:p-6 bg-[#141416] rounded-sm border border-[#D4AF37]/25 text-left glow-gold">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-[10px] font-bold uppercase tracking-widest mb-3">
+                <QrCode className="w-3.5 h-3.5" />
+                <span>{t.guestGuide.liveDemoBadge}</span>
+              </div>
+              <h3 className="text-lg font-serif-luxury text-white">{t.guestGuide.liveDemoTitle}</h3>
+              <p className="mt-2 text-sm text-white/60 leading-relaxed">{t.guestGuide.liveDemoDesc}</p>
+            </div>
+            <img
+              src={MEDIA.liveDemoQr}
+              alt={t.guestGuide.liveDemoAlt}
+              className="w-full max-w-sm mx-auto rounded-sm border border-white/10 shadow-2xl"
+            />
+          </div>
+
           <div className="mt-8 p-4 sm:p-6 bg-[#141416] rounded-sm border border-white/10 text-left">
             <h3 className="text-sm font-serif-luxury text-white">{t.guestGuide.watchHowToTitle}</h3>
             <p className="mt-1 mb-4 text-xs text-white/60">{t.guestGuide.watchHowToDesc}</p>

@@ -279,6 +279,10 @@ export interface Translations {
     feat3Desc: string;
     watchHowToTitle: string;
     watchHowToDesc: string;
+    liveDemoTitle: string;
+    liveDemoDesc: string;
+    liveDemoAlt: string;
+    liveDemoBadge: string;
     buyButton: string;
   };
   finance: {
@@ -752,6 +756,11 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       watchHowToTitle: 'Nasıl kullanılır?',
       watchHowToDesc:
         'Guest Guide Builder ile dijital misafir rehberinizi adım adım nasıl oluşturacağınızı izleyin.',
+      liveDemoTitle: 'Canlı misafir rehberini deneyin',
+      liveDemoDesc:
+        'Telefonunuzla QR kodu okutun — Netlify üzerindeki örnek rehber açılır. Misafirlerinizin yayın sonrası göreceği deneyimin aynısını hemen test edin.',
+      liveDemoAlt: 'Canlı demo için QR kodu okutun — Netlify misafir rehberi',
+      liveDemoBadge: 'Canlı demo',
       buyButton: 'Guest Guide\'ı Satın Al — $29',
     },
     finance: {
@@ -1354,6 +1363,11 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       feat3Desc: 'One-click buttons allow guests to call or message you directly during emergencies without digging for numbers.',
       watchHowToTitle: 'How to use',
       watchHowToDesc: 'Watch how to build your digital guest guide step by step.',
+      liveDemoTitle: 'Try the live guest guide',
+      liveDemoDesc:
+        'Scan the QR code with your phone to open our Netlify-hosted sample guide — the same mobile experience your guests see after you publish.',
+      liveDemoAlt: 'Scan QR code for live demo — Netlify guest guide',
+      liveDemoBadge: 'Live demo',
       buyButton: 'Buy Guest Guide — $29',
     },
     finance: {

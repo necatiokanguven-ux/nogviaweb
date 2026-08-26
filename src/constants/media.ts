@@ -6,6 +6,7 @@ export const MEDIA = {
   productHostKit: '/images/product-host-kit.png',
   productGuestGuide: '/images/product-guest-guide.png',
   productFinance: '/images/product-finance.png',
+  liveDemoQr: '/images/live-demo-qr.jpg',
   excelExport: '/images/exel.png',
   platformWindows: '/images/icons/windows.png',
   platformMacos: '/images/icons/macos.png',
