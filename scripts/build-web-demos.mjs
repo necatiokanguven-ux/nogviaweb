@@ -28,6 +28,8 @@ if (process.env.SKIP_WEB_DEMOS === '1') {
   process.exit(0)
 }
 
+// Hostinger (and other hosts) usually clone only nogviaweb — use committed bundles when sibling repos are absent.
+
 const hasGuestGuideRepo = existsSync(join(guestGuideDir, 'package.json'))
 const hasFinanceRepo = existsSync(join(financeDir, 'package.json'))
 
