@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NogviaLogo } from './NogviaLogo';
 import { PRODUCTS, BRAND_INFO, WEB_DEMO_URLS, DEMO_LINK_PROPS } from '../constants/data';
-import { ShoppingBag, Menu, X, ShieldCheck, Globe } from 'lucide-react';
+import { ShoppingBag, Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Navbar: React.FC = () => {
