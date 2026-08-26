@@ -968,6 +968,12 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         answer: 'Evet! Birden fazla mülk (örn. Sahil Villası, Dağ Evi, Şehir Dairesi) için gelir ve giderleri kaydedebilir, platforma göre (Airbnb, Vrbo, Booking.com, Direkt) gelirleri filtreleyebilir ve tek tıkla Microsoft Excel\'e aktarabilirsiniz.',
       },
       {
+        category: 'finance',
+        question: 'Kaç mülk ekleyebilirim?',
+        answer:
+          'Host Kit Full sürümünde nogvia Finance panelinde ihtiyacınız kadar mülk ekleyebilirsiniz; uygulama içinde sabit bir mülk üst sınırı yoktur. Excel\'e aktarırken dahili şablonun Properties sayfası en fazla 10 mülkün bilgilerini içerir (gelir ve gider satırları tüm mülkleriniz için aktarılmaya devam eder). 10\'dan fazla mülk yönetiyorsanız ve tam mülk listesi için özelleştirilmiş Excel çıktısı istiyorsanız, satın aldığınız kanal üzerinden (ör. Etsy sipariş mesajı) bizimle iletişime geçin.',
+      },
+      {
         category: 'general',
         question: 'Verilerim gizli kalıyor mu?',
         answer: '%100. Tüm misafir detaylarınız, ev notlarınız, gelir kayıtlarınız ve giderleriniz doğrudan kendi cihazınızda saklanır. Hiçbir şey uzak bulut sunucularına gönderilmez veya üçüncü taraflara satılmaz.',
@@ -1561,6 +1567,12 @@ export const TRANSLATIONS: Record<Language, Translations> = {
         category: 'finance',
         question: 'Can I track multiple rental properties in nogvia Finance?',
         answer: 'Yes! You can log income and expenses for multiple properties (e.g. Sunset Bay Villa, Beach House, Downtown Apartment), filter revenue by platform (Airbnb, Vrbo, Booking.com, Direct), and export tax-ready reports to Microsoft Excel with one click.',
+      },
+      {
+        category: 'finance',
+        question: 'How many properties can I add?',
+        answer:
+          'With the Host Kit Full edition, you can add as many properties as you need in the nogvia Finance dashboard — there is no fixed in-app property cap. When you export to Excel, the built-in template’s Properties sheet includes details for up to 10 properties (income and expense line items still export for all your properties). If you manage more than 10 properties and need a customized Excel layout with your full property list, contact us through your purchase channel (e.g. your Etsy order message).',
       },
       {
         category: 'general',
