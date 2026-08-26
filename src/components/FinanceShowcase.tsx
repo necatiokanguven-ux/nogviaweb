@@ -1,5 +1,5 @@
 import React from 'react';
-import { PRODUCTS } from '../constants/data';
+import { PRODUCTS, WEB_DEMO_URLS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { VIDEO_CATALOG } from '../constants/videos';
 import { useLanguage } from '../context/LanguageContext';
@@ -8,6 +8,7 @@ import {
   TrendingUp,
   CheckCircle,
   ShoppingBag,
+  ExternalLink,
 } from 'lucide-react';
 
 export const FinanceShowcase: React.FC = () => {
@@ -91,7 +92,14 @@ export const FinanceShowcase: React.FC = () => {
             />
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href={WEB_DEMO_URLS.finance}
+              className="inline-flex items-center gap-2 px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-white bg-white/10 hover:bg-white/20 border border-white/15 rounded-sm transition-colors"
+            >
+              <ExternalLink className="w-4 h-4" />
+              <span>{t.liteDownload.tryFinanceDemo}</span>
+            </a>
             <a
               href={PRODUCTS.finance.checkoutUrl}
               className="inline-flex items-center gap-2 px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm shadow-lg transition-colors"

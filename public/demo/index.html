@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>nogvia Browser Demos</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0a0a0b;
+        --panel: #141416;
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --gold: #d4af37;
+        --border: rgba(255, 255, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: radial-gradient(circle at top, #151518 0%, var(--bg) 55%);
+        color: var(--text);
+        display: grid;
+        place-items: center;
+        padding: 2rem 1rem;
+      }
+
+      main {
+        width: min(720px, 100%);
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 2rem 1.5rem;
+      }
+
+      h1 {
+        margin: 0 0 0.5rem;
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0 0 1.5rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .cards {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1.25rem;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: #0f0f10;
+      }
+
+      .card h2 {
+        margin: 0;
+        font-size: 1.05rem;
+      }
+
+      .card span {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+
+      a.button {
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.65rem 1rem;
+        border-radius: 4px;
+        background: var(--gold);
+        color: #000;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+
+      a.button:hover {
+        background: #fff;
+      }
+
+      footer {
+        margin-top: 1.5rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      footer a {
+        color: var(--gold);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Try nogvia in your browser</h1>
+      <p>
+        Lite edition demos — explore Guest Guide and Finance here. Export, publish, and import are
+        disabled. Your data stays in this browser tab only.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <h2>Guest Guide Builder Lite</h2>
+          <span>Build and preview a digital guest guide. Publishing, QR download, and export are locked in this demo.</span>
+          <a class="button" href="./guest-guide/">Open Guest Guide demo</a>
+        </article>
+
+        <article class="card">
+          <h2>nogvia Finance Lite</h2>
+          <span>Track income and expenses with Lite limits. Excel export and JSON import are locked in this demo.</span>
+          <a class="button" href="./finance/">Open Finance demo</a>
+        </article>
+      </div>
+
+      <footer>
+        Ready for the full offline apps?
+        <a href="https://nogvia.com/#try-lite">Download Host Kit Lite</a>
+        or
+        <a href="https://nogvia.com/checkout/host-kit">buy Host Kit Full</a>.
+      </footer>
+    </main>
+  </body>
+</html>

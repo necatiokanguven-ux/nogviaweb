@@ -74,6 +74,11 @@ export interface Translations {
     invalidCode: string;
     requestError: string;
     verifyError: string;
+    browserDemoTitle: string;
+    browserDemoSubtitle: string;
+    browserDemoNote: string;
+    tryGuestGuideDemo: string;
+    tryFinanceDemo: string;
   };
   pricing: {
     kicker: string;
@@ -503,6 +508,13 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       invalidCode: 'Lütfen 6 haneli doğrulama kodunu girin.',
       requestError: 'Doğrulama kodu gönderilemedi. Lütfen tekrar deneyin.',
       verifyError: 'Doğrulama kodu geçersiz veya süresi dolmuş.',
+      browserDemoTitle: 'İndirmeden önce tarayıcıda deneyin',
+      browserDemoSubtitle:
+        'Guest Guide ve Finance Lite sürümlerini doğrudan sitede açın — kurulum yok, e-posta doğrulaması yok.',
+      browserDemoNote:
+        'Demo modunda dışa aktarma, yayınlama ve QR indirme kapalıdır. Veriler yalnızca bu tarayıcı sekmesinde kalır.',
+      tryGuestGuideDemo: 'Guest Guide Demo',
+      tryFinanceDemo: 'Finance Demo',
     },
     pricing: {
       kicker: 'Tek Sefer Öde • Abonelik Yok',
@@ -1110,6 +1122,13 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       invalidCode: 'Please enter the 6-digit verification code.',
       requestError: 'Could not send the verification code. Please try again.',
       verifyError: 'Invalid or expired verification code.',
+      browserDemoTitle: 'Try in your browser first',
+      browserDemoSubtitle:
+        'Open Guest Guide and Finance Lite right on this site — no install, no email verification.',
+      browserDemoNote:
+        'Export, publish, and QR download are disabled in demo mode. Data stays in this browser tab only.',
+      tryGuestGuideDemo: 'Guest Guide Demo',
+      tryFinanceDemo: 'Finance Demo',
     },
     pricing: {
       kicker: 'Pay Once • No Subscription',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PRODUCTS } from '../constants/data';
+import { PRODUCTS, WEB_DEMO_URLS } from '../constants/data';
 import { useLanguage } from '../context/LanguageContext';
 import { DesktopOnlyNotice } from './DesktopOnlyNotice';
 import { LiteDownloadForm } from './LiteDownloadForm';
@@ -11,6 +11,8 @@ import {
   Sparkles,
   ArrowUpRight,
   Lock,
+  Monitor,
+  ExternalLink,
 } from 'lucide-react';
 
 export const LiteDownloadSection: React.FC = () => {
@@ -90,6 +92,33 @@ export const LiteDownloadSection: React.FC = () => {
               ) : null}
               <p className="mt-4 text-xs text-white/50 leading-relaxed">{copy.macNote}</p>
               <p className="mt-2 text-xs text-white/45 leading-relaxed">{copy.requirementsNote}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-sm border border-sky-500/25 bg-sky-500/5 p-5 sm:p-6 mb-8 text-left">
+          <div className="flex items-start gap-3">
+            <Monitor className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
+            <div className="min-w-0">
+              <h3 className="text-sm font-semibold text-white">{copy.browserDemoTitle}</h3>
+              <p className="mt-2 text-sm text-white/65 leading-relaxed">{copy.browserDemoSubtitle}</p>
+              <p className="mt-2 text-xs text-white/50 leading-relaxed">{copy.browserDemoNote}</p>
+              <div className="mt-4 flex flex-col sm:flex-row gap-3">
+                <a
+                  href={WEB_DEMO_URLS.guestGuide}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-bold uppercase tracking-widest text-black bg-sky-400 hover:bg-white rounded-sm transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>{copy.tryGuestGuideDemo}</span>
+                </a>
+                <a
+                  href={WEB_DEMO_URLS.finance}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-bold uppercase tracking-widest text-white bg-white/10 hover:bg-white/20 border border-white/15 rounded-sm transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>{copy.tryFinanceDemo}</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

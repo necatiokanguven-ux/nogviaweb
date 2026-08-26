@@ -1,5 +1,5 @@
 import React from 'react';
-import { PRODUCTS } from '../constants/data';
+import { PRODUCTS, WEB_DEMO_URLS } from '../constants/data';
 import { MEDIA } from '../constants/media';
 import { VIDEO_CATALOG } from '../constants/videos';
 import { useLanguage } from '../context/LanguageContext';
@@ -9,10 +9,12 @@ import {
   Wifi,
   Smartphone,
   ShoppingBag,
+  ExternalLink,
 } from 'lucide-react';
 
 export const GuestGuideShowcase: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const liveDemoQr = language === 'tr' ? MEDIA.liveDemoQrTr : MEDIA.liveDemoQrEn;
 
   return (
     <section id="guest-guide" className="py-20 md:py-32 bg-[#0A0A0B] relative">
@@ -74,9 +76,16 @@ export const GuestGuideShowcase: React.FC = () => {
               </div>
               <h3 className="text-lg font-serif-luxury text-white">{t.guestGuide.liveDemoTitle}</h3>
               <p className="mt-2 text-sm text-white/60 leading-relaxed">{t.guestGuide.liveDemoDesc}</p>
+              <a
+                href={WEB_DEMO_URLS.guestGuide}
+                className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 text-[10px] font-bold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-white rounded-sm transition-colors"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>{t.liteDownload.tryGuestGuideDemo}</span>
+              </a>
             </div>
             <img
-              src={MEDIA.liveDemoQr}
+              src={liveDemoQr}
               alt={t.guestGuide.liveDemoAlt}
               className="w-full max-w-sm mx-auto rounded-sm border border-white/10 shadow-2xl"
             />

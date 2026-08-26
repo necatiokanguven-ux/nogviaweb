@@ -2,6 +2,8 @@ node_modules/
 build/
 dist/
 coverage/
+public/demo/guest-guide/
+public/demo/finance/
 .DS_Store
 *.log
 .env*

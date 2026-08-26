@@ -49,6 +49,13 @@ export const HOST_KIT_LITE_DOWNLOAD_URL =
     ? import.meta.env.VITE_HOST_KIT_LITE_DOWNLOAD_URL
     : 'https://nogviapullzone.b-cdn.net/nogvia_hub_lite.zip';
 
+/** Browser-based Lite demos (static bundles under /demo/ on nogvia.com). */
+export const WEB_DEMO_URLS = {
+  hub: '/demo/',
+  guestGuide: '/demo/guest-guide/',
+  finance: '/demo/finance/',
+} as const;
+
 export const PRODUCTS = {
   hostKit: {
     id: 'host-kit',
