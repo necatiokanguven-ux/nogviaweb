@@ -4,6 +4,11 @@ export const SUPPORT_EMAIL = 'info@nogvia.com';
 export const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 export const SUPPORT_REPLY_HOURS = 48;
 
+/** Official nogvia social profiles (for footer / marketing links). */
+export const SOCIAL_URLS = {
+  facebook: 'https://www.facebook.com/profile.php?id=61592988413439',
+} as const;
+
 export const CHECKOUT_PAGE_PATHS = {
   hostKit: '/checkout/host-kit',
   guestGuide: '/checkout/guest-guide',
@@ -42,7 +47,7 @@ export const HOST_KIT_LITE_DOWNLOAD_URL =
   typeof import.meta.env.VITE_HOST_KIT_LITE_DOWNLOAD_URL === 'string' &&
   import.meta.env.VITE_HOST_KIT_LITE_DOWNLOAD_URL.length > 0
     ? import.meta.env.VITE_HOST_KIT_LITE_DOWNLOAD_URL
-    : 'https://nogviahubkits.b-cdn.net/nogvia_hub_lite.zip';
+    : 'https://nogviapullzone.b-cdn.net/nogvia_hub_lite.zip';
 
 export const PRODUCTS = {
   hostKit: {
