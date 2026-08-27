@@ -260,6 +260,10 @@ export interface Translations {
     kicker: string;
     title: string;
     titleAccent: string;
+    seoH1: string;
+    seoH1Accent: string;
+    h2RentalProperties: string;
+    h2WelcomeBook: string;
     subtitle: string;
     tag: string;
     tabOverview: string;
@@ -296,6 +300,10 @@ export interface Translations {
     kicker: string;
     title: string;
     titleAccent: string;
+    seoH1: string;
+    seoH1Accent: string;
+    h2IncomeExpenses: string;
+    h2FinancialManagement: string;
     subtitle: string;
     dashTitle: string;
     dashTag: string;
@@ -745,6 +753,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       kicker: 'Ürün 1: Misafir Rehberi Oluşturucu',
       title: 'Misafirlerin Severek Kullandığı',
       titleAccent: 'Dijital Rehberler',
+      seoH1: 'Airbnb ve Tatil Kiralıkları için Dijital Misafir Rehberi',
+      seoH1Accent: '',
+      h2RentalProperties: 'Kiralık Mülkler için Misafir Rehberi',
+      h2WelcomeBook: 'Airbnb Misafirleri için Dijital Karşılama Kitabı',
       subtitle: 'Saniyeler içinde markalı dijital rehberler oluşturun. Misafirler evinizdeki QR kodu taratarak WiFi, giriş talimatları, ev kuralları ve yerel tavsiyelere anında ulaşsın.',
       tag: 'Dijital Misafir Rehberi',
       tabOverview: 'Genel Bakış',
@@ -783,6 +795,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       kicker: 'Ürün 2: nogvia Finans',
       title: 'Kiralama Kârınızı',
       titleAccent: 'Excel Karmaşası Olmadan Yönetin',
+      seoH1: 'Airbnb ve Tatil Kiralama Ev Sahipleri için Finans Takipçisi',
+      seoH1Accent: '',
+      h2IncomeExpenses: 'Airbnb Gelir ve Giderlerini Takip Edin',
+      h2FinancialManagement: 'Airbnb Ev Sahipleri için Basit Finansal Yönetim',
       subtitle: 'Airbnb, Vrbo, Booking.com ve doğrudan rezervasyon gelirlerini takip edin. Temizlik ücretlerini, faturaları ve bakım giderlerini anında vergiye hazır Excel raporlarıyla kaydedin.',
       dashTitle: 'nogvia Finans Paneli',
       dashTag: 'Çevrimdışı Yerel Depolama • Otomatik Vergi Kategorizasyonu',
@@ -1362,6 +1378,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       kicker: 'Product 1: Guest Guide Builder',
       title: 'Digital Guest Guides Guests',
       titleAccent: 'Actually Enjoy',
+      seoH1: 'Digital Guest Guide for',
+      seoH1Accent: 'Airbnb & Vacation Rentals',
+      h2RentalProperties: 'A Guest Guide for Rental Properties',
+      h2WelcomeBook: 'Digital Welcome Book for Airbnb Guests',
       subtitle: 'Create branded digital guidebooks in seconds. Guests scan a QR code inside your rental and get instant access to WiFi, check-in instructions, house rules, and local recommendations on their mobile device.',
       tag: 'Digital Guest Guide',
       tabOverview: 'Overview',
@@ -1399,6 +1419,10 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       kicker: 'Product 2: nogvia Finance',
       title: 'Manage Rental Profits',
       titleAccent: 'Without Excel Chaos',
+      seoH1: 'Finance Tracker for',
+      seoH1Accent: 'Airbnb & Vacation Rental Hosts',
+      h2IncomeExpenses: 'Track Airbnb Income & Expenses',
+      h2FinancialManagement: 'Simple Financial Management for Airbnb Hosts',
       subtitle: 'Track income across Airbnb, Vrbo, Booking.com, and direct reservations. Log cleaning fees, mortgage payments, and maintenance costs with instant tax-ready Excel reporting.',
       dashTitle: 'nogvia Finance Dashboard',
       dashTag: 'Offline Local Storage • Auto Tax Categorization',

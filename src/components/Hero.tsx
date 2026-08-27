@@ -32,12 +32,12 @@ export const Hero: React.FC = () => {
               <span>{t.hero.kicker}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif-luxury font-light text-white leading-[1.1] tracking-tight mb-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif-luxury font-light text-white leading-[1.1] tracking-tight mb-6">
               {t.hero.title}{' '}
               <span className="not-italic font-bold text-[#D4AF37]">
                 {t.hero.titleAccent}
               </span>
-            </h1>
+            </h2>
 
             <p className="text-base sm:text-lg text-white/60 font-normal leading-relaxed max-w-xl">
               {t.hero.subtitle}

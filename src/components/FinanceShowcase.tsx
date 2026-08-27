@@ -23,9 +23,15 @@ export const FinanceShowcase: React.FC = () => {
             <TrendingUp className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>{t.finance.kicker}</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif-luxury font-light text-white tracking-tight">
-            {t.finance.title} <span className="text-[#D4AF37] font-bold">{t.finance.titleAccent}</span>
-          </h2>
+          <h1 className="text-3xl sm:text-5xl font-serif-luxury font-light text-white tracking-tight">
+            {t.finance.seoH1}
+            {t.finance.seoH1Accent ? (
+              <>
+                {' '}
+                <span className="text-[#D4AF37] font-bold">{t.finance.seoH1Accent}</span>
+              </>
+            ) : null}
+          </h1>
           <p className="mt-4 text-base sm:text-lg text-white/60">
             {t.finance.subtitle}
           </p>
@@ -52,8 +58,12 @@ export const FinanceShowcase: React.FC = () => {
             </div>
           </div>
 
+          <h2 className="mt-8 text-xl sm:text-2xl font-serif-luxury font-light text-white/90 text-center">
+            {t.finance.h2IncomeExpenses}
+          </h2>
+
           {/* Finance Feature Highlights */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
             <div className="bg-[#141416] p-4 rounded-sm border border-white/10">
               <div className="text-[#D4AF37] font-bold text-sm mb-1 flex items-center gap-2">
                 <CheckCircle className="w-4 h-4" /> {t.finance.feat1Title}
@@ -82,7 +92,11 @@ export const FinanceShowcase: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-8 p-4 sm:p-6 bg-[#141416] rounded-sm border border-white/10 text-left">
+          <h2 className="mt-8 text-xl sm:text-2xl font-serif-luxury font-light text-white/90 text-center">
+            {t.finance.h2FinancialManagement}
+          </h2>
+
+          <div className="mt-6 p-4 sm:p-6 bg-[#141416] rounded-sm border border-white/10 text-left">
             <h3 className="text-sm font-serif-luxury text-white">{t.finance.watchHowToTitle}</h3>
             <p className="mt-1 mb-4 text-xs text-white/60">{t.finance.watchHowToDesc}</p>
             <YoutubeEmbed

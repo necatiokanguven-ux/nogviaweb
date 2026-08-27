@@ -24,9 +24,15 @@ export const GuestGuideShowcase: React.FC = () => {
             <QrCode className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>{t.guestGuide.kicker}</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif-luxury font-light text-white tracking-tight">
-            {t.guestGuide.title} <span className="text-[#D4AF37] font-bold">{t.guestGuide.titleAccent}</span>
-          </h2>
+          <h1 className="text-3xl sm:text-5xl font-serif-luxury font-light text-white tracking-tight">
+            {t.guestGuide.seoH1}
+            {t.guestGuide.seoH1Accent ? (
+              <>
+                {' '}
+                <span className="text-[#D4AF37] font-bold">{t.guestGuide.seoH1Accent}</span>
+              </>
+            ) : null}
+          </h1>
           <p className="mt-4 text-base sm:text-lg text-white/60">
             {t.guestGuide.subtitle}
           </p>
@@ -39,7 +45,11 @@ export const GuestGuideShowcase: React.FC = () => {
             className="w-full rounded-sm border border-white/10"
           />
 
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+          <h2 className="mt-8 text-xl sm:text-2xl font-serif-luxury font-light text-white/90 text-center">
+            {t.guestGuide.h2RentalProperties}
+          </h2>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
             <div className="bg-[#141416] p-4 rounded-sm border border-white/10">
               <div className="text-[#D4AF37] font-bold text-sm mb-1 flex items-center gap-2">
                 <QrCode className="w-4 h-4" /> {t.guestGuide.feat1Title}
@@ -68,7 +78,11 @@ export const GuestGuideShowcase: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-4 sm:p-6 bg-[#141416] rounded-sm border border-[#D4AF37]/25 text-left glow-gold">
+          <h2 className="mt-8 text-xl sm:text-2xl font-serif-luxury font-light text-white/90 text-center">
+            {t.guestGuide.h2WelcomeBook}
+          </h2>
+
+          <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center p-4 sm:p-6 bg-[#141416] rounded-sm border border-[#D4AF37]/25 text-left glow-gold">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-[10px] font-bold uppercase tracking-widest mb-3">
                 <QrCode className="w-3.5 h-3.5" />
