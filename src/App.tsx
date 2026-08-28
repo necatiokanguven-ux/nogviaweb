@@ -66,23 +66,8 @@ function LandingPage() {
             </a>
           </div>
 
-          <div className="flex flex-col items-center gap-4">
-            <a
-              href="https://buildlist.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-80 transition-opacity hover:opacity-100"
-              aria-label="Featured on Buildlist"
-            >
-              <img
-                src="https://buildlist.io/badge-dark.svg"
-                alt="Featured on Buildlist"
-                className="h-10 w-auto"
-              />
-            </a>
-            <div className="flex items-center gap-1 text-white/40">
-              <span>© 2026 nogvia. All rights reserved.</span>
-            </div>
+          <div className="flex items-center gap-1 text-white/40">
+            <span>© 2026 nogvia. All rights reserved.</span>
           </div>
         </div>
       </footer>
